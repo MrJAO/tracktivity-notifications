@@ -1,10 +1,10 @@
 [
   {
-    "id": "welcome-2026-01",
+    "id": "Update-1",
     "title": "Welcome to Tracktivity Notifications",
-    "message": "You'll receive app updates, maintenance alerts, and promotions here. This system respects your privacy - notifications are fetched anonymously and stored locally on your device.",
-    "date": "2026-01-29T14:00:00Z",
-    "type": "update",
+    "message": "Custome notifiction check",
+    "date": "2026-01-30T14:00:00Z",
+    "type": "Custom",
     "isRead": false,
     "isSticky": true,
     "expiresAt": null,
