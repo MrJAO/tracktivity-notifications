@@ -9,5 +9,16 @@
     "isSticky": true,
     "expiresAt": null,
     "metadata": {}
+  },
+  {
+    "id": "test-notification-001",
+    "title": "Test Notification",
+    "message": "This is a test to see if the fetch system works! If you see this, everything is working perfectly.",
+    "date": "2026-01-29T16:00:00Z",
+    "type": "promotion",
+    "isRead": false,
+    "isSticky": false,
+    "expiresAt": null,
+    "metadata": {}
   }
 ]
