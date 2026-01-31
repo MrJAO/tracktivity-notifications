@@ -1,0 +1,23 @@
+{
+  "name": "tracktivity-notifications",
+  "version": "1.0.0",
+  "description": "Public notification and CEX listing feed for Tracktivity dApp",
+  "main": "dist/update-listings.js",
+  "scripts": {
+    "build": "tsc",
+    "update": "npm run build && node dist/update-listings.js",
+    "dev": "ts-node src/update-listings.ts"
+  },
+  "keywords": ["tracktivity", "notifications", "cex", "listings"],
+  "author": "MrJAO",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@types/node-fetch": "^2.6.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
