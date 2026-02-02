@@ -25180,36 +25180,6 @@
       "exchange": "Bybit",
       "symbol": "PENGUINUSDT",
       "detectedAt": "2026-02-01T08:43:30.755Z"
-    },
-    {
-      "exchange": "Binance",
-      "symbol": "TEST1-USDT",
-      "detectedAt": "2026-02-02T10:00:00.000Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "TEST2-USD",
-      "detectedAt": "2026-02-02T10:01:00.000Z"
-    },
-    {
-      "exchange": "Bybit",
-      "symbol": "TEST3USDT",
-      "detectedAt": "2026-02-02T10:02:00.000Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-TEST4",
-      "detectedAt": "2026-02-02T10:03:00.000Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "TEST5-USDT",
-      "detectedAt": "2026-02-02T10:04:00.000Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "XTEST6ZUSD",
-      "detectedAt": "2026-02-02T10:05:00.000Z"
     }
   ]
 }
