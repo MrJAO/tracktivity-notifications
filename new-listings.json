@@ -25182,9 +25182,9 @@
       "detectedAt": "2026-02-01T08:43:30.755Z"
     },
     {
-      "exchange": "Binance",
-      "symbol": "TEST1-USDT",
-      "detectedAt": "2026-02-02T10:00:00.000Z"
-    }    
+      "exchange": "Coinbase",
+      "symbol": "TEST2-USD",
+      "detectedAt": "2026-02-02T10:01:00.000Z"
+    }   
   ]
 }
