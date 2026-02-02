@@ -25180,6 +25180,11 @@
       "exchange": "Bybit",
       "symbol": "PENGUINUSDT",
       "detectedAt": "2026-02-01T08:43:30.755Z"
+    },
+    {
+      "exchange": "Bybit",
+      "symbol": "TEST-USDT",
+      "detectedAt": "2026-02-02T09:00:00.000Z"
     }
   ]
 }
