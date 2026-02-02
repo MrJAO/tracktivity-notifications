@@ -25182,9 +25182,9 @@
       "detectedAt": "2026-02-01T08:43:30.755Z"
     },
     {
-      "exchange": "OKX",
-      "symbol": "TEST5-USDT",
-      "detectedAt": "2026-02-02T10:04:00.000Z"
+      "exchange": "Kraken",
+      "symbol": "XTEST6ZUSD",
+      "detectedAt": "2026-02-02T10:05:00.000Z"
     }
   ]
 }
