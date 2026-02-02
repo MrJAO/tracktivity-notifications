@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-01-31T10:46:05.224Z",
+  "lastChecked": "2026-02-02T08:30:07.748Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25175,6 +25175,11 @@
       "exchange": "Upbit",
       "symbol": "KRW-POLYX",
       "detectedAt": "2026-01-31T10:45:59.716Z"
+    },
+    {
+      "exchange": "Bybit",
+      "symbol": "PENGUINUSDT",
+      "detectedAt": "2026-02-01T08:43:30.755Z"
     }
   ]
 }

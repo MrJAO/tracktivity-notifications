@@ -33,6 +33,7 @@ Public notification and CEX listing feed for Tracktivity dApp.
 - **Binance** - Global spot trading
 - **Coinbase** - US-regulated exchange
 - **Bybit** - Derivatives and spot
+- **Upbit** - South Korean exchange
 - **OKX** - Multi-asset exchange
 - **Kraken** - Established crypto exchange
 
