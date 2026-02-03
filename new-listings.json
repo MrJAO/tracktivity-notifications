@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-02T08:30:07.748Z",
+  "lastChecked": "2026-02-03T14:32:29.889Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25180,6 +25180,71 @@
       "exchange": "Bybit",
       "symbol": "PENGUINUSDT",
       "detectedAt": "2026-02-01T08:43:30.755Z"
+    },
+    {
+      "exchange": "Binance",
+      "symbol": "ZAMAUSDT",
+      "detectedAt": "2026-02-03T10:16:58.899Z"
+    },
+    {
+      "exchange": "Binance",
+      "symbol": "ZAMAUSDC",
+      "detectedAt": "2026-02-03T10:16:58.899Z"
+    },
+    {
+      "exchange": "Binance",
+      "symbol": "ZAMATRY",
+      "detectedAt": "2026-02-03T10:16:58.899Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "ZAMA-USD",
+      "detectedAt": "2026-02-03T10:16:59.222Z"
+    },
+    {
+      "exchange": "Bybit",
+      "symbol": "ZAMAUSDT",
+      "detectedAt": "2026-02-03T10:16:59.376Z"
+    },
+    {
+      "exchange": "Bybit",
+      "symbol": "ELONUSDT",
+      "detectedAt": "2026-02-03T10:16:59.376Z"
+    },
+    {
+      "exchange": "Bybit",
+      "symbol": "TRIAUSDT",
+      "detectedAt": "2026-02-03T10:16:59.376Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-BIRB",
+      "detectedAt": "2026-02-03T10:16:59.737Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "ZAMA-USD",
+      "detectedAt": "2026-02-03T10:16:59.904Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "ZAMA-USDT",
+      "detectedAt": "2026-02-03T10:16:59.904Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "TRIAEUR",
+      "detectedAt": "2026-02-03T10:17:00.121Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "TRIAUSD",
+      "detectedAt": "2026-02-03T10:17:00.121Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "TRIA-USD",
+      "detectedAt": "2026-02-03T14:32:28.998Z"
     }
   ]
 }
