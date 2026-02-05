@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-03T14:32:29.889Z",
+  "lastChecked": "2026-02-05T06:13:38.964Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25245,6 +25245,76 @@
       "exchange": "Coinbase",
       "symbol": "TRIA-USD",
       "detectedAt": "2026-02-03T14:32:28.998Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "DOOD-USD",
+      "detectedAt": "2026-02-05T06:13:37.284Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ETHFIDD",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "FIDDUSD",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "FIDDUSDC",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "FIDDUSDT",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "RAILSEUR",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "RAILSUSD",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "RNBWEUR",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "RNBWUSD",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SUPEUR",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SUPUSD",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "WARDEUR",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "WARDUSD",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "XBTFIDD",
+      "detectedAt": "2026-02-05T06:13:38.962Z"
     }
   ]
 }
