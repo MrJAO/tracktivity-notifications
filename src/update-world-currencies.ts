@@ -23,16 +23,6 @@ const FILES = {
 // Using ExchangeRate-API (1,500 requests/month free tier)
 const API_ENDPOINT = 'https://api.exchangerate-api.com/v4/latest/USD';
 
-// Currency priority order (first world to third world, by recognition)
-const CURRENCY_PRIORITY = [
-  'USD', 'EUR', 'GBP', 'JPY', 'CHF', 'CAD', 'AUD', 'NZD', 'SGD', 'HKD',
-  'KRW', 'CNY', 'TWD', 'SEK', 'NOK', 'DKK', 'PLN', 'CZK', 'HUF', 'RUB',
-  'BRL', 'MXN', 'ARS', 'CLP', 'COP', 'PEN', 'ZAR', 'TRY', 'SAR', 'AED',
-  'INR', 'IDR', 'THB', 'MYR', 'PHP', 'VND', 'PKR', 'BDT', 'EGP', 'NGN',
-  'KES', 'GHS', 'UGX', 'TZS', 'MAD', 'DZD', 'TND', 'ILS', 'JOD', 'KWD',
-  'QAR', 'BHD', 'OMR', 'LKR', 'NPR', 'MMK', 'KHR', 'LAK', 'AFN', 'IQD',
-];
-
 // ============================================================================
 // UTILITY FUNCTIONS
 // ============================================================================
@@ -90,35 +80,20 @@ async function updateWorldCurrencies(): Promise<void> {
 
     writeLog(`✓ Fetched ${Object.keys(data.rates).length} currency rates`);
 
-    // Sort rates by priority
-    const sortedRates: Record<string, number> = { USD: 1.0 };
-    
-    // Add prioritized currencies first
-    CURRENCY_PRIORITY.forEach(currency => {
-      if (data.rates[currency]) {
-        sortedRates[currency] = data.rates[currency];
-      }
-    });
-
-    // Add remaining currencies
-    Object.keys(data.rates)
-      .filter(currency => !CURRENCY_PRIORITY.includes(currency))
-      .sort()
-      .forEach(currency => {
-        sortedRates[currency] = data.rates[currency];
-      });
+    // Keep ALL rates - no filtering or prioritization
+    const allRates: Record<string, number> = { USD: 1.0, ...data.rates };
 
     // Create output data
     const worldCurrenciesData: WorldCurrenciesData = {
       lastUpdated: new Date().toISOString(),
-      rates: sortedRates,
+      rates: allRates,
     };
 
     // Write to file
     writeJSON(FILES.worldCurrencies, worldCurrenciesData);
 
     writeLog('════════════════════════════════════════════════════════════');
-    writeLog(`World Currencies Update Complete: ${Object.keys(sortedRates).length} currencies`);
+    writeLog(`World Currencies Update Complete: ${Object.keys(allRates).length} currencies`);
     writeLog('════════════════════════════════════════════════════════════');
 
   } catch (error) {
