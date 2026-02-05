@@ -6,7 +6,11 @@
   "scripts": {
     "build": "tsc",
     "update": "npm run build && node dist/update-listings.js",
-    "dev": "ts-node src/update-listings.ts"
+    "update:world": "npm run build && node dist/update-world-currencies.js",
+    "update:all": "npm run build && node dist/update-listings.js && node dist/update-world-currencies.js",
+    "dev": "ts-node src/update-listings.ts",
+    "dev:world": "ts-node src/update-world-currencies.ts",
+    "dev:all": "ts-node src/update-listings.ts && ts-node src/update-world-currencies.ts"
   },
   "keywords": ["tracktivity", "notifications", "cex", "listings"],
   "author": "MrJAO",

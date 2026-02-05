@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-05T06:13:38.964Z",
+  "lastChecked": "2026-02-05T14:49:38.082Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25315,6 +25315,11 @@
       "exchange": "Kraken",
       "symbol": "XBTFIDD",
       "detectedAt": "2026-02-05T06:13:38.962Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "HYPE-TRY",
+      "detectedAt": "2026-02-05T14:49:37.578Z"
     }
   ]
 }
