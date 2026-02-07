@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-05T14:49:38.082Z",
+  "lastChecked": "2026-02-07T15:08:31.981Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25320,6 +25320,36 @@
       "exchange": "OKX",
       "symbol": "HYPE-TRY",
       "detectedAt": "2026-02-05T14:49:37.578Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "RNBW-USD",
+      "detectedAt": "2026-02-07T15:08:30.137Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "HYPE-USD",
+      "detectedAt": "2026-02-07T15:08:30.137Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "CFXEUR",
+      "detectedAt": "2026-02-07T15:08:31.975Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "CFXUSD",
+      "detectedAt": "2026-02-07T15:08:31.975Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "RAINEUR",
+      "detectedAt": "2026-02-07T15:08:31.975Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "RAINUSD",
+      "detectedAt": "2026-02-07T15:08:31.975Z"
     }
   ]
 }
