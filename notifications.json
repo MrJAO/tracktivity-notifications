@@ -1,15 +1,42 @@
 [
 {
-  "id": "update-1",
+  "id": "app-update-1",
   "title": "Tracktivity v1.0.2 Update",
-  "message": "Hi everyone! Tracktivity Updates:\n\nNew Features:\n- Bridge Route Finder added\n- Tutorial search function\n- Performance improvements\n\nHave feedback? Leave a review on our dApp Store page. Thank you!",
+  "message": "Hi everyone! New features added!",
   "date": "2026-02-08",
   "type": "update",
   "isRead": false,
   "isSticky": true,
   "expiresAt": null,
   "metadata": {
-    "emoji": "🔔"
+    "emoji": "🔔",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Hi everyone! Tracktivity Updates:"
+      },
+      {
+        "type": "list",
+        "content": [
+          "Notifications: Fully functional notification system",
+          "Price Alerts",
+          "CEX Listing Alerts",
+          "Polymarket Starred Users",
+          "Currency Converter",
+          "Address Book",
+          "Macro Events",
+          "Bridge Route Finder",                                               
+          "Tutorials are now organized into expandable sections per feature for easier learning",
+          "UI/UX and Performance improvements"
+        ]
+      },
+      {
+        "type": "cta",
+        "content": "Learn more about these features:",
+        "buttonText": "View Tutorial",
+        "buttonLink": "tracktivity://tutorial"
+      }
+    ]
   }
 }
 ]
