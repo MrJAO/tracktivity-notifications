@@ -1,13 +1,140 @@
 [
-  {
-    "id": "Update",
-    "title": "Welcome to Tracktivity",
-    "message": "Thank you for using Tracktivity. Future updates and news will be posted here",
-    "date": "2026-01-30",
-    "type": "Update",
-    "isRead": false,
-    "isSticky": true,
-    "expiresAt": null,
-    "metadata": {}
+{
+  "id": "update-feb-2026",
+  "title": "Tracktivity v1.2 Update",
+  "message": "Hi everyone! Tracktivity Updates:\n\nNew Features:\n- Bridge Route Finder added\n- Tutorial search function\n- Performance improvements\n\nHave feedback? Leave a review on our dApp Store page. Thank you!",
+  "date": "2026-02-08",
+  "type": "update",
+  "isRead": false,
+  "isSticky": true,
+  "expiresAt": null,
+  "metadata": {
+    "emoji": "🎉"
   }
+},
+{
+  "id": "update-feb-2026",
+  "title": "Tracktivity v1.2 Update",
+  "message": "Hi everyone! New features added!",
+  "date": "2026-02-08",
+  "type": "update",
+  "isRead": false,
+  "isSticky": true,
+  "expiresAt": null,
+  "metadata": {
+    "emoji": "🎉",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Hi everyone! Tracktivity Updates:"
+      },
+      {
+        "type": "list",
+        "content": [
+          "Bridge Route Finder added",
+          "Tutorial search function",
+          "Performance improvements"
+        ]
+      },
+      {
+        "type": "cta",
+        "content": "Have feedback?",
+        "buttonText": "Leave a Review",
+        "buttonLink": "https://dappstore.com/tracktivity"
+      }
+    ]
+  }
+},
+{
+  "id": "maintenance-feb-2026",
+  "title": "Scheduled Maintenance",
+  "message": "We'll be performing maintenance on Feb 10, 2026 from 2:00 AM - 4:00 AM UTC.\n\nExpected downtime: 2 hours\nAffected features: Price alerts, notifications\n\nYour data is safe and will not be affected.",
+  "date": "2026-02-08",
+  "type": "maintenance",
+  "isRead": false,
+  "isSticky": true,
+  "expiresAt": "2026-02-11",
+  "metadata": {
+    "emoji": "⚙️"
+  }
+},
+{
+  "id": "promo-referral",
+  "title": "Refer & Earn!",
+  "message": "Invite friends to Tracktivity and earn rewards!",
+  "date": "2026-02-08",
+  "type": "promotion",
+  "isRead": false,
+  "isSticky": false,
+  "expiresAt": "2026-03-08",
+  "metadata": {
+    "emoji": "🎁",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Share Tracktivity with your friends and get exclusive rewards!"
+      },
+      {
+        "type": "list",
+        "content": [
+          "Get 100 points per referral",
+          "Unlock premium features",
+          "Join our community leaderboard"
+        ]
+      },
+      {
+        "type": "cta",
+        "content": "Ready to share?",
+        "buttonText": "Get Referral Link",
+        "buttonLink": "https://tracktivity.app/referral"
+      }
+    ]
+  }
+},
+{
+  "id": "thanks-2026",
+  "title": "Thank You!",
+  "message": "Thank you for being part of Tracktivity community!\n\nWe've reached 10,000 users and it's all because of your support.\n\nHave feedback? Leave a review on our dApp Store page.",
+  "date": "2026-02-08",
+  "type": "update",
+  "isRead": false,
+  "isSticky": false,
+  "expiresAt": null,
+  "metadata": {
+    "emoji": "❤️"
+  }
+},
+{
+  "id": "feature-bridge",
+  "title": "New: Bridge Route Finder",
+  "message": "Bridge assets across 18+ blockchains!",
+  "date": "2026-02-08",
+  "type": "update",
+  "isRead": false,
+  "isSticky": true,
+  "expiresAt": null,
+  "metadata": {
+    "emoji": "⇄",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Introducing Bridge Route Finder - your cross-chain companion!"
+      },
+      {
+        "type": "list",
+        "content": [
+          "Compare bridge routes instantly",
+          "See real-time fees and estimates",
+          "Support for 18+ major chains"
+        ]
+      },
+      {
+        "type": "cta",
+        "content": "Learn more about this feature:",
+        "buttonText": "View Tutorial",
+        "buttonLink": "tracktivity://tutorial"
+      }
+    ]
+  }
+}
 ]
