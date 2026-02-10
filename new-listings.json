@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-08T16:24:26.694Z",
+  "lastChecked": "2026-02-10T04:40:28.782Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25350,6 +25350,26 @@
       "exchange": "Kraken",
       "symbol": "RAINUSD",
       "detectedAt": "2026-02-07T15:08:31.975Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PEPEUR",
+      "detectedAt": "2026-02-10T04:40:28.779Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PEPUSD",
+      "detectedAt": "2026-02-10T04:40:28.779Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "UPEUR",
+      "detectedAt": "2026-02-10T04:40:28.779Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "UPUSD",
+      "detectedAt": "2026-02-10T04:40:28.779Z"
     }
   ]
 }
