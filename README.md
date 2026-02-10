@@ -1,6 +1,6 @@
-# Tracktivity Notifications
+# Tracktivity Notifications & Data Feeds
 
-Public notification and CEX listing feed for Tracktivity dApp.
+Public notification, CEX listing, and world currency data feeds for the Tracktivity dApp.
 
 ## Structure
 
@@ -20,7 +20,7 @@ Public notification and CEX listing feed for Tracktivity dApp.
 - `update` - App updates
 - `promotion` - Paid promotions
 - `maintenance` - System maintenance
-- `polymarket_starred` - Starred user activities (future)
+- `polymarket_starred` - Starred user activities
 - `custom` - Other announcements
 
 ### CEX Listing Notifications (new-listings.json)
@@ -36,6 +36,12 @@ Public notification and CEX listing feed for Tracktivity dApp.
 - **Upbit** - South Korean exchange
 - **OKX** - Multi-asset exchange
 - **Kraken** - Established crypto exchange
+
+### World Currencies (update-world-currencies.ts | world-currencies.json)
+- Fetches the latest global fiat exchange rates
+- Base currency: USD
+- Includes all available world currencies
+- Updated via script
 
 ## Usage
 

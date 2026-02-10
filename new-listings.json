@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-10T04:40:28.782Z",
+  "lastChecked": "2026-02-10T14:36:22.682Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25370,6 +25370,26 @@
       "exchange": "Kraken",
       "symbol": "UPUSD",
       "detectedAt": "2026-02-10T04:40:28.779Z"
+    },
+    {
+      "exchange": "Binance",
+      "symbol": "ASTERU",
+      "detectedAt": "2026-02-10T14:36:21.283Z"
+    },
+    {
+      "exchange": "Binance",
+      "symbol": "PAXGUSD1",
+      "detectedAt": "2026-02-10T14:36:21.283Z"
+    },
+    {
+      "exchange": "Binance",
+      "symbol": "SUIU",
+      "detectedAt": "2026-02-10T14:36:21.283Z"
+    },
+    {
+      "exchange": "Binance",
+      "symbol": "XRPU",
+      "detectedAt": "2026-02-10T14:36:21.283Z"
     }
   ]
 }
