@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-10T14:36:22.682Z",
+  "lastChecked": "2026-02-11T16:19:59.990Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25390,6 +25390,56 @@
       "exchange": "Binance",
       "symbol": "XRPU",
       "detectedAt": "2026-02-10T14:36:21.283Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "WAL-USD",
+      "detectedAt": "2026-02-11T16:19:58.917Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "DEEP-USD",
+      "detectedAt": "2026-02-11T16:19:58.917Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "UP-USD",
+      "detectedAt": "2026-02-11T16:19:58.917Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "RAVE-USD",
+      "detectedAt": "2026-02-11T16:19:58.917Z"
+    },
+    {
+      "exchange": "Bybit",
+      "symbol": "AEDZUSDT",
+      "detectedAt": "2026-02-11T16:19:59.061Z"
+    },
+    {
+      "exchange": "Bybit",
+      "symbol": "AEDZUSDC",
+      "detectedAt": "2026-02-11T16:19:59.061Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AZTECEUR",
+      "detectedAt": "2026-02-11T16:19:59.984Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AZTECUSD",
+      "detectedAt": "2026-02-11T16:19:59.984Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ESPEUR",
+      "detectedAt": "2026-02-11T16:19:59.984Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ESPUSD",
+      "detectedAt": "2026-02-11T16:19:59.984Z"
     }
   ]
 }
