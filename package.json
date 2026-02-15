@@ -7,16 +7,25 @@
     "build": "tsc",
     "update": "npm run build && node dist/update-listings.js",
     "update:world": "npm run build && node dist/update-world-currencies.js",
-    "update:all": "npm run build && node dist/update-listings.js && node dist/update-world-currencies.js",
+    "update:skr": "npm run build && node dist/update-skr-stats.js",
+    "update:all": "npm run build && node dist/update-listings.js && node dist/update-world-currencies.js && node dist/update-skr-stats.js",
     "dev": "ts-node src/update-listings.ts",
     "dev:world": "ts-node src/update-world-currencies.ts",
-    "dev:all": "ts-node src/update-listings.ts && ts-node src/update-world-currencies.ts"
+    "dev:skr": "ts-node src/update-skr-stats.ts",
+    "dev:all": "ts-node src/update-listings.ts && ts-node src/update-world-currencies.ts && ts-node src/update-skr-stats.ts"
   },
-  "keywords": ["tracktivity", "notifications", "cex", "listings"],
+  "keywords": [
+    "tracktivity",
+    "notifications",
+    "cex",
+    "listings"
+  ],
   "author": "MrJAO",
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^2.7.0"
+    "dotenv": "^17.3.1",
+    "node-fetch": "^2.7.0",
+    "@solana/web3.js": "^1.95.8"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
