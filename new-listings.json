@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-17T04:24:20.649Z",
+  "lastChecked": "2026-02-18T08:12:28.766Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25530,6 +25530,16 @@
       "exchange": "Upbit",
       "symbol": "KRW-TAO",
       "detectedAt": "2026-02-17T04:24:20.026Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PEPECOINEUR",
+      "detectedAt": "2026-02-18T08:12:28.763Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PEPECOINUSD",
+      "detectedAt": "2026-02-18T08:12:28.763Z"
     }
   ]
 }
