@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-19T05:22:22.364Z",
+  "lastChecked": "2026-02-20T08:54:48.191Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -25540,6 +25540,56 @@
       "exchange": "Kraken",
       "symbol": "PEPECOINUSD",
       "detectedAt": "2026-02-18T08:12:28.763Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-AZTEC",
+      "detectedAt": "2026-02-20T08:54:47.592Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "WLFI-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "JUP-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "ONDO-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "OP-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "RENDER-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "STX-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "W-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "ZIL-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "ZK-TRY",
+      "detectedAt": "2026-02-20T08:54:47.724Z"
     }
   ]
 }
