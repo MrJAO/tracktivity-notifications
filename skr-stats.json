@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-02-25T07:50:28.793Z",
+  "lastUpdated": "2026-02-26T06:34:35.543Z",
   "staking": {
-    "totalStaked": 4267757176.498324,
+    "totalStaked": 4277508040.482926,
     "apy": 20.7,
     "inflationRate": 10,
     "topStakers": [
@@ -9,115 +9,115 @@
         "rank": 1,
         "address": "okFMXRFKm4pYgcB3MR9CrDK4oDWZmMjfCfxkWuZ7eA7",
         "balance": 410000,
-        "percentage": 0.009606919584314382
+        "percentage": 0.009585019972369508
       },
       {
         "rank": 2,
         "address": "C9u9DTUuyGEpw1gzphk6mrvR7Spy9HngDTQx7CeT4bkn",
-        "balance": 174286.65480552,
-        "percentage": 0.004083799700819001
+        "balance": 145321.388925979,
+        "percentage": 0.0033973375982145992
       },
       {
         "rank": 3,
         "address": "AuPcvFMQyMomwEkUC3SULAHBxVhELGALgkkgCWMeescV",
-        "balance": 106658.080964247,
-        "percentage": 0.0024991600166849107
+        "balance": 101065.082674414,
+        "percentage": 0.0023627093559595944
       },
       {
         "rank": 4,
         "address": "FmtqFoQBiR2c9tNz9u1edwV5QG36HigD825ZGEboNUDW",
-        "balance": 81490,
-        "percentage": 0.0019094338461604365
+        "balance": 81390,
+        "percentage": 0.0019027433550028153
       },
       {
         "rank": 5,
         "address": "4awLB1FqbCZbrN318zD8Wg2BMfisEncZiqBokexALKn3",
-        "balance": 61059.041542012,
-        "percentage": 0.0014307056146083427
+        "balance": 77217.989242012,
+        "percentage": 0.0018052096807582897
       },
       {
         "rank": 6,
-        "address": "DaPwi6F1MLnmFot9P51UuwViA9U6kZ44p2ZNTB5AAqKm",
-        "balance": 58885,
-        "percentage": 0.0013797645359081765
+        "address": "BjrSiUMpvQV9MQvDcoZDDnzD7ZEsiS2wGanhymjxU6wd",
+        "balance": 70917.237407556,
+        "percentage": 0.0016579100900894978
       },
       {
         "rank": 7,
-        "address": "hkJwZBMrzfW8byPYQC2rozz9FJyc9gx18DE7LDBprEv",
-        "balance": 54600.349339689,
-        "percentage": 0.0012793686960533295
+        "address": "DaPwi6F1MLnmFot9P51UuwViA9U6kZ44p2ZNTB5AAqKm",
+        "balance": 58760,
+        "percentage": 0.0013736970087230055
       },
       {
         "rank": 8,
-        "address": "BjrSiUMpvQV9MQvDcoZDDnzD7ZEsiS2wGanhymjxU6wd",
-        "balance": 50409.657765998,
-        "percentage": 0.0011811744595871996
+        "address": "hkJwZBMrzfW8byPYQC2rozz9FJyc9gx18DE7LDBprEv",
+        "balance": 54600.349339689,
+        "percentage": 0.001276452290047003
       },
       {
         "rank": 9,
         "address": "GKLVibSHB1WiCPNdJo9fk7bNknCzcUpH6n2Cxznr7ZFX",
         "balance": 50040.000572357,
-        "percentage": 0.0011725128329211692
+        "percentage": 0.0011698400119595693
       },
       {
         "rank": 10,
         "address": "HmKhVLjdNsufzA5Rg9tem8KpVTw6qCXDVGpgR569u2cC",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 11,
         "address": "Hb8svTtRchF2d1P5P7n5bfnkbNnx5PZvb9UatXxgz9iv",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 12,
         "address": "HU7Xc2TAJL8oPb4JMTJvYiGGgL3SaiQLHTAEx4HmkXE7",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 13,
         "address": "HCL3Zox4JVCPEoWLpF6wxBNvHtMFEqF2bYfuActB6BXJ",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 14,
         "address": "HCEAgnumcwcQ9HtFZaJcGPzZqRc65qEbTNTkfcRypTGn",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 15,
         "address": "GWdJRZhDdXJLXHdFuAjHfEv8pfudq2opbN9ELpBRZ97R",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 16,
         "address": "FqiYQWPuxggM8DxL4TgJcHn1dLkWVwZLBe9pwovGxSLD",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 17,
         "address": "FdZwYoEo7nheo5yNsnU8bgP1NvBkB5zevNdiQRfNjiHc",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 18,
         "address": "FcmU4RARS261B8pZPoncG7PLvaThDGLGupkdjwteKqvM",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       },
       {
         "rank": 19,
         "address": "F7SehJ4mXUSA4scDCGS8uZgMPgJzruA8XaEm6RiMpp7G",
         "balance": 50000,
-        "percentage": 0.0011715755590627297
+        "percentage": 0.0011689048746792083
       }
     ]
   }
