@@ -14,12 +14,6 @@ interface SKRStatsData {
     totalStaked: number;
     apy: number;
     inflationRate: number;
-    topStakers: Array<{
-      rank: number;
-      address: string;
-      balance: number;
-      percentage: number;
-    }>;
   };
 }
 
@@ -126,7 +120,7 @@ async function fetchAPYAndInflation(): Promise<{ apy: number; inflationRate: num
     
     if (apy === null || inflationRate === null) {
       writeLog('⚠ Could not parse APY or Inflation Rate from website');
-      writeLog('Using fallback values: APY 20.7%, Inflation 10.0%');
+      writeLog('Using fallback values: APY 20.3%, Inflation 10.0%');
       return { apy: 20.7, inflationRate: 10.0 };
     }
     
@@ -141,10 +135,7 @@ async function fetchAPYAndInflation(): Promise<{ apy: number; inflationRate: num
   }
 }
 
-async function fetchStakingData(): Promise<{
-  totalStaked: number;
-  topStakers: Array<{ rank: number; address: string; balance: number; percentage: number }>;
-}> {
+async function fetchStakingData(): Promise<{ totalStaked: number }> {
   try {
     writeLog('Fetching staking data from Helius RPC...');
     
@@ -153,7 +144,6 @@ async function fetchStakingData(): Promise<{
     }
 
     const connection = new Connection(RPC_ENDPOINT, 'confirmed');
-    const mintPubkey = new PublicKey(SKR_TOKEN_MINT);
     const vaultPubkey = new PublicKey(SEEKER_STAKING_VAULT);
     
     // Get total staked from the vault
@@ -168,47 +158,7 @@ async function fetchStakingData(): Promise<{
       throw new Error('Could not parse vault balance');
     }
     
-    // Get largest token holders for top stakers list
-    writeLog('Fetching top holders...');
-    const largestAccounts = await connection.getTokenLargestAccounts(mintPubkey);
-    
-    if (!largestAccounts.value || largestAccounts.value.length === 0) {
-      throw new Error('No token accounts found');
-    }
-    
-    writeLog(`✓ Found ${largestAccounts.value.length} token accounts`);
-    
-    // Filter out vault and create stakers list
-    const vaultAddress = SEEKER_STAKING_VAULT;
-    const stakers = largestAccounts.value
-      .filter(acc => acc.address.toBase58() !== vaultAddress)
-      .map(acc => ({
-        address: acc.address.toBase58(),
-        balance: Number(acc.amount) / 1e9 // Convert to SKR
-      }))
-      .filter(s => s.balance > 0);
-    
-    if (stakers.length === 0) {
-      throw new Error('No stakers found');
-    }
-    
-    // Sort by balance descending
-    stakers.sort((a, b) => b.balance - a.balance);
-    
-    // Get top 50 stakers with percentage based on TOTAL STAKED from vault
-    const topStakers = stakers.slice(0, 50).map((staker, idx) => ({
-      rank: idx + 1,
-      address: staker.address,
-      balance: staker.balance,
-      percentage: (staker.balance / totalStaked) * 100
-    }));
-    
-    writeLog(`✓ Top 50 stakers captured`);
-    
-    return {
-      totalStaked,
-      topStakers
-    };
+    return { totalStaked };
   } catch (error) {
     writeLog(`✗ Staking data fetch failed: ${error}`);
     throw error;
@@ -239,7 +189,6 @@ async function updateSKRStats(): Promise<void> {
         totalStaked: stakingData.totalStaked,
         apy,
         inflationRate,
-        topStakers: stakingData.topStakers
       }
     };
     
@@ -251,7 +200,6 @@ async function updateSKRStats(): Promise<void> {
     writeLog(`APY: ${apy}%`);
     writeLog(`Inflation Rate: ${inflationRate}%`);
     writeLog(`Total Staked: ${stakingData.totalStaked.toLocaleString()} SKR`);
-    writeLog(`Top Stakers: ${stakingData.topStakers.length} captured`);
     writeLog('════════════════════════════════════════════════════════════');
 
   } catch (error) {
