@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-26T06:34:31.334Z",
+  "lastChecked": "2026-02-27T04:29:12.305Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -26070,6 +26070,46 @@
       "exchange": "Kraken",
       "symbol": "RAVEUSDT",
       "detectedAt": "2026-02-26T06:34:31.331Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "ROBO-USD",
+      "detectedAt": "2026-02-27T04:29:11.337Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "ACT-USD",
+      "detectedAt": "2026-02-27T04:29:11.940Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "FET-USD",
+      "detectedAt": "2026-02-27T04:29:11.940Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "GMX-USD",
+      "detectedAt": "2026-02-27T04:29:11.940Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "INJ-USD",
+      "detectedAt": "2026-02-27T04:29:11.940Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "NFT-USD",
+      "detectedAt": "2026-02-27T04:29:11.940Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "VINE-USD",
+      "detectedAt": "2026-02-27T04:29:11.940Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "WOO-USD",
+      "detectedAt": "2026-02-27T04:29:11.940Z"
     }
   ]
 }
