@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-02-27T04:29:12.305Z",
+  "lastChecked": "2026-02-28T06:14:55.230Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -26110,6 +26110,71 @@
       "exchange": "OKX",
       "symbol": "WOO-USD",
       "detectedAt": "2026-02-27T04:29:11.940Z"
+    },
+    {
+      "exchange": "Bybit",
+      "symbol": "ROBOUSDT",
+      "detectedAt": "2026-02-28T06:14:54.240Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "BIO-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "CC-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "CRO-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "DAI-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "HBAR-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "LTC-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "TON-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "UNI-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "WLD-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "OKX",
+      "symbol": "ZRO-TRY",
+      "detectedAt": "2026-02-28T06:14:54.728Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ROBOEUR",
+      "detectedAt": "2026-02-28T06:14:55.227Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ROBOUSD",
+      "detectedAt": "2026-02-28T06:14:55.227Z"
     }
   ]
 }
