@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-03T11:33:20.717Z",
+  "lastChecked": "2026-03-04T05:04:41.147Z",
   "listings": [
     {
       "exchange": "Binance",
@@ -1215,6 +1215,21 @@
       "exchange": "OKX",
       "symbol": "ZK-USDC",
       "detectedAt": "2026-03-03T11:33:20.361Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "DOVUUSD",
+      "detectedAt": "2026-03-04T05:04:41.146Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "MANTRAEUR",
+      "detectedAt": "2026-03-04T05:04:41.146Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "MANTRAUSD",
+      "detectedAt": "2026-03-04T05:04:41.146Z"
     }
   ]
 }
