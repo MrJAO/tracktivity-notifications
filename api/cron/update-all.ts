@@ -1,6 +1,4 @@
 import fetch from 'node-fetch';
-import * as fs from 'fs';
-import * as path from 'path';
 import { Connection, PublicKey } from '@solana/web3.js';
 
 // ============================================================================
@@ -55,15 +53,6 @@ interface SKRStatsData {
 // CONFIGURATION
 // ============================================================================
 
-const FILES = {
-  cexListings: path.join(process.cwd(), 'cex-listings.json'),
-  newListings: path.join(process.cwd(), 'new-listings.json'),
-  status: path.join(process.cwd(), 'status.json'),
-  worldCurrencies: path.join(process.cwd(), 'world-currencies.json'),
-  skrStats: path.join(process.cwd(), 'skr-stats.json'),
-  logs: path.join(process.cwd(), 'logs'),
-};
-
 const CEX_API_ENDPOINTS = {
   binance: 'https://api.binance.com/api/v3/exchangeInfo',
   coinbase: 'https://api.exchange.coinbase.com/products',
@@ -77,9 +66,11 @@ const CURRENCY_API_ENDPOINT = 'https://api.exchangerate-api.com/v4/latest/USD';
 
 const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
 const RPC_ENDPOINT = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
-const SKR_TOKEN_MINT = 'SKRbvo6Gf7GondiT3BbTfuRDPqLWei4j2Qy2NPGZhW3';
 const SEEKER_STAKING_VAULT = '8isViKbwhuhFhsv2t8vaFL74pKCqaFPQXo1KkeQwZbB8';
 const SOLANA_MOBILE_STAKING_SITE = 'https://stake.solanamobile.com/';
+
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
+const GITHUB_REPO = process.env.GITHUB_REPO || '';
 
 const RETENTION_DAYS = 30;
 
@@ -96,22 +87,73 @@ function normalizeSymbol(symbol: string): string {
   return symbol.replace(/[-_\/]/g, '').toUpperCase();
 }
 
-function readJSON<T>(filePath: string): T {
+async function readJSONFromGitHub<T>(fileName: string): Promise<T> {
   try {
-    const data = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(data);
+    const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${fileName}`;
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+      },
+    });
+    
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status}`);
+    }
+    
+    const data: any = await response.json();
+    const content = Buffer.from(data.content, 'base64').toString('utf-8');
+    return JSON.parse(content);
   } catch (error) {
-    console.error(`Error reading ${filePath}:`, error);
+    console.error(`Error reading ${fileName} from GitHub:`, error);
     throw error;
   }
 }
 
-function writeJSON(filePath: string, data: any): void {
+async function writeJSONToGitHub(fileName: string, data: any): Promise<void> {
   try {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
-    console.log(`✓ Updated ${path.basename(filePath)}`);
+    const content = JSON.stringify(data, null, 2);
+    const base64Content = Buffer.from(content).toString('base64');
+    
+    // Get current file SHA
+    const getUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${fileName}`;
+    const getResponse = await fetch(getUrl, {
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+      },
+    });
+    
+    let sha = '';
+    if (getResponse.ok) {
+      const fileData: any = await getResponse.json();
+      sha = fileData.sha;
+    }
+    
+    // Update file
+    const updateUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${fileName}`;
+    const updateResponse = await fetch(updateUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: `Update ${fileName} - ${new Date().toISOString()}`,
+        content: base64Content,
+        sha: sha || undefined,
+      }),
+    });
+    
+    if (!updateResponse.ok) {
+      const errorData = await updateResponse.text();
+      throw new Error(`GitHub API error: ${updateResponse.status} - ${errorData}`);
+    }
+    
+    console.log(`✓ Updated ${fileName} on GitHub`);
   } catch (error) {
-    console.error(`Error writing ${filePath}:`, error);
+    console.error(`Error writing ${fileName} to GitHub:`, error);
     throw error;
   }
 }
@@ -287,13 +329,12 @@ async function updateCEXListings(): Promise<{ success: boolean; errors: string[]
   writeLog('════════════════════════════════════════════════════════════');
 
   try {
-    const oldListings: ExchangeListings = readJSON(FILES.cexListings);
-    const newListingsData: NewListingsData = readJSON(FILES.newListings);
+    const oldListings: ExchangeListings = await readJSONFromGitHub('cex-listings.json');
+    const newListingsData: NewListingsData = await readJSONFromGitHub('new-listings.json');
 
     const results: Partial<ExchangeListings['exchanges']> = {};
     const allNewListings: NewListing[] = [];
 
-    // Fetch all exchanges
     const exchanges = [
       { name: 'binance', fn: fetchBinance },
       { name: 'coinbase', fn: fetchCoinbase },
@@ -332,7 +373,7 @@ async function updateCEXListings(): Promise<{ success: boolean; errors: string[]
         kraken: results.kraken || [],
       },
     };
-    writeJSON(FILES.cexListings, updatedListings);
+    await writeJSONToGitHub('cex-listings.json', updatedListings);
 
     const combinedListings = [...newListingsData.listings, ...allNewListings];
     const cleanedListings = cleanOldListings(combinedListings);
@@ -341,15 +382,16 @@ async function updateCEXListings(): Promise<{ success: boolean; errors: string[]
       lastChecked: new Date().toISOString(),
       listings: cleanedListings,
     };
-    writeJSON(FILES.newListings, updatedNewListings);
+    await writeJSONToGitHub('new-listings.json', updatedNewListings);
 
+    const oldStatus = await readJSONFromGitHub<StatusData>('status.json');
     const status: StatusData = {
       lastRun: startTime,
-      lastSuccessfulRun: errors.length === 0 ? startTime : readJSON<StatusData>(FILES.status).lastSuccessfulRun,
+      lastSuccessfulRun: errors.length === 0 ? startTime : oldStatus.lastSuccessfulRun,
       status: errors.length === 0 ? 'success' : errors.length < 6 ? 'partial_success' : 'failed',
       errors: errors,
     };
-    writeJSON(FILES.status, status);
+    await writeJSONToGitHub('status.json', status);
 
     writeLog(`✓ CEX Update Complete: ${allNewListings.length} new listing(s)`);
     
@@ -387,7 +429,7 @@ async function updateWorldCurrencies(): Promise<{ success: boolean; error?: stri
       rates: allRates,
     };
 
-    writeJSON(FILES.worldCurrencies, worldCurrenciesData);
+    await writeJSONToGitHub('world-currencies.json', worldCurrenciesData);
 
     writeLog(`✓ World Currencies Update Complete: ${Object.keys(allRates).length} currencies`);
     
@@ -408,7 +450,6 @@ async function updateSKRStats(): Promise<{ success: boolean; error?: string }> {
       throw new Error('HELIUS_API_KEY environment variable not set');
     }
 
-    // Fetch APY and Inflation
     const response = await fetch(SOLANA_MOBILE_STAKING_SITE);
     if (!response.ok) {
       throw new Error(`Failed to fetch staking site: ${response.status}`);
@@ -454,7 +495,6 @@ async function updateSKRStats(): Promise<{ success: boolean; error?: string }> {
 
     await delay(2000);
     
-    // Fetch staking data
     const connection = new Connection(RPC_ENDPOINT, 'confirmed');
     const vaultPubkey = new PublicKey(SEEKER_STAKING_VAULT);
     
@@ -477,7 +517,7 @@ async function updateSKRStats(): Promise<{ success: boolean; error?: string }> {
       }
     };
     
-    writeJSON(FILES.skrStats, skrStats);
+    await writeJSONToGitHub('skr-stats.json', skrStats);
     
     writeLog(`✓ SKR Stats Update Complete`);
     
@@ -493,7 +533,6 @@ async function updateSKRStats(): Promise<{ success: boolean; error?: string }> {
 // ============================================================================
 
 export default async function handler(req: any, res: any) {
-  // Verify cron secret (optional security measure)
   const authHeader = req.headers.authorization;
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return res.status(401).json({ error: 'Unauthorized' });
