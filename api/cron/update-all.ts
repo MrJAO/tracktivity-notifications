@@ -49,6 +49,11 @@ interface SKRStatsData {
   };
 }
 
+interface FileUpdate {
+  path: string;
+  content: any;
+}
+
 // ============================================================================
 // CONFIGURATION
 // ============================================================================
@@ -110,50 +115,137 @@ async function readJSONFromGitHub<T>(fileName: string): Promise<T> {
   }
 }
 
-async function writeJSONToGitHub(fileName: string, data: any): Promise<void> {
+async function commitMultipleFiles(files: FileUpdate[]): Promise<void> {
   try {
-    const content = JSON.stringify(data, null, 2);
-    const base64Content = Buffer.from(content).toString('base64');
+    writeLog(`Committing ${files.length} files in a single commit...`);
     
-    // Get current file SHA
-    const getUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${fileName}`;
-    const getResponse = await fetch(getUrl, {
+    // Get latest commit SHA
+    const refUrl = `https://api.github.com/repos/${GITHUB_REPO}/git/refs/heads/main`;
+    const refResponse = await fetch(refUrl, {
       headers: {
         'Authorization': `token ${GITHUB_TOKEN}`,
         'Accept': 'application/vnd.github.v3+json',
       },
     });
     
-    let sha = '';
-    if (getResponse.ok) {
-      const fileData: any = await getResponse.json();
-      sha = fileData.sha;
+    if (!refResponse.ok) {
+      throw new Error(`Failed to get ref: ${refResponse.status}`);
     }
     
-    // Update file
-    const updateUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${fileName}`;
-    const updateResponse = await fetch(updateUrl, {
-      method: 'PUT',
+    const refData: any = await refResponse.json();
+    const latestCommitSha = refData.object.sha;
+    
+    // Get the tree SHA from the latest commit
+    const commitUrl = `https://api.github.com/repos/${GITHUB_REPO}/git/commits/${latestCommitSha}`;
+    const commitResponse = await fetch(commitUrl, {
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+      },
+    });
+    
+    if (!commitResponse.ok) {
+      throw new Error(`Failed to get commit: ${commitResponse.status}`);
+    }
+    
+    const commitData: any = await commitResponse.json();
+    const baseTreeSha = commitData.tree.sha;
+    
+    // Create blobs for each file
+    const tree = [];
+    for (const file of files) {
+      const content = JSON.stringify(file.content, null, 2);
+      const blobUrl = `https://api.github.com/repos/${GITHUB_REPO}/git/blobs`;
+      const blobResponse = await fetch(blobUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `token ${GITHUB_TOKEN}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: content,
+          encoding: 'utf-8',
+        }),
+      });
+      
+      if (!blobResponse.ok) {
+        throw new Error(`Failed to create blob for ${file.path}: ${blobResponse.status}`);
+      }
+      
+      const blobData: any = await blobResponse.json();
+      tree.push({
+        path: file.path,
+        mode: '100644',
+        type: 'blob',
+        sha: blobData.sha,
+      });
+    }
+    
+    // Create new tree
+    const treeUrl = `https://api.github.com/repos/${GITHUB_REPO}/git/trees`;
+    const treeResponse = await fetch(treeUrl, {
+      method: 'POST',
       headers: {
         'Authorization': `token ${GITHUB_TOKEN}`,
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        message: `Update ${fileName} - ${new Date().toISOString()}`,
-        content: base64Content,
-        sha: sha || undefined,
+        base_tree: baseTreeSha,
+        tree: tree,
       }),
     });
     
-    if (!updateResponse.ok) {
-      const errorData = await updateResponse.text();
-      throw new Error(`GitHub API error: ${updateResponse.status} - ${errorData}`);
+    if (!treeResponse.ok) {
+      throw new Error(`Failed to create tree: ${treeResponse.status}`);
     }
     
-    console.log(`✓ Updated ${fileName} on GitHub`);
+    const treeData: any = await treeResponse.json();
+    
+    // Create new commit
+    const newCommitUrl = `https://api.github.com/repos/${GITHUB_REPO}/git/commits`;
+    const newCommitResponse = await fetch(newCommitUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: `Update data files - ${new Date().toISOString()}`,
+        tree: treeData.sha,
+        parents: [latestCommitSha],
+      }),
+    });
+    
+    if (!newCommitResponse.ok) {
+      throw new Error(`Failed to create commit: ${newCommitResponse.status}`);
+    }
+    
+    const newCommitData: any = await newCommitResponse.json();
+    
+    // Update reference
+    const updateRefUrl = `https://api.github.com/repos/${GITHUB_REPO}/git/refs/heads/main`;
+    const updateRefResponse = await fetch(updateRefUrl, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sha: newCommitData.sha,
+      }),
+    });
+    
+    if (!updateRefResponse.ok) {
+      throw new Error(`Failed to update ref: ${updateRefResponse.status}`);
+    }
+    
+    writeLog(`✓ Successfully committed ${files.length} files in single commit`);
   } catch (error) {
-    console.error(`Error writing ${fileName} to GitHub:`, error);
+    console.error('Error committing files:', error);
     throw error;
   }
 }
@@ -320,9 +412,14 @@ function cleanOldListings(listings: NewListing[]): NewListing[] {
 // UPDATE FUNCTIONS
 // ============================================================================
 
-async function updateCEXListings(): Promise<{ success: boolean; errors: string[] }> {
+async function updateCEXListings(): Promise<{ 
+  success: boolean; 
+  errors: string[];
+  files: FileUpdate[];
+}> {
   const startTime = new Date().toISOString();
   const errors: string[] = [];
+  const files: FileUpdate[] = [];
   
   writeLog('════════════════════════════════════════════════════════════');
   writeLog('Starting CEX Listings Update');
@@ -373,7 +470,7 @@ async function updateCEXListings(): Promise<{ success: boolean; errors: string[]
         kraken: results.kraken || [],
       },
     };
-    await writeJSONToGitHub('cex-listings.json', updatedListings);
+    files.push({ path: 'cex-listings.json', content: updatedListings });
 
     const combinedListings = [...newListingsData.listings, ...allNewListings];
     const cleanedListings = cleanOldListings(combinedListings);
@@ -382,7 +479,7 @@ async function updateCEXListings(): Promise<{ success: boolean; errors: string[]
       lastChecked: new Date().toISOString(),
       listings: cleanedListings,
     };
-    await writeJSONToGitHub('new-listings.json', updatedNewListings);
+    files.push({ path: 'new-listings.json', content: updatedNewListings });
 
     const oldStatus = await readJSONFromGitHub<StatusData>('status.json');
     const status: StatusData = {
@@ -391,18 +488,22 @@ async function updateCEXListings(): Promise<{ success: boolean; errors: string[]
       status: errors.length === 0 ? 'success' : errors.length < 6 ? 'partial_success' : 'failed',
       errors: errors,
     };
-    await writeJSONToGitHub('status.json', status);
+    files.push({ path: 'status.json', content: status });
 
     writeLog(`✓ CEX Update Complete: ${allNewListings.length} new listing(s)`);
     
-    return { success: errors.length === 0, errors };
+    return { success: errors.length === 0, errors, files };
   } catch (error) {
     writeLog(`✗ CEX Critical error: ${error}`);
-    return { success: false, errors: [`Critical: ${error}`] };
+    return { success: false, errors: [`Critical: ${error}`], files };
   }
 }
 
-async function updateWorldCurrencies(): Promise<{ success: boolean; error?: string }> {
+async function updateWorldCurrencies(): Promise<{ 
+  success: boolean; 
+  error?: string;
+  file?: FileUpdate;
+}> {
   writeLog('════════════════════════════════════════════════════════════');
   writeLog('Starting World Currencies Update');
   writeLog('════════════════════════════════════════════════════════════');
@@ -429,18 +530,23 @@ async function updateWorldCurrencies(): Promise<{ success: boolean; error?: stri
       rates: allRates,
     };
 
-    await writeJSONToGitHub('world-currencies.json', worldCurrenciesData);
-
     writeLog(`✓ World Currencies Update Complete: ${Object.keys(allRates).length} currencies`);
     
-    return { success: true };
+    return { 
+      success: true, 
+      file: { path: 'world-currencies.json', content: worldCurrenciesData }
+    };
   } catch (error) {
     writeLog(`✗ World Currencies error: ${error}`);
     return { success: false, error: String(error) };
   }
 }
 
-async function updateSKRStats(): Promise<{ success: boolean; error?: string }> {
+async function updateSKRStats(): Promise<{ 
+  success: boolean; 
+  error?: string;
+  file?: FileUpdate;
+}> {
   writeLog('════════════════════════════════════════════════════════════');
   writeLog('Starting SKR Stats Update');
   writeLog('════════════════════════════════════════════════════════════');
@@ -517,11 +623,12 @@ async function updateSKRStats(): Promise<{ success: boolean; error?: string }> {
       }
     };
     
-    await writeJSONToGitHub('skr-stats.json', skrStats);
-    
     writeLog(`✓ SKR Stats Update Complete`);
     
-    return { success: true };
+    return { 
+      success: true,
+      file: { path: 'skr-stats.json', content: skrStats }
+    };
   } catch (error) {
     writeLog(`✗ SKR Stats error: ${error}`);
     return { success: false, error: String(error) };
@@ -540,20 +647,49 @@ export default async function handler(req: any, res: any) {
 
   writeLog('🚀 Starting automated update...');
   
-  const results = {
-    timestamp: new Date().toISOString(),
-    cexListings: await updateCEXListings(),
-    worldCurrencies: await updateWorldCurrencies(),
-    skrStats: await updateSKRStats(),
-  };
-
-  const allSuccess = results.cexListings.success && 
-                     results.worldCurrencies.success && 
-                     results.skrStats.success;
+  // Collect all file updates
+  const allFiles: FileUpdate[] = [];
+  
+  const cexResult = await updateCEXListings();
+  allFiles.push(...cexResult.files);
+  
+  const currencyResult = await updateWorldCurrencies();
+  if (currencyResult.file) {
+    allFiles.push(currencyResult.file);
+  }
+  
+  const skrResult = await updateSKRStats();
+  if (skrResult.file) {
+    allFiles.push(skrResult.file);
+  }
+  
+  // Commit all files in a single commit
+  if (allFiles.length > 0) {
+    try {
+      await commitMultipleFiles(allFiles);
+    } catch (error) {
+      writeLog(`✗ Failed to commit files: ${error}`);
+      return res.status(500).json({
+        error: 'Failed to commit files',
+        details: String(error),
+      });
+    }
+  }
+  
+  const allSuccess = cexResult.success && 
+                     currencyResult.success && 
+                     skrResult.success;
 
   writeLog('════════════════════════════════════════════════════════════');
   writeLog(`✓ All updates completed - Overall: ${allSuccess ? 'SUCCESS' : 'PARTIAL SUCCESS'}`);
   writeLog('════════════════════════════════════════════════════════════');
 
-  return res.status(200).json(results);
+  return res.status(200).json({
+    timestamp: new Date().toISOString(),
+    success: allSuccess,
+    filesCommitted: allFiles.length,
+    cexListings: { success: cexResult.success, errors: cexResult.errors },
+    worldCurrencies: { success: currencyResult.success, error: currencyResult.error },
+    skrStats: { success: skrResult.success, error: skrResult.error },
+  });
 }
