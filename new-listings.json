@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-05T08:20:13.721Z",
+  "lastChecked": "2026-03-05T09:03:36.424Z",
   "listings": [
     {
       "exchange": "Binance",
@@ -1550,6 +1550,11 @@
       "exchange": "Kraken",
       "symbol": "WBTUSD",
       "detectedAt": "2026-03-05T08:20:13.720Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ROBO-USDT",
+      "detectedAt": "2026-03-05T09:03:35.738Z"
     }
   ]
 }
