@@ -1,6 +1,9 @@
 {
-  "lastRun": "2026-03-05T08:20:11.964Z",
+  "lastRun": "2026-03-05T09:03:34.580Z",
   "lastSuccessfulRun": "2026-03-05T08:20:11.964Z",
-  "status": "success",
-  "errors": []
+  "status": "partial_success",
+  "errors": [
+    "binance: Error: Invalid Binance API response",
+    "bybit: FetchError: invalid json response body at https://api.bybit.com/v5/market/instruments-info?category=spot reason: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  ]
 }
