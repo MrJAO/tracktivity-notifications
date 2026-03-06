@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-06T00:45:09.354Z",
+  "lastChecked": "2026-03-06T12:28:20.704Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -1510,6 +1510,56 @@
       "exchange": "Kraken",
       "symbol": "AMIUSD",
       "detectedAt": "2026-03-06T00:45:09.353Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ATH-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AXS-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BERA-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "FIL-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ICP-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "LINK-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "NIGHT-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SNX-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "WCT-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XPL-TRY",
+      "detectedAt": "2026-03-06T12:28:20.625Z"
     }
   ]
 }
