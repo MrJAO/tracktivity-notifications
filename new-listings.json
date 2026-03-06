@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-03-05T12:37:57.201Z",
+  "lastChecked": "2026-03-06T00:45:09.354Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "TRIA-USD",
-      "detectedAt": "2026-02-03T14:32:28.998Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "DOOD-USD",
@@ -1505,6 +1500,16 @@
       "exchange": "Okx",
       "symbol": "ROBO-USD",
       "detectedAt": "2026-03-05T12:37:57.132Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AMIEUR",
+      "detectedAt": "2026-03-06T00:45:09.353Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AMIUSD",
+      "detectedAt": "2026-03-06T00:45:09.353Z"
     }
   ]
 }
