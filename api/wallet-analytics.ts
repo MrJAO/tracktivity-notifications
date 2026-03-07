@@ -23,7 +23,7 @@ interface ActivityStats {
 // ============================================================================
 
 const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
-const HELIUS_API = `https://api.helius.xyz/v0`;
+const HELIUS_RPC = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
 
 // ============================================================================
 // UTILITY FUNCTIONS
@@ -42,70 +42,94 @@ async function fetchWalletAnalytics(address: string): Promise<ActivityStats> {
   try {
     writeLog(`Fetching analytics for: ${address}`);
 
-    // Fetch parsed transactions from Helius
-    const response = await fetch(
-      `${HELIUS_API}/addresses/${address}/transactions?api-key=${HELIUS_API_KEY}&limit=100`,
-      {
-        headers: {
-          'Accept': 'application/json',
-        }
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(`Helius API error: ${response.status}`);
-    }
-
-    const transactions: any[] = await response.json();
-
-    writeLog(`✓ Fetched ${transactions.length} transactions`);
-
-    // Get last 30 days timestamp
+    // Calculate 30 days ago timestamp
     const thirtyDaysAgo = Math.floor((Date.now() - 30 * 24 * 60 * 60 * 1000) / 1000);
 
-    // Filter recent transactions
-    const recentTxs = transactions.filter((tx: any) => 
-      tx.timestamp && tx.timestamp >= thirtyDaysAgo
-    );
+    let allTransactions: any[] = [];
+    let paginationToken: string | undefined = undefined;
+    let callCount = 0;
+    const MAX_CALLS = 5; // Prevent infinite loops
 
-    writeLog(`✓ Found ${recentTxs.length} transactions in last 30 days`);
+    // Paginate through all transactions
+    while (callCount < MAX_CALLS) {
+      callCount++;
+      
+      const requestBody: any = {
+        jsonrpc: '2.0',
+        id: `analytics-${callCount}`,
+        method: 'getSignaturesForAddress',
+        params: [
+          address,
+          {
+            limit: 1000,
+          }
+        ]
+      };
 
-    let totalVolume = 0;
-    let swaps = 0;
-    let transfers = 0;
-    let other = 0;
+      // Add pagination token if exists
+      if (paginationToken) {
+        requestBody.params[1].before = paginationToken;
+      }
+
+      writeLog(`Making RPC call ${callCount} with limit 1000${paginationToken ? ' (paginating)' : ''}`);
+
+      const response = await fetch(HELIUS_RPC, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Helius RPC error: ${response.status}`);
+      }
+
+      const result: any = await response.json();
+      const signatures = result.result || [];
+
+      writeLog(`✓ Fetched ${signatures.length} signatures in call ${callCount}`);
+
+      if (signatures.length === 0) {
+        break; // No more transactions
+      }
+
+      // Filter by 30 days
+      const recentSigs = signatures.filter((sig: any) => 
+        sig.blockTime && sig.blockTime >= thirtyDaysAgo
+      );
+
+      allTransactions.push(...recentSigs);
+
+      // Check if we got transactions older than 30 days
+      const oldestTimestamp = signatures[signatures.length - 1]?.blockTime;
+      if (oldestTimestamp && oldestTimestamp < thirtyDaysAgo) {
+        writeLog(`✓ Reached transactions older than 30 days`);
+        break;
+      }
+
+      // Check if we need to paginate
+      if (signatures.length < 1000) {
+        writeLog(`✓ Fetched all available transactions`);
+        break;
+      }
+
+      // Set pagination token for next call
+      paginationToken = signatures[signatures.length - 1].signature;
+    }
+
+    writeLog(`✓ Total signatures fetched: ${allTransactions.length} from ${callCount} API calls`);
+
+    // Build daily transaction map
     const dailyMap: Record<string, number> = {};
+    
+    allTransactions.forEach((sig: any) => {
+      if (!sig.blockTime) return;
 
-    // Process each transaction
-    recentTxs.forEach((tx: any) => {
-      if (!tx.timestamp) return;
-
-      // Get date
-      const date = new Date(tx.timestamp * 1000);
+      const date = new Date(sig.blockTime * 1000);
       const dateKey = date.toISOString().split('T')[0];
       
-      // Count daily transactions
       dailyMap[dateKey] = (dailyMap[dateKey] || 0) + 1;
-
-      // Categorize transaction type
-      const txType = (tx.type || '').toUpperCase();
-      
-      if (txType.includes('SWAP')) {
-        swaps++;
-      } else if (txType.includes('TRANSFER') || txType.includes('SPL_TRANSFER')) {
-        transfers++;
-      } else {
-        other++;
-      }
-
-      // Calculate volume from native transfers
-      if (tx.nativeTransfers && tx.nativeTransfers.length > 0) {
-        tx.nativeTransfers.forEach((transfer: any) => {
-          if (transfer.fromUserAccount === address) {
-            totalVolume += Math.abs(transfer.amount) / 1e9; // Convert lamports to SOL
-          }
-        });
-      }
     });
 
     // Convert daily map to array
@@ -114,15 +138,15 @@ async function fetchWalletAnalytics(address: string): Promise<ActivityStats> {
       .sort((a, b) => a.date.localeCompare(b.date));
 
     const stats: ActivityStats = {
-      totalVolume,
-      totalTransactions: recentTxs.length,
-      swaps,
-      transfers,
-      other,
+      totalVolume: 0, // Removed to save API credits
+      totalTransactions: allTransactions.length,
+      swaps: 0, // Removed to save API credits
+      transfers: 0, // Removed to save API credits
+      other: 0, // Removed to save API credits
       dailyTransactions,
     };
 
-    writeLog(`✓ Analytics complete - Txs: ${stats.totalTransactions}, Swaps: ${swaps}, Transfers: ${transfers}`);
+    writeLog(`✓ Analytics complete - Txs: ${stats.totalTransactions}`);
     
     return stats;
 
