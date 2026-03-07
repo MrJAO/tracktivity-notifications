@@ -22,8 +22,8 @@ interface ActivityStats {
 // CONFIGURATION
 // ============================================================================
 
-const SOLSCAN_API_KEY = process.env.SOLSCAN_API_KEY || '';
-const SOLSCAN_API = 'https://pro-api.solscan.io/v2.0';
+const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
+const HELIUS_API = `https://api.helius.xyz/v0`;
 
 // ============================================================================
 // UTILITY FUNCTIONS
@@ -42,23 +42,21 @@ async function fetchWalletAnalytics(address: string): Promise<ActivityStats> {
   try {
     writeLog(`Fetching analytics for: ${address}`);
 
-    // Fetch account transactions from Solscan Pro API
+    // Fetch parsed transactions from Helius
     const response = await fetch(
-      `${SOLSCAN_API}/account/transaction?address=${address}&page_size=100&page=1`,
+      `${HELIUS_API}/addresses/${address}/transactions?api-key=${HELIUS_API_KEY}&limit=100`,
       {
         headers: {
           'Accept': 'application/json',
-          'token': SOLSCAN_API_KEY,
         }
       }
     );
 
     if (!response.ok) {
-      throw new Error(`Solscan API error: ${response.status}`);
+      throw new Error(`Helius API error: ${response.status}`);
     }
 
-    const result: any = await response.json();
-    const transactions = result.data || [];
+    const transactions: any[] = await response.json();
 
     writeLog(`✓ Fetched ${transactions.length} transactions`);
 
@@ -67,7 +65,7 @@ async function fetchWalletAnalytics(address: string): Promise<ActivityStats> {
 
     // Filter recent transactions
     const recentTxs = transactions.filter((tx: any) => 
-      tx.block_time && tx.block_time >= thirtyDaysAgo
+      tx.timestamp && tx.timestamp >= thirtyDaysAgo
     );
 
     writeLog(`✓ Found ${recentTxs.length} transactions in last 30 days`);
@@ -80,30 +78,33 @@ async function fetchWalletAnalytics(address: string): Promise<ActivityStats> {
 
     // Process each transaction
     recentTxs.forEach((tx: any) => {
-      if (!tx.block_time) return;
+      if (!tx.timestamp) return;
 
       // Get date
-      const date = new Date(tx.block_time * 1000);
+      const date = new Date(tx.timestamp * 1000);
       const dateKey = date.toISOString().split('T')[0];
       
       // Count daily transactions
       dailyMap[dateKey] = (dailyMap[dateKey] || 0) + 1;
 
       // Categorize transaction type
-      const txType = (tx.tx_type || '').toLowerCase();
-      const activities = tx.activities || [];
-
-      if (txType.includes('swap') || activities.some((a: any) => a.activity_type?.includes('ACTIVITY_TOKEN_SWAP'))) {
+      const txType = (tx.type || '').toUpperCase();
+      
+      if (txType.includes('SWAP')) {
         swaps++;
-      } else if (txType.includes('transfer') || activities.some((a: any) => a.activity_type?.includes('ACTIVITY_SPL_TRANSFER'))) {
+      } else if (txType.includes('TRANSFER') || txType.includes('SPL_TRANSFER')) {
         transfers++;
       } else {
         other++;
       }
 
-      // Calculate volume from SOL transfers
-      if (tx.sol_amount) {
-        totalVolume += Math.abs(tx.sol_amount) / 1e9; // Convert lamports to SOL
+      // Calculate volume from native transfers
+      if (tx.nativeTransfers && tx.nativeTransfers.length > 0) {
+        tx.nativeTransfers.forEach((transfer: any) => {
+          if (transfer.fromUserAccount === address) {
+            totalVolume += Math.abs(transfer.amount) / 1e9; // Convert lamports to SOL
+          }
+        });
       }
     });
 
@@ -165,9 +166,9 @@ export default async function handler(req: any, res: any) {
     });
   }
 
-  // Validate Solscan API key
-  if (!SOLSCAN_API_KEY) {
-    writeLog('⚠ SOLSCAN_API_KEY not configured');
+  // Validate Helius API key
+  if (!HELIUS_API_KEY) {
+    writeLog('⚠ HELIUS_API_KEY not configured');
     return res.status(500).json({ 
       error: 'Server configuration error',
       totalVolume: 0,
