@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-06T12:28:20.704Z",
+  "lastChecked": "2026-03-07T00:08:01.329Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -1560,6 +1560,26 @@
       "exchange": "Okx",
       "symbol": "XPL-TRY",
       "detectedAt": "2026-03-06T12:28:20.625Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PACKEUR",
+      "detectedAt": "2026-03-07T00:08:01.328Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PACKUSD",
+      "detectedAt": "2026-03-07T00:08:01.328Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "WFBEUR",
+      "detectedAt": "2026-03-07T00:08:01.328Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "WFBUSD",
+      "detectedAt": "2026-03-07T00:08:01.328Z"
     }
   ]
 }
