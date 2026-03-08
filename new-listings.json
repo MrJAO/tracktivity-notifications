@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-03-07T12:00:19.527Z",
+  "lastChecked": "2026-03-08T00:03:46.423Z",
   "listings": [
-    {
-      "exchange": "OKX",
-      "symbol": "HYPE-TRY",
-      "detectedAt": "2026-02-05T14:49:37.578Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "RNBW-USD",
