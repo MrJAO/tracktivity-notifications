@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-03-09T12:46:58.100Z",
+  "lastChecked": "2026-03-10T00:08:05.237Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "RNBW-USD",
-      "detectedAt": "2026-02-07T15:08:30.137Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "HYPE-USD",
-      "detectedAt": "2026-02-07T15:08:30.137Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "CFXEUR",
-      "detectedAt": "2026-02-07T15:08:31.975Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "CFXUSD",
-      "detectedAt": "2026-02-07T15:08:31.975Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "RAINEUR",
-      "detectedAt": "2026-02-07T15:08:31.975Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "RAINUSD",
-      "detectedAt": "2026-02-07T15:08:31.975Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "PEPEUR",
