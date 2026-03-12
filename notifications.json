@@ -1,9 +1,9 @@
 [
 {
-  "id": "app-update-1",
-  "title": "Tracktivity v1.0.2 Update",
-  "message": "Hi everyone! New features added!",
-  "date": "2026-02-08",
+  "id": "app-update-3",
+  "title": "Tracktivity v1.0.3 Update",
+  "message": "Hi everyone! New & Updated Features",
+  "date": "2026-03-12",
   "type": "update",
   "isRead": false,
   "isSticky": true,
@@ -13,20 +13,21 @@
     "sections": [
       {
         "type": "text",
-        "content": "Hi everyone! Tracktivity Updates:"
+        "content": "Tracktivity v1.0.3 is here. Check list below:"
       },
       {
         "type": "list",
         "content": [
-          "Notifications: Fully functional notification system",
-          "Price Alerts",
-          "CEX Listing Alerts",
-          "Polymarket Starred Users",
-          "Currency Converter",
-          "Address Book",
-          "Macro Events",
-          "Bridge Route Finder",                                               
+          "Goal Commitment",
+          "Staking/Yield Rates",
+          "Rug Check (Solana)",
+          "SKR Stats",
+          "Seeker Genesis Holders",
+          "Quarterly Returns",
+          "Notifications: Added cron job for CEX Listing alerts",
+          "Wallet Watch: Added Analyze wallet address",                                               
           "Tutorials are now organized into expandable sections per feature for easier learning",
+          "Macro Events: Added Major Events",
           "UI/UX and Performance improvements"
         ]
       },
