@@ -1,26 +1,6 @@
 {
-  "lastChecked": "2026-03-12T12:52:56.197Z",
+  "lastChecked": "2026-03-13T00:09:11.109Z",
   "listings": [
-    {
-      "exchange": "Binance",
-      "symbol": "ASTERU",
-      "detectedAt": "2026-02-10T14:36:21.283Z"
-    },
-    {
-      "exchange": "Binance",
-      "symbol": "PAXGUSD1",
-      "detectedAt": "2026-02-10T14:36:21.283Z"
-    },
-    {
-      "exchange": "Binance",
-      "symbol": "SUIU",
-      "detectedAt": "2026-02-10T14:36:21.283Z"
-    },
-    {
-      "exchange": "Binance",
-      "symbol": "XRPU",
-      "detectedAt": "2026-02-10T14:36:21.283Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "WAL-USD",
