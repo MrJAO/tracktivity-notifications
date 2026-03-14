@@ -1,56 +1,6 @@
 {
-  "lastChecked": "2026-03-13T12:08:16.394Z",
+  "lastChecked": "2026-03-14T00:47:32.175Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "WAL-USD",
-      "detectedAt": "2026-02-11T16:19:58.917Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "DEEP-USD",
-      "detectedAt": "2026-02-11T16:19:58.917Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "UP-USD",
-      "detectedAt": "2026-02-11T16:19:58.917Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "RAVE-USD",
-      "detectedAt": "2026-02-11T16:19:58.917Z"
-    },
-    {
-      "exchange": "Bybit",
-      "symbol": "AEDZUSDT",
-      "detectedAt": "2026-02-11T16:19:59.061Z"
-    },
-    {
-      "exchange": "Bybit",
-      "symbol": "AEDZUSDC",
-      "detectedAt": "2026-02-11T16:19:59.061Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "AZTECEUR",
-      "detectedAt": "2026-02-11T16:19:59.984Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "AZTECUSD",
-      "detectedAt": "2026-02-11T16:19:59.984Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "ESPEUR",
-      "detectedAt": "2026-02-11T16:19:59.984Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "ESPUSD",
-      "detectedAt": "2026-02-11T16:19:59.984Z"
-    },
     {
       "exchange": "Binance",
       "symbol": "ESPUSDT",
@@ -1900,6 +1850,16 @@
       "exchange": "Okx",
       "symbol": "TURBO-TRY",
       "detectedAt": "2026-03-13T12:08:16.312Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SAUCEEUR",
+      "detectedAt": "2026-03-14T00:47:32.174Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SAUCEUSD",
+      "detectedAt": "2026-03-14T00:47:32.174Z"
     }
   ]
 }
