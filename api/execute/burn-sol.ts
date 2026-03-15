@@ -37,6 +37,40 @@ function writeLog(message: string): void {
   console.log(`[${timestamp}] ${message}`);
 }
 
+async function fetchTokenMetadata(mint: string): Promise<{ name: string; symbol: string }> {
+  try {
+    const response = await fetch(RPC_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 'metadata',
+        method: 'getAsset',
+        params: { id: mint },
+      }),
+    });
+
+    if (response.ok) {
+      const json = await response.json() as any;
+      const content = json?.result?.content;
+      
+      if (content?.metadata) {
+        return {
+          name: content.metadata.name || `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+          symbol: content.metadata.symbol || `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+        };
+      }
+    }
+  } catch (error) {
+    // Silent fallback
+  }
+  
+  return {
+    name: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+    symbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+  };
+}
+
 async function fetchTokens(walletAddress: string): Promise<BurnableAsset[]> {
   try {
     writeLog('Fetching SPL tokens...');
@@ -78,17 +112,19 @@ async function fetchTokens(walletAddress: string): Promise<BurnableAsset[]> {
 
         // Filter: must have balance > 0, not in safe list
         if (balance > 0 && !SAFE_MINTS.includes(mint) && rentLamports > 0) {
+          const metadata = await fetchTokenMetadata(mint);
+          
           tokens.push({
             address: accountPubkey,
             mint: mint,
             amount: balance,
             decimals: decimals,
             type: 'token',
-            name: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
-            symbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+            name: metadata.name,
+            symbol: metadata.symbol,
             rentLamports: rentLamports,
           });
-          writeLog(`✓ Added token: ${mint} (${balance})`);
+          writeLog(`✓ Added token: ${metadata.symbol} (${balance})`);
         }
       } catch (error) {
         writeLog(`✗ Error processing token: ${error}`);
@@ -142,7 +178,6 @@ async function fetchNFTsAndCNFTs(walletAddress: string): Promise<BurnableAsset[]
         const id = item.id;
         const content = item.content;
         const compression = item.compression;
-        const grouping = item.grouping;
 
         // Skip if in safe list
         if (SAFE_MINTS.includes(id)) {
@@ -160,7 +195,7 @@ async function fetchNFTsAndCNFTs(walletAddress: string): Promise<BurnableAsset[]
         const rentLamports = 2039280;
 
         nfts.push({
-          address: id, // For NFTs, use mint as address
+          address: id,
           mint: id,
           amount: 1,
           decimals: 0,
