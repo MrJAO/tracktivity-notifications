@@ -169,7 +169,13 @@ async function fetchNFTsAndCNFTs(walletAddress: string): Promise<BurnableAsset[]
 
     const json = await response.json() as any;
     const items = json?.result?.items || [];
-    writeLog(`✓ Found ${items.length} NFTs/cNFTs`);
+    const total = json?.result?.total || 0;
+    writeLog(`✓ Found ${items.length} NFTs/cNFTs (Total: ${total})`);
+
+    // TODO: Add pagination if total > 1000
+    if (total > 1000) {
+      writeLog(`⚠️ Warning: Wallet has ${total} NFTs/cNFTs, only fetching first 1000`);
+    }
 
     const nfts: BurnableAsset[] = [];
 
@@ -191,8 +197,8 @@ async function fetchNFTsAndCNFTs(walletAddress: string): Promise<BurnableAsset[]
         const symbol = content?.metadata?.symbol || 'NFT';
         const image = content?.files?.[0]?.uri || content?.links?.image;
 
-        // Estimate rent
-        const rentLamports = 2039280;
+        // Estimate rent (cNFTs don't have token accounts, so 0 rent)
+        const rentLamports = assetType === 'cnft' ? 0 : 2039280;
 
         nfts.push({
           address: id,
