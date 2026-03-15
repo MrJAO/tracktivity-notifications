@@ -4,7 +4,7 @@ const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
 const RPC_ENDPOINT = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
 const TOKEN_PROGRAM_ID = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';
 
-// Safe addresses
+// Safe addresses - DO NOT close these
 const SAFE_ADDRESSES = [
   'So11111111111111111111111111111111111111112', // Wrapped SOL
   'SKRbvo6Gf7GondiT3BbTfuRDPqLWei4j2Qy2NPGZhW3', // SKR Token Mint
@@ -13,12 +13,9 @@ const SAFE_ADDRESSES = [
   '8isViKbwhuhFhsv2t8vaFL74pKCqaFPQXo1KkeQwZbB8', // Seeker Staking Vault
   '4HQy82s9CHTv1GsYKnANHMiHfhcqesYkK6sB3RDSYyqw', // Seeker Global Staking Config
   'SKRskrmtL83pcL4YqLWt6iPefDqwXQWHSw9S9vz94BZ', // Solana Seeker TX Program
+  'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
+  'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', // USDT
 ];
-
-interface TokenMetadata {
-  symbol: string;
-  name: string;
-}
 
 interface ReclaimableAccount {
   address: string;
@@ -39,35 +36,6 @@ function writeLog(message: string): void {
   console.log(`[${timestamp}] ${message}`);
 }
 
-async function fetchTokenMetadata(mint: string): Promise<TokenMetadata> {
-  try {
-    const response = await fetch(RPC_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        jsonrpc: '2.0',
-        id: 1,
-        method: 'getAsset',
-        params: { id: mint },
-      }),
-    });
-
-    const json = await response.json() as any;
-    const content = json?.result?.content;
-
-    if (content?.metadata) {
-      return {
-        symbol: content.metadata.symbol || 'UNKNOWN',
-        name: content.metadata.name || 'Unknown Token',
-      };
-    }
-
-    return { symbol: 'UNKNOWN', name: 'Unknown Token' };
-  } catch (error) {
-    return { symbol: 'UNKNOWN', name: 'Unknown Token' };
-  }
-}
-
 async function scanReclaimableAccounts(walletAddress: string): Promise<ReclaimResponse> {
   try {
     writeLog(`Scanning reclaimable accounts for: ${walletAddress}`);
@@ -79,7 +47,7 @@ async function scanReclaimableAccounts(walletAddress: string): Promise<ReclaimRe
       body: JSON.stringify({
         jsonrpc: '2.0',
         id: 1,
-        method: 'getParsedTokenAccountsByOwner',
+        method: 'getTokenAccountsByOwner',
         params: [
           walletAddress,
           { programId: TOKEN_PROGRAM_ID },
@@ -101,6 +69,7 @@ async function scanReclaimableAccounts(walletAddress: string): Promise<ReclaimRe
 
     for (const account of accounts) {
       try {
+        const accountPubkey = account.pubkey;
         const accountData = account.account.data.parsed.info;
         const mint = accountData.mint;
         const balance = accountData.tokenAmount.uiAmount;
@@ -112,15 +81,12 @@ async function scanReclaimableAccounts(walletAddress: string): Promise<ReclaimRe
           !SAFE_ADDRESSES.includes(mint) &&
           rentLamports > 0
         ) {
-          // Fetch token metadata
-          const metadata = await fetchTokenMetadata(mint);
-
           reclaimableAccounts.push({
-            address: account.pubkey,
+            address: accountPubkey,
             mint: mint,
             rentLamports: rentLamports,
-            tokenSymbol: metadata.symbol,
-            tokenName: metadata.name,
+            tokenSymbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+            tokenName: mint,
           });
         }
       } catch (error) {

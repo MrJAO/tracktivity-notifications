@@ -6,12 +6,14 @@ const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
 const RPC_ENDPOINT = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
 const TOKEN_PROGRAM_ID = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';
 
-// Safe addresses - DO NOT burn these
+// Safe mints - DO NOT burn these
 const SAFE_MINTS = [
   'So11111111111111111111111111111111111111112', // Wrapped SOL
   'SKRbvo6Gf7GondiT3BbTfuRDPqLWei4j2Qy2NPGZhW3', // SKR Token Mint
   'GT2zuHVaZQYZSyQMgJPLzvkmyztfyXg2NJunqFp4p3A4', // Seeker Genesis Token Mint Authority
   'GT22s89nU4iWFkNXj1Bw6uYhJJWDRPpShHt4Bk8f99Te', // Seeker Genesis Token Metadata
+  'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
+  'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', // USDT
 ];
 
 interface BurnableAsset {
@@ -19,10 +21,9 @@ interface BurnableAsset {
   mint: string
   amount: number
   decimals: number
-  type: 'token' | 'nft' | 'cnft'
+  type: 'token'
   name: string
   symbol: string
-  image?: string
   rentLamports: number
 }
 
@@ -37,50 +38,6 @@ function writeLog(message: string): void {
   console.log(`[${timestamp}] ${message}`);
 }
 
-async function fetchAssetMetadata(mint: string): Promise<{ name: string; symbol: string; image?: string; type: 'token' | 'nft' | 'cnft' }> {
-  try {
-    const response = await fetch(RPC_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        jsonrpc: '2.0',
-        id: 1,
-        method: 'getAsset',
-        params: { id: mint },
-      }),
-    });
-
-    const json = await response.json() as any;
-    const content = json?.result?.content;
-    const grouping = json?.result?.grouping;
-
-    // Determine asset type
-    let assetType: 'token' | 'nft' | 'cnft' = 'token';
-    
-    // Check if it's a compressed NFT
-    if (json?.result?.compression?.compressed) {
-      assetType = 'cnft';
-    }
-    // Check if it's an NFT (has collection or is non-fungible)
-    else if (grouping?.length > 0 || json?.result?.interface === 'V1_NFT') {
-      assetType = 'nft';
-    }
-
-    if (content?.metadata) {
-      return {
-        name: content.metadata.name || 'Unknown Asset',
-        symbol: content.metadata.symbol || 'UNKNOWN',
-        image: content.files?.[0]?.uri || content.links?.image,
-        type: assetType,
-      };
-    }
-
-    return { name: 'Unknown Asset', symbol: 'UNKNOWN', type: assetType };
-  } catch (error) {
-    return { name: 'Unknown Asset', symbol: 'UNKNOWN', type: 'token' };
-  }
-}
-
 async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> {
   try {
     writeLog(`Scanning burnable assets for: ${walletAddress}`);
@@ -92,7 +49,7 @@ async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> 
       body: JSON.stringify({
         jsonrpc: '2.0',
         id: 1,
-        method: 'getParsedTokenAccountsByOwner',
+        method: 'getTokenAccountsByOwner',
         params: [
           walletAddress,
           { programId: TOKEN_PROGRAM_ID },
@@ -114,6 +71,7 @@ async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> 
 
     for (const account of accounts) {
       try {
+        const accountPubkey = account.pubkey;
         const accountData = account.account.data.parsed.info;
         const mint = accountData.mint;
         const balance = accountData.tokenAmount.uiAmount;
@@ -126,18 +84,14 @@ async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> 
           !SAFE_MINTS.includes(mint) &&
           rentLamports > 0
         ) {
-          // Fetch asset metadata
-          const metadata = await fetchAssetMetadata(mint);
-
           burnableAssets.push({
-            address: account.pubkey,
+            address: accountPubkey,
             mint: mint,
             amount: balance,
             decimals: decimals,
-            type: metadata.type,
-            name: metadata.name,
-            symbol: metadata.symbol,
-            image: metadata.image,
+            type: 'token',
+            name: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+            symbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
             rentLamports: rentLamports,
           });
         }
