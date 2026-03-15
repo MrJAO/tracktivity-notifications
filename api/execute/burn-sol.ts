@@ -1,12 +1,10 @@
-// tracktivity-notifications/api/execute/burn-sol.ts
-
 import fetch from 'node-fetch';
 
 const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
 const RPC_ENDPOINT = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
 const TOKEN_PROGRAM_ID = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';
 
-// Safe mints - DO NOT burn these
+// Safe mints
 const SAFE_MINTS = [
   'So11111111111111111111111111111111111111112', // Wrapped SOL
   'SKRbvo6Gf7GondiT3BbTfuRDPqLWei4j2Qy2NPGZhW3', // SKR Token Mint
@@ -21,9 +19,10 @@ interface BurnableAsset {
   mint: string
   amount: number
   decimals: number
-  type: 'token'
+  type: 'token' | 'nft' | 'cnft'
   name: string
   symbol: string
+  image?: string
   rentLamports: number
 }
 
@@ -38,11 +37,10 @@ function writeLog(message: string): void {
   console.log(`[${timestamp}] ${message}`);
 }
 
-async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> {
+async function fetchTokens(walletAddress: string): Promise<BurnableAsset[]> {
   try {
-    writeLog(`Scanning burnable assets for: ${walletAddress}`);
-
-    // Fetch all token accounts owned by wallet
+    writeLog('Fetching SPL tokens...');
+    
     const response = await fetch(RPC_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -59,15 +57,15 @@ async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> 
     });
 
     if (!response.ok) {
-      writeLog(`✗ RPC request failed: ${response.status}`);
-      return { burnableAssets: [], totalReclaimable: 0, totalAssets: 0 };
+      writeLog(`✗ Token fetch failed: ${response.status}`);
+      return [];
     }
 
     const json = await response.json() as any;
     const accounts = json?.result?.value || [];
     writeLog(`✓ Found ${accounts.length} token accounts`);
 
-    const burnableAssets: BurnableAsset[] = [];
+    const tokens: BurnableAsset[] = [];
 
     for (const account of accounts) {
       try {
@@ -78,13 +76,9 @@ async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> 
         const decimals = accountData.tokenAmount.decimals;
         const rentLamports = account.account.lamports;
 
-        // Filter: must have balance > 0, not in safe list, and has rent
-        if (
-          balance > 0 &&
-          !SAFE_MINTS.includes(mint) &&
-          rentLamports > 0
-        ) {
-          burnableAssets.push({
+        // Filter: must have balance > 0, not in safe list
+        if (balance > 0 && !SAFE_MINTS.includes(mint) && rentLamports > 0) {
+          tokens.push({
             address: accountPubkey,
             mint: mint,
             amount: balance,
@@ -94,12 +88,114 @@ async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> 
             symbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
             rentLamports: rentLamports,
           });
+          writeLog(`✓ Added token: ${mint} (${balance})`);
         }
       } catch (error) {
-        writeLog(`✗ Error processing account: ${error}`);
+        writeLog(`✗ Error processing token: ${error}`);
         continue;
       }
     }
+
+    return tokens;
+  } catch (error) {
+    writeLog(`✗ Error fetching tokens: ${error}`);
+    return [];
+  }
+}
+
+async function fetchNFTsAndCNFTs(walletAddress: string): Promise<BurnableAsset[]> {
+  try {
+    writeLog('Fetching NFTs and cNFTs...');
+    
+    const response = await fetch(RPC_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 'nft-scan',
+        method: 'getAssetsByOwner',
+        params: {
+          ownerAddress: walletAddress,
+          page: 1,
+          limit: 1000,
+          displayOptions: {
+            showFungible: false,
+            showNativeBalance: false,
+          },
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      writeLog(`✗ NFT fetch failed: ${response.status}`);
+      return [];
+    }
+
+    const json = await response.json() as any;
+    const items = json?.result?.items || [];
+    writeLog(`✓ Found ${items.length} NFTs/cNFTs`);
+
+    const nfts: BurnableAsset[] = [];
+
+    for (const item of items) {
+      try {
+        const id = item.id;
+        const content = item.content;
+        const compression = item.compression;
+        const grouping = item.grouping;
+
+        // Skip if in safe list
+        if (SAFE_MINTS.includes(id)) {
+          continue;
+        }
+
+        // Determine if NFT or cNFT
+        const assetType: 'nft' | 'cnft' = compression?.compressed ? 'cnft' : 'nft';
+
+        const name = content?.metadata?.name || `${id.slice(0, 4)}...${id.slice(-4)}`;
+        const symbol = content?.metadata?.symbol || 'NFT';
+        const image = content?.files?.[0]?.uri || content?.links?.image;
+
+        // Estimate rent
+        const rentLamports = 2039280;
+
+        nfts.push({
+          address: id, // For NFTs, use mint as address
+          mint: id,
+          amount: 1,
+          decimals: 0,
+          type: assetType,
+          name: name,
+          symbol: symbol,
+          image: image,
+          rentLamports: rentLamports,
+        });
+
+        writeLog(`✓ Added ${assetType}: ${name}`);
+      } catch (error) {
+        writeLog(`✗ Error processing NFT: ${error}`);
+        continue;
+      }
+    }
+
+    return nfts;
+  } catch (error) {
+    writeLog(`✗ Error fetching NFTs: ${error}`);
+    return [];
+  }
+}
+
+async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> {
+  try {
+    writeLog(`Scanning burnable assets for: ${walletAddress}`);
+
+    // Fetch both tokens and NFTs in parallel
+    const [tokens, nfts] = await Promise.all([
+      fetchTokens(walletAddress),
+      fetchNFTsAndCNFTs(walletAddress),
+    ]);
+
+    const burnableAssets = [...tokens, ...nfts];
 
     const totalReclaimable = burnableAssets.reduce(
       (sum, acc) => sum + acc.rentLamports,
@@ -108,7 +204,7 @@ async function scanBurnableAssets(walletAddress: string): Promise<BurnResponse> 
 
     const totalReclaimableSOL = totalReclaimable / 1e9;
 
-    writeLog(`✓ Found ${burnableAssets.length} burnable assets`);
+    writeLog(`✓ Total: ${tokens.length} tokens + ${nfts.length} NFTs/cNFTs = ${burnableAssets.length} burnable assets`);
     writeLog(`✓ Total reclaimable: ${totalReclaimableSOL.toFixed(6)} SOL`);
 
     return {
