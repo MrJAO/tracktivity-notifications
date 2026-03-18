@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-18T00:46:05.254Z",
+  "lastChecked": "2026-03-18T12:06:52.642Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -1995,6 +1995,16 @@
       "exchange": "Kraken",
       "symbol": "VELOUSD",
       "detectedAt": "2026-03-17T00:55:27.182Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "KAT-USD",
+      "detectedAt": "2026-03-18T12:06:51.541Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "KAT-USDT",
+      "detectedAt": "2026-03-18T12:06:52.488Z"
     }
   ]
 }
