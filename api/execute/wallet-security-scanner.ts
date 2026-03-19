@@ -54,6 +54,40 @@ function writeLog(message: string): void {
   console.log(`[${timestamp}] ${message}`);
 }
 
+async function fetchTokenMetadata(mint: string): Promise<{ name: string; symbol: string }> {
+  try {
+    const response = await fetch(RPC_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 'metadata',
+        method: 'getAsset',
+        params: { id: mint },
+      }),
+    });
+
+    if (response.ok) {
+      const json = await response.json() as any;
+      const content = json?.result?.content;
+      
+      if (content?.metadata) {
+        return {
+          name: content.metadata.name || `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+          symbol: content.metadata.symbol || `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+        };
+      }
+    }
+  } catch (error) {
+    writeLog(`[Metadata] Failed to fetch for ${mint}: ${error}`)
+  }
+  
+  return {
+    name: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+    symbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+  };
+}
+
 function analyzeRisk(
   delegate: string | null,
   delegatedAmount: number,
@@ -240,6 +274,10 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
         writeLog(`  Delegated Amount: ${delegatedAmount}`)
         writeLog(`  Owner: ${owner}`)
 
+        // Fetch token metadata
+        const metadata = await fetchTokenMetadata(mint)
+        writeLog(`  Token: ${metadata.symbol} (${metadata.name})`)
+        
         // Track this account in scan stats
         const isSafeMint = SAFE_MINTS.includes(mint)
         const hasDelegate = delegate !== null
@@ -247,7 +285,7 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
         
         scannedAccounts.push({
           mint: mint,
-          symbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+          symbol: metadata.symbol,
           balance: balance.toString(),
           isSecure: !hasDelegate && !authorityChanged,
           isSafeMint: isSafeMint,
@@ -298,8 +336,8 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
           delegate: delegate,
           delegatedAmount: delegatedAmount,
           decimals: decimals,
-          tokenSymbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
-          tokenName: mint,
+          tokenSymbol: metadata.symbol,
+          tokenName: metadata.name,
           authority: owner,
           riskLevel: risk.level,
           riskReason: risk.reason,
