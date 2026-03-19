@@ -36,6 +36,17 @@ interface SecurityScanResult {
   dormantPermissions: number
   criticalIssues: number
   recommendations: string[]
+  scanStats: {
+    totalAccounts: number
+    scannedAccounts: Array<{
+      mint: string
+      symbol: string
+      balance: string
+      isSecure: boolean
+      isSafeMint: boolean
+      statusMessage: string
+    }>
+  }
 }
 
 function writeLog(message: string): void {
@@ -188,6 +199,10 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
         dormantPermissions: 0,
         criticalIssues: 0,
         recommendations: ['Scan failed - please try again'],
+        scanStats: {
+          totalAccounts: 0,
+          scannedAccounts: [],
+        },
       };
     }
 
@@ -196,6 +211,14 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
     writeLog(`[RPC] ✓ Found ${accounts.length} token accounts`);
 
     const permissions: TokenPermission[] = [];
+    const scannedAccounts: Array<{
+      mint: string
+      symbol: string
+      balance: string
+      isSecure: boolean
+      isSafeMint: boolean
+      statusMessage: string
+    }> = []
     let activeCount = 0;
     let dormantCount = 0;
 
@@ -217,16 +240,35 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
         writeLog(`  Delegated Amount: ${delegatedAmount}`)
         writeLog(`  Owner: ${owner}`)
 
+        // Track this account in scan stats
+        const isSafeMint = SAFE_MINTS.includes(mint)
+        const hasDelegate = delegate !== null
+        const authorityChanged = owner !== walletAddress
+        
+        scannedAccounts.push({
+          mint: mint,
+          symbol: `${mint.slice(0, 4)}...${mint.slice(-4)}`,
+          balance: balance.toString(),
+          isSecure: !hasDelegate && !authorityChanged,
+          isSafeMint: isSafeMint,
+          statusMessage: isSafeMint 
+            ? 'Protected token (excluded from scan)'
+            : !hasDelegate && !authorityChanged
+            ? 'No permissions or authority issues'
+            : hasDelegate
+            ? `Active delegate: ${delegate?.slice(0, 8)}...`
+            : 'Authority changed',
+        })
+
+        writeLog(`  Added to scan stats: ${isSafeMint ? 'SAFE_MINT' : hasDelegate || authorityChanged ? 'HAS_ISSUE' : 'SECURE'}`)
+
         // Skip safe mints
-        if (SAFE_MINTS.includes(mint)) {
+        if (isSafeMint) {
           writeLog(`  → SKIPPED (safe mint)`)
           continue;
         }
 
         // Only track accounts with delegates or authority issues
-        const hasDelegate = delegate !== null;
-        const authorityChanged = owner !== walletAddress;
-
         writeLog(`  Has Delegate: ${hasDelegate} | Authority Changed: ${authorityChanged}`)
 
         if (!hasDelegate && !authorityChanged) {
@@ -273,6 +315,7 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
 
     writeLog(`[Summary] Total permissions found: ${permissions.length}`)
     writeLog(`[Summary] Active: ${activeCount} | Dormant: ${dormantCount}`)
+    writeLog(`[Summary] Total accounts scanned: ${scannedAccounts.length}`)
 
     const { score, status, criticalCount, recommendations } = calculateSecurityScore(permissions);
 
@@ -289,6 +332,10 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
       dormantPermissions: dormantCount,
       criticalIssues: criticalCount,
       recommendations,
+      scanStats: {
+        totalAccounts: scannedAccounts.length,
+        scannedAccounts: scannedAccounts,
+      },
     };
   } catch (error) {
     writeLog(`[Error] Exception during scan: ${error}`);
@@ -301,6 +348,10 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
       dormantPermissions: 0,
       criticalIssues: 0,
       recommendations: ['Scan error - please try again'],
+      scanStats: {
+        totalAccounts: 0,
+        scannedAccounts: [],
+      },
     };
   }
 }
@@ -334,6 +385,10 @@ export default async function handler(req: any, res: any) {
       dormantPermissions: 0,
       criticalIssues: 0,
       recommendations: [],
+      scanStats: {
+        totalAccounts: 0,
+        scannedAccounts: [],
+      },
     });
   }
 
@@ -349,6 +404,10 @@ export default async function handler(req: any, res: any) {
       dormantPermissions: 0,
       criticalIssues: 0,
       recommendations: [],
+      scanStats: {
+        totalAccounts: 0,
+        scannedAccounts: [],
+      },
     });
   }
 
@@ -369,6 +428,10 @@ export default async function handler(req: any, res: any) {
       dormantPermissions: 0,
       criticalIssues: 0,
       recommendations: [],
+      scanStats: {
+        totalAccounts: 0,
+        scannedAccounts: [],
+      },
     });
   }
 }
