@@ -51,16 +51,21 @@ function analyzeRisk(
   walletAddress: string,
   balance: number
 ): { level: 'safe' | 'low' | 'medium' | 'high' | 'critical'; reason: string } {
+  writeLog(`[Risk Analysis] Delegate: ${delegate}, Amount: ${delegatedAmount}, Authority: ${authority}, Balance: ${balance}`)
+  
   // No delegate = safe
   if (!delegate) {
+    writeLog('[Risk Analysis] → No delegate = SAFE')
     return { level: 'safe', reason: 'No active permissions' };
   }
 
   const maxU64 = BigInt('18446744073709551615');
   const delegatedRaw = BigInt(Math.floor(delegatedAmount * Math.pow(10, decimals)));
+  writeLog(`[Risk Analysis] Delegated raw: ${delegatedRaw.toString()}, Max U64: ${maxU64.toString()}`)
 
   // Authority changed (not wallet owner)
   if (authority !== walletAddress) {
+    writeLog('[Risk Analysis] → Authority changed = CRITICAL')
     return {
       level: 'critical',
       reason: 'Authority changed - someone else controls this token!',
@@ -69,6 +74,7 @@ function analyzeRisk(
 
   // Unlimited approval
   if (delegatedRaw >= maxU64 / BigInt(2)) {
+    writeLog('[Risk Analysis] → Unlimited approval = HIGH')
     return {
       level: 'high',
       reason: 'Unlimited approval granted',
@@ -77,6 +83,7 @@ function analyzeRisk(
 
   // Large delegation (>50% of balance)
   if (balance > 0 && delegatedAmount > balance * 0.5) {
+    writeLog('[Risk Analysis] → Large delegation = MEDIUM')
     return {
       level: 'medium',
       reason: `Large approval: ${delegatedAmount.toFixed(2)} tokens`,
@@ -84,6 +91,7 @@ function analyzeRisk(
   }
 
   // Active delegate but reasonable amount
+  writeLog('[Risk Analysis] → Active but reasonable = LOW')
   return {
     level: 'low',
     reason: `Active approval: ${delegatedAmount.toFixed(2)} tokens`,
@@ -96,27 +104,36 @@ function calculateSecurityScore(permissions: TokenPermission[]): {
   criticalCount: number
   recommendations: string[]
 } {
+  writeLog(`[Score Calculation] Processing ${permissions.length} permissions`)
+  
   let score = 100;
   let criticalCount = 0;
   const recommendations: string[] = [];
 
   for (const p of permissions) {
+    writeLog(`[Score] Permission: ${p.tokenSymbol} | Risk: ${p.riskLevel} | Dormant: ${p.isDormant}`)
+    
     if (p.riskLevel === 'critical') {
       score -= 40;
       criticalCount++;
       recommendations.push(`Revoke critical permission on ${p.tokenSymbol}`);
+      writeLog(`[Score] → -40 points (critical)`)
     } else if (p.riskLevel === 'high') {
       score -= 25;
       criticalCount++;
       recommendations.push(`Revoke unlimited approval on ${p.tokenSymbol}`);
+      writeLog(`[Score] → -25 points (high)`)
     } else if (p.riskLevel === 'medium') {
       score -= 10;
+      writeLog(`[Score] → -10 points (medium)`)
     } else if (p.riskLevel === 'low') {
       score -= 5;
+      writeLog(`[Score] → -5 points (low)`)
     }
 
     if (p.isDormant && p.delegate) {
       score -= 3;
+      writeLog(`[Score] → -3 points (dormant)`)
     }
   }
 
@@ -132,14 +149,17 @@ function calculateSecurityScore(permissions: TokenPermission[]): {
     recommendations.push('Your wallet security looks good!');
   }
 
+  writeLog(`[Score Calculation] Final score: ${score} | Status: ${status} | Critical: ${criticalCount}`)
+
   return { score, status, criticalCount, recommendations };
 }
 
 async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanResult> {
   try {
-    writeLog(`Scanning wallet security for: ${walletAddress}`);
+    writeLog(`[Scan Start] Wallet: ${walletAddress}`);
 
     // Fetch token accounts
+    writeLog('[RPC] Fetching token accounts...')
     const response = await fetch(RPC_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -155,8 +175,10 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
       }),
     });
 
+    writeLog(`[RPC] Response status: ${response.status}`)
+
     if (!response.ok) {
-      writeLog(`✗ Token fetch failed: ${response.status}`);
+      writeLog(`[RPC] ✗ Token fetch failed: ${response.status}`);
       return {
         permissions: [],
         securityScore: 100,
@@ -171,7 +193,7 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
 
     const json = await response.json() as any;
     const accounts = json?.result?.value || [];
-    writeLog(`✓ Found ${accounts.length} token accounts`);
+    writeLog(`[RPC] ✓ Found ${accounts.length} token accounts`);
 
     const permissions: TokenPermission[] = [];
     let activeCount = 0;
@@ -188,8 +210,16 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
         const delegatedAmount = accountData.delegatedAmount?.uiAmount || 0;
         const owner = accountData.owner;
 
+        writeLog(`[Account] ${accountPubkey}`)
+        writeLog(`  Mint: ${mint}`)
+        writeLog(`  Balance: ${balance}`)
+        writeLog(`  Delegate: ${delegate}`)
+        writeLog(`  Delegated Amount: ${delegatedAmount}`)
+        writeLog(`  Owner: ${owner}`)
+
         // Skip safe mints
         if (SAFE_MINTS.includes(mint)) {
+          writeLog(`  → SKIPPED (safe mint)`)
           continue;
         }
 
@@ -197,7 +227,10 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
         const hasDelegate = delegate !== null;
         const authorityChanged = owner !== walletAddress;
 
+        writeLog(`  Has Delegate: ${hasDelegate} | Authority Changed: ${authorityChanged}`)
+
         if (!hasDelegate && !authorityChanged) {
+          writeLog(`  → SKIPPED (no security concern)`)
           continue; // Skip - no security concern
         }
 
@@ -231,18 +264,21 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
           isDormant: isDormant,
         });
 
-        writeLog(`✓ Permission found: ${risk.level} - ${risk.reason}`);
+        writeLog(`  ✓ Added permission: ${risk.level} - ${risk.reason}`);
       } catch (error) {
-        writeLog(`✗ Error processing account: ${error}`);
+        writeLog(`  ✗ Error processing account: ${error}`);
         continue;
       }
     }
 
+    writeLog(`[Summary] Total permissions found: ${permissions.length}`)
+    writeLog(`[Summary] Active: ${activeCount} | Dormant: ${dormantCount}`)
+
     const { score, status, criticalCount, recommendations } = calculateSecurityScore(permissions);
 
-    writeLog(`✓ Security Score: ${score}/100 (${status})`);
-    writeLog(`✓ Total permissions: ${permissions.length}`);
-    writeLog(`✓ Critical issues: ${criticalCount}`);
+    writeLog(`[Result] Score: ${score}/100 (${status})`)
+    writeLog(`[Result] Total permissions: ${permissions.length}`)
+    writeLog(`[Result] Critical issues: ${criticalCount}`)
 
     return {
       permissions,
@@ -255,7 +291,7 @@ async function scanWalletSecurity(walletAddress: string): Promise<SecurityScanRe
       recommendations,
     };
   } catch (error) {
-    writeLog(`✗ Error scanning security: ${error}`);
+    writeLog(`[Error] Exception during scan: ${error}`);
     return {
       permissions: [],
       securityScore: 100,
@@ -279,12 +315,15 @@ export default async function handler(req: any, res: any) {
   }
 
   if (req.method !== 'GET') {
+    writeLog(`[Handler] ✗ Method not allowed: ${req.method}`)
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const { address } = req.query;
+  writeLog(`[Handler] Request received for address: ${address}`)
 
   if (!address || typeof address !== 'string') {
+    writeLog('[Handler] ✗ Invalid address parameter')
     return res.status(400).json({
       error: 'Wallet address required',
       permissions: [],
@@ -299,6 +338,7 @@ export default async function handler(req: any, res: any) {
   }
 
   if (!HELIUS_API_KEY) {
+    writeLog('[Handler] ✗ Missing HELIUS_API_KEY')
     return res.status(500).json({
       error: 'Server configuration error',
       permissions: [],
@@ -314,8 +354,10 @@ export default async function handler(req: any, res: any) {
 
   try {
     const result = await scanWalletSecurity(address);
+    writeLog('[Handler] ✓ Scan complete, returning result')
     return res.status(200).json(result);
   } catch (error) {
+    writeLog(`[Handler] ✗ Exception: ${error}`)
     return res.status(500).json({
       error: 'Failed to scan wallet security',
       details: String(error),
