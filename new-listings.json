@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-18T12:06:52.642Z",
+  "lastChecked": "2026-03-19T00:24:33.249Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -2005,6 +2005,46 @@
       "exchange": "Okx",
       "symbol": "KAT-USDT",
       "detectedAt": "2026-03-18T12:06:52.488Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "KAT-TRY",
+      "detectedAt": "2026-03-19T00:24:33.140Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "KAT-USD",
+      "detectedAt": "2026-03-19T00:24:33.140Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "KATEUR",
+      "detectedAt": "2026-03-19T00:24:33.248Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "KATUSD",
+      "detectedAt": "2026-03-19T00:24:33.248Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SCOREUR",
+      "detectedAt": "2026-03-19T00:24:33.248Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SCORUSD",
+      "detectedAt": "2026-03-19T00:24:33.248Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SHAPEEUR",
+      "detectedAt": "2026-03-19T00:24:33.248Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SHAPEUSD",
+      "detectedAt": "2026-03-19T00:24:33.248Z"
     }
   ]
 }
