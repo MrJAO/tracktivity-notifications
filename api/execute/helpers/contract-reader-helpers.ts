@@ -28,8 +28,6 @@ export function analyzeTransactionRisk(type: string): {
   risk: 'safe' | 'low' | 'medium' | 'high' | 'critical'
   reason?: string
 } {
-  console.log('[ContractReaderHelper] Analyzing risk for type:', type)
-  
   const riskMap: Record<string, { risk: 'safe' | 'low' | 'medium' | 'high' | 'critical', reason: string }> = {
     'APPROVE_TOKEN': { risk: 'high', reason: 'Token approval - grants spending permission' },
     'APPROVE': { risk: 'high', reason: 'Approval detected - review carefully' },
@@ -53,12 +51,10 @@ export function analyzeTransactionRisk(type: string): {
   
   for (const [key, value] of Object.entries(riskMap)) {
     if (normalized.includes(key)) {
-      console.log('[ContractReaderHelper] Risk matched:', key, value.risk)
       return value
     }
   }
   
-  console.log('[ContractReaderHelper] Default safe risk')
   return { risk: 'safe', reason: 'Standard transaction' }
 }
 
@@ -92,17 +88,13 @@ export function generateDescription(
   tokenTransfers: any[],
   nativeTransfers: any[]
 ): string {
-  console.log('[ContractReaderHelper] Generating description for type:', type, 'source:', source)
-  
   const normalizedType = type.toUpperCase()
   
   // SWAP transactions
   if (normalizedType.includes('SWAP')) {
-    // Find the main swap flow (usually largest amounts)
     const significantTransfers = tokenTransfers.filter(t => parseFloat(t.tokenAmount) > 0.001)
     
     if (significantTransfers.length >= 2) {
-      // Get first and last significant transfers to determine swap direction
       const fromTransfer = significantTransfers[0]
       const toTransfer = significantTransfers[significantTransfers.length - 1]
       
@@ -115,7 +107,6 @@ export function generateDescription(
       return `Swapped ${fromAmount} ${fromToken.symbol} for ${toAmount} ${toToken.symbol} via ${source}`
     }
     
-    // Fallback if we can't determine swap details
     if (tokenTransfers.length > 0) {
       return `Token swap via ${source} (${tokenTransfers.length} transfers)`
     }

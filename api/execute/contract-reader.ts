@@ -48,16 +48,11 @@ interface ContractAnalysisResult {
   warnings?: string[]
 }
 
-// Detect transaction vs contract
 function detectAddressType(address: string): 'transaction' | 'contract' {
-  console.log('[ContractReader] Detecting type for address length:', address.length)
   return address.length >= 80 ? 'transaction' : 'contract'
 }
 
-// Analyze transaction using Helius Enhanced Transactions API
 async function analyzeTransaction(signature: string): Promise<ContractAnalysisResult> {
-  console.log('[ContractReader] Analyzing TRANSACTION with Enhanced API:', signature)
-  
   try {
     const response = await fetch(HELIUS_ENHANCED_API, {
       method: 'POST',
@@ -67,11 +62,7 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       }),
     })
     
-    console.log('[ContractReader] Enhanced API response status:', response.status)
-    
     if (!response.ok) {
-      const errorText = await response.text()
-      console.error('[ContractReader] Enhanced API failed with body:', errorText)
       throw new Error('Failed to fetch transaction from Enhanced API')
     }
     
@@ -79,13 +70,9 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     const tx = data?.[0]
     
     if (!tx) {
-      console.error('[ContractReader] No transaction data in response')
       throw new Error('Transaction not found')
     }
     
-    console.log('[ContractReader] Transaction type:', tx.type, 'source:', tx.source)
-    
-    // Extract Enhanced API data
     const txType = tx.type || 'UNKNOWN'
     const source = tx.source || 'Unknown'
     const fee = tx.fee || 0
@@ -94,16 +81,11 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     const nativeTransfersRaw = tx.nativeTransfers || []
     const accountDataRaw = tx.accountData || []
     
-    // Generate description (use Helius if available, otherwise generate our own)
     let description = tx.description
     if (!description || description.trim() === '') {
       description = generateDescription(txType, source, tokenTransfersRaw, nativeTransfersRaw)
-      console.log('[ContractReader] Generated description:', description)
-    } else {
-      console.log('[ContractReader] Using Helius description:', description)
     }
     
-    // Analyze risk
     const riskAnalysis = analyzeTransactionRisk(txType)
     const overallRisk = riskAnalysis.risk
     const warnings: string[] = []
@@ -112,10 +94,8 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       warnings.push(riskAnalysis.reason || 'High risk transaction detected')
     }
     
-    // Build human-readable instructions
     const instructions: InstructionDetail[] = []
     
-    // Main instruction from type
     instructions.push({
       type: txType,
       program: source,
@@ -128,7 +108,6 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       },
     })
     
-    // Parse token transfers with proper symbols
     const tokenTransfers: TokenTransfer[] = tokenTransfersRaw.map((transfer: any) => {
       const tokenInfo = getTokenInfo(transfer.mint)
       return {
@@ -140,7 +119,6 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       }
     })
     
-    // Parse native SOL transfers
     const nativeTransfers = nativeTransfersRaw.map((transfer: any) => ({
       from: transfer.fromUserAccount || 'Unknown',
       to: transfer.toUserAccount || 'Unknown',
@@ -148,10 +126,8 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       symbol: 'SOL',
     }))
     
-    // Combine transfers
     const allTransfers = [...tokenTransfers, ...nativeTransfers]
     
-    // Parse account changes
     const accountChanges: AccountChange[] = accountDataRaw.map((acc: any) => ({
       account: acc.account || 'Unknown',
       type: acc.nativeBalanceChange ? 'Balance Change' : 'Token Change',
@@ -159,8 +135,6 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
         ? `SOL: ${(acc.nativeBalanceChange / 1e9).toFixed(4)}`
         : acc.tokenBalanceChanges?.[0]?.rawTokenAmount?.tokenAmount || 'Changed',
     }))
-    
-    console.log('[ContractReader] Analysis complete - Risk:', overallRisk, 'Transfers:', allTransfers.length)
     
     return {
       type: 'transaction',
@@ -178,15 +152,11 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       warnings,
     }
   } catch (error) {
-    console.error('[ContractReader] Enhanced API error:', error)
     throw error
   }
 }
 
-// Analyze contract/program
 async function analyzeContract(programId: string): Promise<ContractAnalysisResult> {
-  console.log('[ContractReader] Analyzing CONTRACT:', programId)
-  
   try {
     const response = await fetch(HELIUS_RPC, {
       method: 'POST',
@@ -198,8 +168,6 @@ async function analyzeContract(programId: string): Promise<ContractAnalysisResul
         params: [programId, { encoding: 'jsonParsed' }],
       }),
     })
-    
-    console.log('[ContractReader] Contract response status:', response.status)
     
     if (!response.ok) {
       throw new Error('Failed to fetch contract')
@@ -214,8 +182,6 @@ async function analyzeContract(programId: string): Promise<ContractAnalysisResul
     
     const programName = KNOWN_PROGRAMS[programId] || 'Unknown Program'
     const isExecutable = accountInfo.executable || false
-    
-    console.log('[ContractReader] Contract:', programName, 'Executable:', isExecutable)
     
     return {
       type: 'contract',
@@ -240,14 +206,11 @@ async function analyzeContract(programId: string): Promise<ContractAnalysisResul
       warnings: ['Contract analysis is limited. Paste a transaction signature that uses this program for detailed analysis.'],
     }
   } catch (error) {
-    console.error('[ContractReader] Contract error:', error)
     throw error
   }
 }
 
 export default async function handler(req: any, res: any) {
-  console.log('[ContractReader] Handler called - Method:', req.method)
-  
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
@@ -267,22 +230,18 @@ export default async function handler(req: any, res: any) {
   }
 
   if (!HELIUS_API_KEY) {
-    console.error('[ContractReader] Missing HELIUS_API_KEY')
     return res.status(500).json({ error: 'Server configuration error' })
   }
 
   try {
     const addressType = detectAddressType(address)
-    console.log('[ContractReader] Type:', addressType)
     
     const result = addressType === 'transaction' 
       ? await analyzeTransaction(address)
       : await analyzeContract(address)
     
-    console.log('[ContractReader] Success - Risk:', result.overallRisk, 'Description:', result.aiExplanation?.slice(0, 50))
     return res.status(200).json(result)
   } catch (error: any) {
-    console.error('[ContractReader] Error:', error.message)
     return res.status(500).json({
       error: 'Analysis failed',
       details: error.message || String(error),
