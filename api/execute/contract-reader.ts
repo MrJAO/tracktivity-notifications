@@ -112,12 +112,13 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     console.log('[ContractReader] Enhanced API response status:', response.status)
     
     if (!response.ok) {
-      console.error('[ContractReader] Enhanced API failed:', response.status)
+      const errorText = await response.text()
+      console.error('[ContractReader] Enhanced API failed with body:', errorText)
       throw new Error('Failed to fetch transaction from Enhanced API')
     }
     
     const data = await response.json() as any
-    console.log('[ContractReader] Enhanced API data keys:', Object.keys(data?.[0] || {}))
+    console.log('[ContractReader] Enhanced API full response:', JSON.stringify(data, null, 2))
     
     const tx = data?.[0]
     
@@ -125,6 +126,8 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       console.error('[ContractReader] No transaction data in response')
       throw new Error('Transaction not found')
     }
+    
+    console.log('[ContractReader] Transaction keys:', Object.keys(tx))
     
     // Extract Enhanced API data
     const description = tx.description || 'No description available'
@@ -135,9 +138,14 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     const tokenTransfersRaw = tx.tokenTransfers || []
     const nativeTransfersRaw = tx.nativeTransfers || []
     const accountDataRaw = tx.accountData || []
-    const eventsRaw = tx.events || {}
     
-    console.log('[ContractReader] Extracted - Type:', txType, 'Source:', source, 'Token Transfers:', tokenTransfersRaw.length)
+    console.log('[ContractReader] Extracted values:')
+    console.log('  - description:', description)
+    console.log('  - type:', txType)
+    console.log('  - source:', source)
+    console.log('  - tokenTransfers count:', tokenTransfersRaw.length)
+    console.log('  - nativeTransfers count:', nativeTransfersRaw.length)
+    console.log('  - accountData count:', accountDataRaw.length)
     
     // Analyze risk
     const riskAnalysis = analyzeTransactionRisk(txType)
@@ -165,33 +173,45 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     })
     
     // Parse token transfers
-    const tokenTransfers: TokenTransfer[] = tokenTransfersRaw.map((transfer: any) => ({
-      from: transfer.fromUserAccount || 'Unknown',
-      to: transfer.toUserAccount || 'Unknown',
-      amount: transfer.tokenAmount?.toString() || '0',
-      symbol: transfer.mint ? `${transfer.mint.slice(0, 4)}...${transfer.mint.slice(-4)}` : undefined,
-      mint: transfer.mint,
-    }))
+    console.log('[ContractReader] Parsing token transfers...')
+    const tokenTransfers: TokenTransfer[] = tokenTransfersRaw.map((transfer: any) => {
+      console.log('[ContractReader] Token transfer raw:', JSON.stringify(transfer, null, 2))
+      return {
+        from: transfer.fromUserAccount || 'Unknown',
+        to: transfer.toUserAccount || 'Unknown',
+        amount: transfer.tokenAmount?.toString() || '0',
+        symbol: transfer.mint ? `${transfer.mint.slice(0, 4)}...${transfer.mint.slice(-4)}` : undefined,
+        mint: transfer.mint,
+      }
+    })
     
     // Parse native SOL transfers
-    const nativeTransfers = nativeTransfersRaw.map((transfer: any) => ({
-      from: transfer.fromUserAccount || 'Unknown',
-      to: transfer.toUserAccount || 'Unknown',
-      amount: `${(transfer.amount || 0) / 1e9} SOL`,
-      symbol: 'SOL',
-    }))
+    console.log('[ContractReader] Parsing native transfers...')
+    const nativeTransfers = nativeTransfersRaw.map((transfer: any) => {
+      console.log('[ContractReader] Native transfer raw:', JSON.stringify(transfer, null, 2))
+      return {
+        from: transfer.fromUserAccount || 'Unknown',
+        to: transfer.toUserAccount || 'Unknown',
+        amount: `${(transfer.amount || 0) / 1e9} SOL`,
+        symbol: 'SOL',
+      }
+    })
     
     // Combine transfers
     const allTransfers = [...tokenTransfers, ...nativeTransfers]
     
     // Parse account changes
-    const accountChanges: AccountChange[] = accountDataRaw.map((acc: any) => ({
-      account: acc.account || 'Unknown',
-      type: acc.nativeBalanceChange ? 'Balance Change' : 'Token Change',
-      description: acc.nativeBalanceChange 
-        ? `SOL: ${(acc.nativeBalanceChange / 1e9).toFixed(4)}`
-        : acc.tokenBalanceChanges?.[0]?.rawTokenAmount?.tokenAmount || 'Changed',
-    }))
+    console.log('[ContractReader] Parsing account changes...')
+    const accountChanges: AccountChange[] = accountDataRaw.map((acc: any) => {
+      console.log('[ContractReader] Account data raw:', JSON.stringify(acc, null, 2))
+      return {
+        account: acc.account || 'Unknown',
+        type: acc.nativeBalanceChange ? 'Balance Change' : 'Token Change',
+        description: acc.nativeBalanceChange 
+          ? `SOL: ${(acc.nativeBalanceChange / 1e9).toFixed(4)}`
+          : acc.tokenBalanceChanges?.[0]?.rawTokenAmount?.tokenAmount || 'Changed',
+      }
+    })
     
     console.log('[ContractReader] Analysis complete - Transfers:', allTransfers.length, 'Account changes:', accountChanges.length, 'Risk:', overallRisk)
     
