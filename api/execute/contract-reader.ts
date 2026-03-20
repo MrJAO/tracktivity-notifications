@@ -1,4 +1,10 @@
 import fetch from 'node-fetch';
+import {
+  KNOWN_PROGRAMS,
+  analyzeTransactionRisk,
+  generateDescription,
+  getTokenInfo,
+} from './helpers/contract-reader-helpers';
 
 const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
 const HELIUS_ENHANCED_API = `https://api-mainnet.helius-rpc.com/v0/transactions?api-key=${HELIUS_API_KEY}`;
@@ -42,58 +48,10 @@ interface ContractAnalysisResult {
   warnings?: string[]
 }
 
-// Common program mappings for better UX
-const KNOWN_PROGRAMS: Record<string, string> = {
-  'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA': 'Token Program',
-  '11111111111111111111111111111111': 'System Program',
-  'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL': 'Associated Token Program',
-  'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4': 'Jupiter Aggregator',
-  '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8': 'Raydium AMM',
-  'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc': 'Orca Whirlpool',
-  'M2mx93ekt1fmXSVkTrUL9xVFHkmME8HTUi5Cyc5aF7K': 'Magic Eden v2',
-  'TSWAPaqyCSx2KABk68Shruf4rp7CxcNi8hAsbdwmHbN': 'Tensor Swap',
-  'metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s': 'Metaplex Token Metadata',
-}
-
 // Detect transaction vs contract
 function detectAddressType(address: string): 'transaction' | 'contract' {
   console.log('[ContractReader] Detecting type for address length:', address.length)
   return address.length >= 80 ? 'transaction' : 'contract'
-}
-
-// Analyze risk based on transaction type
-function analyzeTransactionRisk(type: string): {
-  risk: 'safe' | 'low' | 'medium' | 'high' | 'critical'
-  reason?: string
-} {
-  console.log('[ContractReader] Analyzing risk for type:', type)
-  
-  const riskMap: Record<string, { risk: 'safe' | 'low' | 'medium' | 'high' | 'critical', reason: string }> = {
-    'APPROVE_TOKEN': { risk: 'high', reason: 'Token approval - grants spending permission' },
-    'APPROVE': { risk: 'high', reason: 'Approval detected - review carefully' },
-    'SET_AUTHORITY': { risk: 'critical', reason: 'Authority change - control transfer' },
-    'CLOSE_ACCOUNT': { risk: 'medium', reason: 'Account closure - permanent action' },
-    'BURN': { risk: 'medium', reason: 'Token burn - destroys tokens' },
-    'BURN_NFT': { risk: 'medium', reason: 'NFT burn - permanent deletion' },
-    'TRANSFER': { risk: 'low', reason: 'Token/SOL transfer' },
-    'SWAP': { risk: 'safe', reason: 'DEX swap transaction' },
-    'NFT_SALE': { risk: 'safe', reason: 'NFT marketplace sale' },
-    'NFT_LISTING': { risk: 'safe', reason: 'NFT listing on marketplace' },
-    'NFT_BID': { risk: 'safe', reason: 'NFT bid placement' },
-    'UNKNOWN': { risk: 'medium', reason: 'Unknown transaction type - verify manually' },
-  }
-  
-  const normalized = type.toUpperCase().replace(/[-_\s]/g, '_')
-  
-  for (const [key, value] of Object.entries(riskMap)) {
-    if (normalized.includes(key)) {
-      console.log('[ContractReader] Risk matched:', key, value.risk)
-      return value
-    }
-  }
-  
-  console.log('[ContractReader] Default safe risk')
-  return { risk: 'safe', reason: 'Standard transaction' }
 }
 
 // Analyze transaction using Helius Enhanced Transactions API
@@ -118,8 +76,6 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     }
     
     const data = await response.json() as any
-    console.log('[ContractReader] Enhanced API full response:', JSON.stringify(data, null, 2))
-    
     const tx = data?.[0]
     
     if (!tx) {
@@ -127,10 +83,9 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       throw new Error('Transaction not found')
     }
     
-    console.log('[ContractReader] Transaction keys:', Object.keys(tx))
+    console.log('[ContractReader] Transaction type:', tx.type, 'source:', tx.source)
     
     // Extract Enhanced API data
-    const description = tx.description || 'No description available'
     const txType = tx.type || 'UNKNOWN'
     const source = tx.source || 'Unknown'
     const fee = tx.fee || 0
@@ -139,13 +94,14 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     const nativeTransfersRaw = tx.nativeTransfers || []
     const accountDataRaw = tx.accountData || []
     
-    console.log('[ContractReader] Extracted values:')
-    console.log('  - description:', description)
-    console.log('  - type:', txType)
-    console.log('  - source:', source)
-    console.log('  - tokenTransfers count:', tokenTransfersRaw.length)
-    console.log('  - nativeTransfers count:', nativeTransfersRaw.length)
-    console.log('  - accountData count:', accountDataRaw.length)
+    // Generate description (use Helius if available, otherwise generate our own)
+    let description = tx.description
+    if (!description || description.trim() === '') {
+      description = generateDescription(txType, source, tokenTransfersRaw, nativeTransfersRaw)
+      console.log('[ContractReader] Generated description:', description)
+    } else {
+      console.log('[ContractReader] Using Helius description:', description)
+    }
     
     // Analyze risk
     const riskAnalysis = analyzeTransactionRisk(txType)
@@ -172,48 +128,39 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
       },
     })
     
-    // Parse token transfers
-    console.log('[ContractReader] Parsing token transfers...')
+    // Parse token transfers with proper symbols
     const tokenTransfers: TokenTransfer[] = tokenTransfersRaw.map((transfer: any) => {
-      console.log('[ContractReader] Token transfer raw:', JSON.stringify(transfer, null, 2))
+      const tokenInfo = getTokenInfo(transfer.mint)
       return {
         from: transfer.fromUserAccount || 'Unknown',
         to: transfer.toUserAccount || 'Unknown',
         amount: transfer.tokenAmount?.toString() || '0',
-        symbol: transfer.mint ? `${transfer.mint.slice(0, 4)}...${transfer.mint.slice(-4)}` : undefined,
+        symbol: tokenInfo.symbol,
         mint: transfer.mint,
       }
     })
     
     // Parse native SOL transfers
-    console.log('[ContractReader] Parsing native transfers...')
-    const nativeTransfers = nativeTransfersRaw.map((transfer: any) => {
-      console.log('[ContractReader] Native transfer raw:', JSON.stringify(transfer, null, 2))
-      return {
-        from: transfer.fromUserAccount || 'Unknown',
-        to: transfer.toUserAccount || 'Unknown',
-        amount: `${(transfer.amount || 0) / 1e9} SOL`,
-        symbol: 'SOL',
-      }
-    })
+    const nativeTransfers = nativeTransfersRaw.map((transfer: any) => ({
+      from: transfer.fromUserAccount || 'Unknown',
+      to: transfer.toUserAccount || 'Unknown',
+      amount: `${(transfer.amount || 0) / 1e9} SOL`,
+      symbol: 'SOL',
+    }))
     
     // Combine transfers
     const allTransfers = [...tokenTransfers, ...nativeTransfers]
     
     // Parse account changes
-    console.log('[ContractReader] Parsing account changes...')
-    const accountChanges: AccountChange[] = accountDataRaw.map((acc: any) => {
-      console.log('[ContractReader] Account data raw:', JSON.stringify(acc, null, 2))
-      return {
-        account: acc.account || 'Unknown',
-        type: acc.nativeBalanceChange ? 'Balance Change' : 'Token Change',
-        description: acc.nativeBalanceChange 
-          ? `SOL: ${(acc.nativeBalanceChange / 1e9).toFixed(4)}`
-          : acc.tokenBalanceChanges?.[0]?.rawTokenAmount?.tokenAmount || 'Changed',
-      }
-    })
+    const accountChanges: AccountChange[] = accountDataRaw.map((acc: any) => ({
+      account: acc.account || 'Unknown',
+      type: acc.nativeBalanceChange ? 'Balance Change' : 'Token Change',
+      description: acc.nativeBalanceChange 
+        ? `SOL: ${(acc.nativeBalanceChange / 1e9).toFixed(4)}`
+        : acc.tokenBalanceChanges?.[0]?.rawTokenAmount?.tokenAmount || 'Changed',
+    }))
     
-    console.log('[ContractReader] Analysis complete - Transfers:', allTransfers.length, 'Account changes:', accountChanges.length, 'Risk:', overallRisk)
+    console.log('[ContractReader] Analysis complete - Risk:', overallRisk, 'Transfers:', allTransfers.length)
     
     return {
       type: 'transaction',
@@ -332,7 +279,7 @@ export default async function handler(req: any, res: any) {
       ? await analyzeTransaction(address)
       : await analyzeContract(address)
     
-    console.log('[ContractReader] Success - Risk:', result.overallRisk, 'Warnings:', result.warnings?.length || 0)
+    console.log('[ContractReader] Success - Risk:', result.overallRisk, 'Description:', result.aiExplanation?.slice(0, 50))
     return res.status(200).json(result)
   } catch (error: any) {
     console.error('[ContractReader] Error:', error.message)
