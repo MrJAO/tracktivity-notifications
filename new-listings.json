@@ -1,56 +1,6 @@
 {
-  "lastChecked": "2026-03-22T00:04:09.062Z",
+  "lastChecked": "2026-03-22T12:09:02.544Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-AZTEC",
-      "detectedAt": "2026-02-20T08:54:47.592Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "WLFI-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "JUP-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "ONDO-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "OP-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "RENDER-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "STX-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "W-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "ZIL-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "ZK-TRY",
-      "detectedAt": "2026-02-20T08:54:47.724Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "GWEI-USD",
