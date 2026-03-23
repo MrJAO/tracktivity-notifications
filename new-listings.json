@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-23T00:06:27.084Z",
+  "lastChecked": "2026-03-23T12:46:57.205Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -2230,6 +2230,221 @@
       "exchange": "Okx",
       "symbol": "SEI-TRY",
       "detectedAt": "2026-03-21T00:18:36.094Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AERGO-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AEVO-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AGLD-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AIXBT-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ARKM-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BICO-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BOME-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CELR-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GOAT-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ILV-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MAGIC-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "METIS-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MMT-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MON-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "PROMPT-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "RESOLV-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SATS-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TNSR-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "WCT-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "WIN-EUR",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MON-TRY",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MON-USD",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MON-USDT",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AERGO-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AEVO-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AGLD-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AIXBT-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ARKM-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BICO-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BOME-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CELR-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GOAT-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ILV-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MAGIC-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "METIS-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MMT-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MON-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "PROMPT-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "RESOLV-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SATS-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TNSR-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "WCT-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "WIN-USDC",
+      "detectedAt": "2026-03-23T12:46:57.126Z"
     }
   ]
 }
