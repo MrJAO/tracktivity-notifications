@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-23T12:46:57.205Z",
+  "lastChecked": "2026-03-24T00:47:05.242Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -2445,6 +2445,16 @@
       "exchange": "Okx",
       "symbol": "WIN-USDC",
       "detectedAt": "2026-03-23T12:46:57.126Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "OKBEUR",
+      "detectedAt": "2026-03-24T00:47:05.241Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "OKBUSD",
+      "detectedAt": "2026-03-24T00:47:05.241Z"
     }
   ]
 }
