@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-24T12:34:37.176Z",
+  "lastChecked": "2026-03-25T00:14:21.557Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -2455,6 +2455,26 @@
       "exchange": "Kraken",
       "symbol": "OKBUSD",
       "detectedAt": "2026-03-24T00:47:05.241Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "PRL-USD",
+      "detectedAt": "2026-03-25T00:14:20.175Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "ICNT-USD",
+      "detectedAt": "2026-03-25T00:14:20.175Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BONZOEUR",
+      "detectedAt": "2026-03-25T00:14:21.556Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BONZOUSD",
+      "detectedAt": "2026-03-25T00:14:21.556Z"
     }
   ]
 }
