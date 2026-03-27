@@ -1,31 +1,6 @@
 {
-  "lastChecked": "2026-03-27T00:55:51.073Z",
+  "lastChecked": "2026-03-27T12:19:12.311Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "USDC-CAD",
-      "detectedAt": "2026-02-25T07:50:22.534Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "USDC-SGD",
-      "detectedAt": "2026-02-25T07:50:22.534Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "USDC-AUD",
-      "detectedAt": "2026-02-25T07:50:22.534Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-SKR",
-      "detectedAt": "2026-02-25T07:50:22.965Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-ESP",
-      "detectedAt": "2026-02-25T07:50:22.965Z"
-    },
     {
       "exchange": "Binance",
       "symbol": "ADAU",
