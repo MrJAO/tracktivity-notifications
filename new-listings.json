@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-27T12:19:12.311Z",
+  "lastChecked": "2026-03-28T00:04:39.152Z",
   "listings": [
     {
       "exchange": "Binance",
@@ -2355,6 +2355,31 @@
       "exchange": "Okx",
       "symbol": "YB-USDC",
       "detectedAt": "2026-03-26T12:09:55.930Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "BASED1-USD",
+      "detectedAt": "2026-03-28T00:04:38.217Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BASEDEUR",
+      "detectedAt": "2026-03-28T00:04:39.151Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BASEDUSD",
+      "detectedAt": "2026-03-28T00:04:39.151Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "DUALEUR",
+      "detectedAt": "2026-03-28T00:04:39.151Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "DUALUSD",
+      "detectedAt": "2026-03-28T00:04:39.151Z"
     }
   ]
 }
