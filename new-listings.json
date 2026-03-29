@@ -1,46 +1,6 @@
 {
-  "lastChecked": "2026-03-29T00:12:47.245Z",
+  "lastChecked": "2026-03-29T12:16:47.080Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "ROBO-USD",
-      "detectedAt": "2026-02-27T04:29:11.337Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "ACT-USD",
-      "detectedAt": "2026-02-27T04:29:11.940Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "FET-USD",
-      "detectedAt": "2026-02-27T04:29:11.940Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "GMX-USD",
-      "detectedAt": "2026-02-27T04:29:11.940Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "INJ-USD",
-      "detectedAt": "2026-02-27T04:29:11.940Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "NFT-USD",
-      "detectedAt": "2026-02-27T04:29:11.940Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "VINE-USD",
-      "detectedAt": "2026-02-27T04:29:11.940Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "WOO-USD",
-      "detectedAt": "2026-02-27T04:29:11.940Z"
-    },
     {
       "exchange": "Bybit",
       "symbol": "ROBOUSDT",
