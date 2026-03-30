@@ -1,8 +1,7 @@
 import fetch from 'node-fetch';
 import {
   KNOWN_PROGRAMS,
-  analyzeTransactionRisk,
-  generateDescription,
+  getAIAnalysis,
   getTokenInfo,
 } from './helpers/contract-reader-helpers';
 
@@ -81,17 +80,14 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     const nativeTransfersRaw = tx.nativeTransfers || []
     const accountDataRaw = tx.accountData || []
     
-    let description = tx.description
-    if (!description || description.trim() === '') {
-      description = generateDescription(txType, source, tokenTransfersRaw, nativeTransfersRaw)
-    }
+    // Get AI analysis
+    const aiAnalysis = await getAIAnalysis(txType, source, tokenTransfersRaw, nativeTransfersRaw)
     
-    const riskAnalysis = analyzeTransactionRisk(txType)
-    const overallRisk = riskAnalysis.risk
+    const overallRisk = aiAnalysis.risk
     const warnings: string[] = []
     
     if (overallRisk === 'high' || overallRisk === 'critical') {
-      warnings.push(riskAnalysis.reason || 'High risk transaction detected')
+      warnings.push(aiAnalysis.reason)
     }
     
     const instructions: InstructionDetail[] = []
@@ -99,8 +95,8 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     instructions.push({
       type: txType,
       program: source,
-      description: description,
-      risk: riskAnalysis.risk,
+      description: aiAnalysis.explanation,
+      risk: aiAnalysis.risk,
       details: {
         source: source,
         fee: `${fee / 1e9} SOL`,
@@ -139,7 +135,7 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     return {
       type: 'transaction',
       address: signature,
-      aiExplanation: description,
+      aiExplanation: aiAnalysis.explanation,
       overallRisk,
       summary: {
         totalInstructions: 1,

@@ -1,4 +1,4 @@
-// Known program mappings for better UX
+// Known program mappings (kept for context enrichment)
 export const KNOWN_PROGRAMS: Record<string, string> = {
   'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA': 'Token Program',
   '11111111111111111111111111111111': 'System Program',
@@ -13,7 +13,7 @@ export const KNOWN_PROGRAMS: Record<string, string> = {
   'goonuddtQRrWqqn5nFyczVKaie28f3kDkHWkHtURSLE': 'Goosefx',
 }
 
-// Known token mints for better symbol display
+// Known token mints (kept for context enrichment)
 export const KNOWN_TOKENS: Record<string, { symbol: string, name: string }> = {
   'So11111111111111111111111111111111111111112': { symbol: 'SOL', name: 'Solana' },
   'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v': { symbol: 'USDC', name: 'USD Coin' },
@@ -23,40 +23,8 @@ export const KNOWN_TOKENS: Record<string, { symbol: string, name: string }> = {
   'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn': { symbol: 'JitoSOL', name: 'Jito Staked SOL' },
 }
 
-// Analyze risk based on transaction type
-export function analyzeTransactionRisk(type: string): {
-  risk: 'safe' | 'low' | 'medium' | 'high' | 'critical'
-  reason?: string
-} {
-  const riskMap: Record<string, { risk: 'safe' | 'low' | 'medium' | 'high' | 'critical', reason: string }> = {
-    'APPROVE_TOKEN': { risk: 'high', reason: 'Token approval - grants spending permission' },
-    'APPROVE': { risk: 'high', reason: 'Approval detected - review carefully' },
-    'SET_AUTHORITY': { risk: 'critical', reason: 'Authority change - control transfer' },
-    'CLOSE_ACCOUNT': { risk: 'medium', reason: 'Account closure - permanent action' },
-    'BURN': { risk: 'medium', reason: 'Token burn - destroys tokens' },
-    'BURN_NFT': { risk: 'medium', reason: 'NFT burn - permanent deletion' },
-    'TRANSFER': { risk: 'low', reason: 'Token/SOL transfer' },
-    'SWAP': { risk: 'safe', reason: 'DEX swap transaction' },
-    'NFT_SALE': { risk: 'safe', reason: 'NFT marketplace sale' },
-    'NFT_LISTING': { risk: 'safe', reason: 'NFT listing on marketplace' },
-    'NFT_BID': { risk: 'safe', reason: 'NFT bid placement' },
-    'NFT_MINT': { risk: 'safe', reason: 'NFT mint' },
-    'TOKEN_MINT': { risk: 'safe', reason: 'Token mint' },
-    'STAKE': { risk: 'safe', reason: 'Staking transaction' },
-    'UNSTAKE': { risk: 'safe', reason: 'Unstaking transaction' },
-    'UNKNOWN': { risk: 'medium', reason: 'Unknown transaction type - verify manually' },
-  }
-  
-  const normalized = type.toUpperCase().replace(/[-_\s]/g, '_')
-  
-  for (const [key, value] of Object.entries(riskMap)) {
-    if (normalized.includes(key)) {
-      return value
-    }
-  }
-  
-  return { risk: 'safe', reason: 'Standard transaction' }
-}
+const BYTEZ_API_KEY = process.env.BYTEZ_API_KEY || ''
+const BYTEZ_API_URL = 'https://api.bytez.com'
 
 // Get token info from mint address
 export function getTokenInfo(mint: string): { symbol: string, name: string } {
@@ -81,151 +49,129 @@ export function formatTokenAmount(amount: number | string, mint?: string): strin
   return `${amountStr} ${tokenInfo.symbol}`
 }
 
-// Generate human-readable description from transaction data
-export function generateDescription(
+// Build optimized AI prompt
+function buildAIPrompt(
   type: string,
   source: string,
   tokenTransfers: any[],
   nativeTransfers: any[]
 ): string {
-  const normalizedType = type.toUpperCase()
+  const programName = KNOWN_PROGRAMS[source] || 'Unknown Program'
+  const totalTransfers = tokenTransfers.length + nativeTransfers.length
   
-  // SWAP transactions
-  if (normalizedType.includes('SWAP')) {
-    const significantTransfers = tokenTransfers.filter(t => parseFloat(t.tokenAmount) > 0.001)
-    
-    if (significantTransfers.length >= 2) {
-      const fromTransfer = significantTransfers[0]
-      const toTransfer = significantTransfers[significantTransfers.length - 1]
-      
-      const fromToken = getTokenInfo(fromTransfer.mint)
-      const toToken = getTokenInfo(toTransfer.mint)
-      
-      const fromAmount = fromTransfer.tokenAmount
-      const toAmount = toTransfer.tokenAmount
-      
-      return `Swapped ${fromAmount} ${fromToken.symbol} for ${toAmount} ${toToken.symbol} via ${source}`
-    }
-    
-    if (tokenTransfers.length > 0) {
-      return `Token swap via ${source} (${tokenTransfers.length} transfers)`
-    }
-    
-    return `Token swap via ${source}`
+  let transferContext = ''
+  if (tokenTransfers.length > 0) {
+    const firstTransfer = tokenTransfers[0]
+    const tokenInfo = getTokenInfo(firstTransfer.mint)
+    transferContext = `Involves ${tokenInfo.symbol} token transfer. `
   }
   
-  // TRANSFER transactions
-  if (normalizedType.includes('TRANSFER')) {
-    if (nativeTransfers.length > 0) {
-      const transfer = nativeTransfers[0]
-      const amount = (transfer.amount / 1e9).toFixed(4)
-      return `Transferred ${amount} SOL`
-    }
-    
-    if (tokenTransfers.length > 0) {
-      const transfer = tokenTransfers[0]
-      const tokenInfo = getTokenInfo(transfer.mint)
-      return `Transferred ${transfer.tokenAmount} ${tokenInfo.symbol}`
-    }
-    
-    return 'Token/SOL transfer'
+  if (nativeTransfers.length > 0) {
+    transferContext += `Includes SOL transfer. `
   }
   
-  // NFT transactions
-  if (normalizedType.includes('NFT')) {
-    if (normalizedType.includes('SALE')) {
-      return `NFT sale on ${source}`
-    }
-    if (normalizedType.includes('LISTING')) {
-      return `NFT listed on ${source}`
-    }
-    if (normalizedType.includes('BID')) {
-      return `NFT bid placed on ${source}`
-    }
-    if (normalizedType.includes('MINT')) {
-      return `NFT minted`
-    }
-    return `NFT transaction on ${source}`
-  }
-  
-  // STAKE/UNSTAKE
-  if (normalizedType.includes('STAKE')) {
-    if (tokenTransfers.length > 0) {
-      const transfer = tokenTransfers[0]
-      const tokenInfo = getTokenInfo(transfer.mint)
-      return `Staked ${transfer.tokenAmount} ${tokenInfo.symbol} via ${source}`
-    }
-    return `Staking via ${source}`
-  }
-  
-  if (normalizedType.includes('UNSTAKE')) {
-    if (tokenTransfers.length > 0) {
-      const transfer = tokenTransfers[0]
-      const tokenInfo = getTokenInfo(transfer.mint)
-      return `Unstaked ${transfer.tokenAmount} ${tokenInfo.symbol} via ${source}`
-    }
-    return `Unstaking via ${source}`
-  }
-  
-  // BURN
-  if (normalizedType.includes('BURN')) {
-    if (tokenTransfers.length > 0) {
-      const transfer = tokenTransfers[0]
-      const tokenInfo = getTokenInfo(transfer.mint)
-      return `Burned ${transfer.tokenAmount} ${tokenInfo.symbol}`
-    }
-    return 'Token burn'
-  }
-  
-  // APPROVE
-  if (normalizedType.includes('APPROVE')) {
-    return `Token approval granted to ${source}`
-  }
-  
-  // SET_AUTHORITY
-  if (normalizedType.includes('SET_AUTHORITY') || normalizedType.includes('SETAUTHORITY')) {
-    return `Authority changed on ${source}`
-  }
-  
-  // CLOSE_ACCOUNT
-  if (normalizedType.includes('CLOSE_ACCOUNT') || normalizedType.includes('CLOSEACCOUNT')) {
-    return `Account closed`
-  }
-  
-  // Generic fallback
-  if (tokenTransfers.length > 0 || nativeTransfers.length > 0) {
-    const totalTransfers = tokenTransfers.length + nativeTransfers.length
-    return `${type} on ${source} (${totalTransfers} transfer${totalTransfers !== 1 ? 's' : ''})`
-  }
-  
-  return `${type} on ${source}`
+  const prompt = `Analyze this Solana transaction and respond with ONLY a JSON object (no markdown, no extra text):
+
+Transaction Type: ${type}
+Program: ${programName}
+Total Transfers: ${totalTransfers}
+${transferContext}
+
+Required JSON format:
+{
+  "explanation": "2-3 sentence user-friendly explanation of what this transaction does",
+  "risk": "safe|low|medium|high|critical",
+  "reason": "Brief reason for risk level"
 }
 
-// Generate simpler summary for UI display
-export function generateSimpleSummary(
+Respond ONLY with the JSON object.`
+
+  return prompt
+}
+
+// Call Bytez AI
+async function callBytezAI(prompt: string, maxTokens: number = 150): Promise<any> {
+  try {
+    if (!BYTEZ_API_KEY) {
+      throw new Error('Bytez API key not configured')
+    }
+
+    const response = await fetch(`${BYTEZ_API_URL}/v1/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${BYTEZ_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'mistralai/Mistral-7B-Instruct-v0.1',
+        messages: [
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        max_tokens: maxTokens,
+        temperature: 0.3,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Bytez API error: ${response.status}`)
+    }
+
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error('[Bytez AI] Error:', error)
+    throw error
+  }
+}
+
+// Get AI explanation and risk analysis
+export async function getAIAnalysis(
   type: string,
+  source: string,
   tokenTransfers: any[],
   nativeTransfers: any[]
-): string {
-  const normalizedType = type.toUpperCase()
-  
-  if (normalizedType.includes('SWAP') && tokenTransfers.length >= 2) {
-    const fromToken = getTokenInfo(tokenTransfers[0].mint)
-    const toToken = getTokenInfo(tokenTransfers[tokenTransfers.length - 1].mint)
-    return `${fromToken.symbol} → ${toToken.symbol}`
+): Promise<{
+  explanation: string
+  risk: 'safe' | 'low' | 'medium' | 'high' | 'critical'
+  reason: string
+}> {
+  try {
+    const prompt = buildAIPrompt(type, source, tokenTransfers, nativeTransfers)
+    const response = await callBytezAI(prompt, 150)
+    
+    if (!response?.choices?.[0]?.message?.content) {
+      throw new Error('Invalid AI response')
+    }
+    
+    const content = response.choices[0].message.content.trim()
+    
+    // Try to parse JSON response
+    let parsed
+    try {
+      // Remove markdown code blocks if present
+      const cleaned = content.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
+      parsed = JSON.parse(cleaned)
+    } catch (parseError) {
+      console.error('[Bytez AI] JSON parse error:', parseError)
+      throw new Error('Failed to parse AI response')
+    }
+    
+    return {
+      explanation: parsed.explanation || 'Transaction analysis unavailable',
+      risk: parsed.risk || 'medium',
+      reason: parsed.reason || 'Unable to determine risk level'
+    }
+  } catch (error) {
+    console.error('[Bytez AI] Analysis error:', error)
+    
+    // Fallback to basic analysis
+    return {
+      explanation: `${type} transaction on ${KNOWN_PROGRAMS[source] || 'Solana'}`,
+      risk: 'medium',
+      reason: 'AI analysis unavailable - verify manually'
+    }
   }
-  
-  if (normalizedType.includes('TRANSFER')) {
-    return 'Transfer'
-  }
-  
-  if (normalizedType.includes('NFT')) {
-    return 'NFT Transaction'
-  }
-  
-  if (normalizedType.includes('STAKE')) {
-    return 'Staking'
-  }
-  
-  return type
 }
