@@ -1,4 +1,4 @@
-import Bytez from 'bytez.js'
+import fetch from 'node-fetch'
 
 // Known program mappings (kept for context enrichment)
 export const KNOWN_PROGRAMS: Record<string, string> = {
@@ -93,23 +93,36 @@ Format response as JSON (no markdown):
   return prompt
 }
 
-// Call Bytez AI using SDK
+// Call Bytez AI using native fetch
 async function callBytezAI(prompt: string): Promise<any> {
   try {
     if (!BYTEZ_API_KEY) {
       throw new Error('Bytez API key not configured')
     }
 
-    const sdk = new Bytez(BYTEZ_API_KEY)
-    const model = sdk.model('Qwen/Qwen2.5-7B-Instruct')
-    
-    const { error, output } = await model.run(prompt)
-    
-    if (error) {
-      throw new Error(error)
+    const response = await fetch('https://api.bytez.com/models/v2/Qwen/Qwen2.5-7B-Instruct', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Key ${BYTEZ_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text: prompt,
+        stream: false,
+        params: {
+          max_length: 200,
+          temperature: 0.3,
+        }
+      }),
+    })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      throw new Error(`Bytez API error: ${response.status} - ${errorText}`)
     }
-    
-    return { output }
+
+    const data = await response.json()
+    return data
   } catch (error) {
     throw error
   }
