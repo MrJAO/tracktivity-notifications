@@ -1,3 +1,5 @@
+import Bytez from 'bytez.js'
+
 // Known program mappings (kept for context enrichment)
 export const KNOWN_PROGRAMS: Record<string, string> = {
   'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA': 'Token Program',
@@ -24,7 +26,6 @@ export const KNOWN_TOKENS: Record<string, { symbol: string, name: string }> = {
 }
 
 const BYTEZ_API_KEY = process.env.BYTEZ_API_KEY || ''
-const BYTEZ_API_URL = 'https://api.bytez.com'
 
 // Get token info from mint address
 export function getTokenInfo(mint: string): { symbol: string, name: string } {
@@ -92,35 +93,23 @@ Format response as JSON (no markdown):
   return prompt
 }
 
-// Call Bytez AI using Qwen2.5-7B-Instruct
-async function callBytezAI(prompt: string, maxTokens: number = 200): Promise<any> {
+// Call Bytez AI using SDK
+async function callBytezAI(prompt: string): Promise<any> {
   try {
     if (!BYTEZ_API_KEY) {
       throw new Error('Bytez API key not configured')
     }
 
-    const response = await fetch(`${BYTEZ_API_URL}/models/v2/Qwen/Qwen2.5-7B-Instruct`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Key ${BYTEZ_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        text: prompt,
-        stream: false,
-        params: {
-          max_length: maxTokens,
-          temperature: 0.3,
-        }
-      }),
-    })
-
-    if (!response.ok) {
-      throw new Error(`Bytez API error: ${response.status}`)
+    const sdk = new Bytez(BYTEZ_API_KEY)
+    const model = sdk.model('Qwen/Qwen2.5-7B-Instruct')
+    
+    const { error, output } = await model.run(prompt)
+    
+    if (error) {
+      throw new Error(error)
     }
-
-    const data = await response.json()
-    return data
+    
+    return { output }
   } catch (error) {
     throw error
   }
@@ -139,7 +128,7 @@ export async function getAIAnalysis(
 }> {
   try {
     const prompt = buildAIPrompt(type, source, tokenTransfers, nativeTransfers)
-    const response = await callBytezAI(prompt, 200)
+    const response = await callBytezAI(prompt)
     
     if (!response?.output) {
       throw new Error('Invalid AI response')
