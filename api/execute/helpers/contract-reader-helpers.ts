@@ -92,14 +92,14 @@ Format response as JSON (no markdown):
   return prompt
 }
 
-// Call Bytez AI using correct endpoint
+// Call Bytez AI using Qwen2.5-7B-Instruct
 async function callBytezAI(prompt: string, maxTokens: number = 200): Promise<any> {
   try {
     if (!BYTEZ_API_KEY) {
       throw new Error('Bytez API key not configured')
     }
 
-    const response = await fetch(`${BYTEZ_API_URL}/models/v2/mistralai/Mistral-7B-Instruct-v0.1`, {
+    const response = await fetch(`${BYTEZ_API_URL}/models/v2/Qwen/Qwen2.5-7B-Instruct`, {
       method: 'POST',
       headers: {
         'Authorization': `Key ${BYTEZ_API_KEY}`,
