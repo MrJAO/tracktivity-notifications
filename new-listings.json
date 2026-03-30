@@ -1,71 +1,6 @@
 {
-  "lastChecked": "2026-03-30T00:22:24.243Z",
+  "lastChecked": "2026-03-30T12:54:49.384Z",
   "listings": [
-    {
-      "exchange": "Bybit",
-      "symbol": "ROBOUSDT",
-      "detectedAt": "2026-02-28T06:14:54.240Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "BIO-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "CC-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "CRO-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "DAI-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "HBAR-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "LTC-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "TON-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "UNI-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "WLD-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "OKX",
-      "symbol": "ZRO-TRY",
-      "detectedAt": "2026-02-28T06:14:54.728Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "ROBOEUR",
-      "detectedAt": "2026-02-28T06:14:55.227Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "ROBOUSD",
-      "detectedAt": "2026-02-28T06:14:55.227Z"
-    },
     {
       "exchange": "Binance",
       "symbol": "BNBUSD",
@@ -2115,6 +2050,151 @@
       "exchange": "Kraken",
       "symbol": "DUALUSD",
       "detectedAt": "2026-03-28T00:04:39.151Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ASP-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CC-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CITY-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MENGO-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "NAVX-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OL-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "POR-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "PRCL-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "S-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SPACE-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SPURS-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TRA-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ZAMA-EUR",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BASED-TRY",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BASED-USD",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BASED-USDT",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ASP-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CC-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CITY-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MENGO-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "NAVX-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OL-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "POR-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "PRCL-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "S-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SPACE-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SPURS-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TRA-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ZAMA-USDC",
+      "detectedAt": "2026-03-30T12:54:49.306Z"
     }
   ]
 }
