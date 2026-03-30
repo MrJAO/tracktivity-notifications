@@ -89,33 +89,32 @@ Respond ONLY with the JSON object.`
   return prompt
 }
 
-// Call Bytez AI
+// Call Bytez AI using model.run endpoint
 async function callBytezAI(prompt: string, maxTokens: number = 150): Promise<any> {
   try {
     if (!BYTEZ_API_KEY) {
       throw new Error('Bytez API key not configured')
     }
 
-    const response = await fetch(`${BYTEZ_API_URL}/v1/chat/completions`, {
+    const response = await fetch(`${BYTEZ_API_URL}/model/job`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${BYTEZ_API_KEY}`,
+        'Authorization': `Key ${BYTEZ_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         model: 'mistralai/Mistral-7B-Instruct-v0.1',
-        messages: [
-          {
-            role: 'user',
-            content: prompt
-          }
-        ],
-        max_tokens: maxTokens,
-        temperature: 0.3,
+        input: prompt,
+        model_params: {
+          max_new_tokens: maxTokens,
+          temperature: 0.3,
+        }
       }),
     })
 
     if (!response.ok) {
+      const errorText = await response.text()
+      console.error('[Bytez AI] API error:', response.status, errorText)
       throw new Error(`Bytez API error: ${response.status}`)
     }
 
@@ -140,13 +139,14 @@ export async function getAIAnalysis(
 }> {
   try {
     const prompt = buildAIPrompt(type, source, tokenTransfers, nativeTransfers)
-    const response = await callBytezAI(prompt, 150)
-    
-    if (!response?.choices?.[0]?.message?.content) {
-      throw new Error('Invalid AI response')
-    }
-    
-    const content = response.choices[0].message.content.trim()
+  const response = await callBytezAI(prompt, 150)
+
+  // Parse Bytez model.run response
+  if (!response?.output) {
+    throw new Error('Invalid AI response')
+  }
+
+  const content = response.output.trim()
     
     // Try to parse JSON response
     let parsed
