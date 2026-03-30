@@ -49,7 +49,7 @@ export function formatTokenAmount(amount: number | string, mint?: string): strin
   return `${amountStr} ${tokenInfo.symbol}`
 }
 
-// Build optimized AI prompt
+// Build optimized AI prompt for security analysis
 function buildAIPrompt(
   type: string,
   source: string,
@@ -63,65 +63,65 @@ function buildAIPrompt(
   if (tokenTransfers.length > 0) {
     const firstTransfer = tokenTransfers[0]
     const tokenInfo = getTokenInfo(firstTransfer.mint)
-    transferContext = `Involves ${tokenInfo.symbol} token transfer. `
+    transferContext = `${tokenTransfers.length} token transfer(s) involving ${tokenInfo.symbol}. `
   }
   
   if (nativeTransfers.length > 0) {
-    transferContext += `Includes SOL transfer. `
+    transferContext += `${nativeTransfers.length} SOL transfer(s). `
   }
   
-  const prompt = `Analyze this Solana transaction and respond with ONLY a JSON object (no markdown, no extra text):
+  const prompt = `Analyze this Solana transaction for security risks:
 
 Transaction Type: ${type}
-Program: ${programName}
+Program Used: ${programName}
 Total Transfers: ${totalTransfers}
-${transferContext}
+Details: ${transferContext}
 
-Required JSON format:
+Provide a security-focused analysis answering:
+1. What specific action occurred? (Be precise - not just "transfer")
+2. Is this transaction safe, risky, spam, or suspicious?
+3. What specific security indicators support your verdict?
+
+Format response as JSON (no markdown):
 {
-  "explanation": "2-3 sentence user-friendly explanation of what this transaction does",
+  "explanation": "Clear description of what happened and safety verdict with specific reasons",
   "risk": "safe|low|medium|high|critical",
-  "reason": "Brief reason for risk level"
-}
-
-Respond ONLY with the JSON object.`
+  "reason": "Specific security indicators that determine this risk level"
+}`
 
   return prompt
 }
 
-// Call Bytez AI using model.run endpoint
-async function callBytezAI(prompt: string, maxTokens: number = 150): Promise<any> {
+// Call Bytez AI using correct endpoint
+async function callBytezAI(prompt: string, maxTokens: number = 200): Promise<any> {
   try {
     if (!BYTEZ_API_KEY) {
       throw new Error('Bytez API key not configured')
     }
 
-    const response = await fetch(`${BYTEZ_API_URL}/model/job`, {
+    const response = await fetch(`${BYTEZ_API_URL}/models/v2/mistralai/Mistral-7B-Instruct-v0.1`, {
       method: 'POST',
       headers: {
         'Authorization': `Key ${BYTEZ_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'mistralai/Mistral-7B-Instruct-v0.1',
-        input: prompt,
-        model_params: {
-          max_new_tokens: maxTokens,
+        text: prompt,
+        stream: false,
+        params: {
+          max_length: maxTokens,
           temperature: 0.3,
         }
       }),
     })
 
     if (!response.ok) {
-      const errorText = await response.text()
-      console.error('[Bytez AI] API error:', response.status, errorText)
       throw new Error(`Bytez API error: ${response.status}`)
     }
 
     const data = await response.json()
     return data
   } catch (error) {
-    console.error('[Bytez AI] Error:', error)
     throw error
   }
 }
@@ -139,39 +139,36 @@ export async function getAIAnalysis(
 }> {
   try {
     const prompt = buildAIPrompt(type, source, tokenTransfers, nativeTransfers)
-  const response = await callBytezAI(prompt, 150)
-
-  // Parse Bytez model.run response
-  if (!response?.output) {
-    throw new Error('Invalid AI response')
-  }
-
-  const content = response.output.trim()
+    const response = await callBytezAI(prompt, 200)
+    
+    if (!response?.output) {
+      throw new Error('Invalid AI response')
+    }
+    
+    const content = response.output.trim()
     
     // Try to parse JSON response
     let parsed
     try {
-      // Remove markdown code blocks if present
       const cleaned = content.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
       parsed = JSON.parse(cleaned)
     } catch (parseError) {
-      console.error('[Bytez AI] JSON parse error:', parseError)
       throw new Error('Failed to parse AI response')
     }
     
     return {
-      explanation: parsed.explanation || 'Transaction analysis unavailable',
+      explanation: parsed.explanation || 'Transaction analysis completed',
       risk: parsed.risk || 'medium',
-      reason: parsed.reason || 'Unable to determine risk level'
+      reason: parsed.reason || 'Unable to determine specific risk factors'
     }
   } catch (error) {
-    console.error('[Bytez AI] Analysis error:', error)
+    const programName = KNOWN_PROGRAMS[source] || 'Solana program'
+    const transferCount = tokenTransfers.length + nativeTransfers.length
     
-    // Fallback to basic analysis
     return {
-      explanation: `${type} transaction on ${KNOWN_PROGRAMS[source] || 'Solana'}`,
+      explanation: `${type} transaction via ${programName} with ${transferCount} transfer(s). Manual verification recommended - automated security analysis unavailable.`,
       risk: 'medium',
-      reason: 'AI analysis unavailable - verify manually'
+      reason: 'AI security analysis unavailable - verify transaction manually before proceeding'
     }
   }
 }

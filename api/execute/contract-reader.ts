@@ -80,7 +80,6 @@ async function analyzeTransaction(signature: string): Promise<ContractAnalysisRe
     const nativeTransfersRaw = tx.nativeTransfers || []
     const accountDataRaw = tx.accountData || []
     
-    // Get AI analysis
     const aiAnalysis = await getAIAnalysis(txType, source, tokenTransfersRaw, nativeTransfersRaw)
     
     const overallRisk = aiAnalysis.risk
