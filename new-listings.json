@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-30T12:54:49.384Z",
+  "lastChecked": "2026-03-31T12:24:23.372Z",
   "listings": [
     {
       "exchange": "Binance",
@@ -2195,6 +2195,21 @@
       "exchange": "Okx",
       "symbol": "ZAMA-USDC",
       "detectedAt": "2026-03-30T12:54:49.306Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "EDGEX-USD",
+      "detectedAt": "2026-03-31T12:24:22.329Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-USDS",
+      "detectedAt": "2026-03-31T12:24:22.946Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-SKY",
+      "detectedAt": "2026-03-31T12:24:22.946Z"
     }
   ]
 }
