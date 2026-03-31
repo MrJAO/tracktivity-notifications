@@ -22,7 +22,7 @@ export const KNOWN_TOKENS: Record<string, { symbol: string, name: string }> = {
   'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn': { symbol: 'JitoSOL', name: 'Jito Staked SOL' },
 }
 
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || ''
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || ''
 
 // Get token info from mint address
 export function getTokenInfo(mint: string): { symbol: string, name: string } {
@@ -88,54 +88,59 @@ You must respond with valid JSON only (no markdown, no explanation):
 }`
 }
 
-// Call Claude API for analysis
-async function callClaudeAI(prompt: string): Promise<any> {
-  console.log('🔍 [Claude] Starting API call...')
-  console.log('🔍 [Claude] API Key exists:', !!ANTHROPIC_API_KEY)
+// Call OpenAI API for analysis
+async function callOpenAI(prompt: string): Promise<any> {
+  console.log('🔍 [OpenAI] Starting API call...')
+  console.log('🔍 [OpenAI] API Key exists:', !!OPENAI_API_KEY)
   
   try {
-    if (!ANTHROPIC_API_KEY) {
-      console.error('❌ [Claude] API key not configured')
-      throw new Error('Claude API key not configured')
+    if (!OPENAI_API_KEY) {
+      console.error('❌ [OpenAI] API key not configured')
+      throw new Error('OpenAI API key not configured')
     }
 
     const requestBody = {
-      model: 'claude-haiku-4-5-20251001',
-      max_tokens: 500,
+      model: 'gpt-4o-mini',
       messages: [
+        {
+          role: 'system',
+          content: 'You are a Solana blockchain security analyst. Always respond with valid JSON only, no markdown formatting.'
+        },
         {
           role: 'user',
           content: prompt
         }
-      ]
+      ],
+      temperature: 0.3,
+      max_tokens: 500,
+      response_format: { type: 'json_object' }
     }
     
-    console.log('📤 [Claude] Sending request...')
+    console.log('📤 [OpenAI] Sending request...')
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'x-api-key': ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json',
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestBody),
     })
 
-    console.log('📥 [Claude] Response status:', response.status)
+    console.log('📥 [OpenAI] Response status:', response.status)
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error('❌ [Claude] Error response:', errorText)
-      throw new Error(`Claude API error: ${response.status} - ${errorText}`)
+      console.error('❌ [OpenAI] Error response:', errorText)
+      throw new Error(`OpenAI API error: ${response.status} - ${errorText}`)
     }
 
     const data = await response.json()
-    console.log('✅ [Claude] Response received')
+    console.log('✅ [OpenAI] Response received')
     
     return data
   } catch (error) {
-    console.error('❌ [Claude] Error:', error)
+    console.error('❌ [OpenAI] Error:', error)
     throw error
   }
 }
@@ -155,22 +160,21 @@ export async function getAIAnalysis(
   
   try {
     const prompt = buildAIPrompt(type, source, tokenTransfers, nativeTransfers)
-    const response = await callClaudeAI(prompt)
+    const response = await callOpenAI(prompt)
     
     console.log('🔄 [AI Analysis] Processing response...')
     
-    if (!response?.content?.[0]?.text) {
+    if (!response?.choices?.[0]?.message?.content) {
       console.error('❌ [AI Analysis] Invalid response structure')
       throw new Error('Invalid AI response')
     }
     
-    const content = response.content[0].text.trim()
+    const content = response.choices[0].message.content.trim()
     console.log('📝 [AI Analysis] Response text:', content)
     
     let parsed
     try {
-      const cleaned = content.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
-      parsed = JSON.parse(cleaned)
+      parsed = JSON.parse(content)
       console.log('✅ [AI Analysis] Parsed successfully')
     } catch (parseError) {
       console.error('❌ [AI Analysis] Parse error:', parseError)
