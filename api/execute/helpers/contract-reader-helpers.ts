@@ -1,6 +1,3 @@
-import fetch from 'node-fetch'
-
-// Known program mappings (kept for context enrichment)
 export const KNOWN_PROGRAMS: Record<string, string> = {
   'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA': 'Token Program',
   '11111111111111111111111111111111': 'System Program',
@@ -25,7 +22,7 @@ export const KNOWN_TOKENS: Record<string, { symbol: string, name: string }> = {
   'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn': { symbol: 'JitoSOL', name: 'Jito Staked SOL' },
 }
 
-const BYTEZ_API_KEY = process.env.BYTEZ_API_KEY || ''
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || ''
 
 // Get token info from mint address
 export function getTokenInfo(mint: string): { symbol: string, name: string } {
@@ -71,7 +68,7 @@ function buildAIPrompt(
     transferContext += `${nativeTransfers.length} SOL transfer(s). `
   }
   
-  const prompt = `Analyze this Solana transaction for security risks:
+  return `Analyze this Solana transaction for security risks:
 
 Transaction Type: ${type}
 Program Used: ${programName}
@@ -83,47 +80,62 @@ Provide a security-focused analysis answering:
 2. Is this transaction safe, risky, spam, or suspicious?
 3. What specific security indicators support your verdict?
 
-Format response as JSON (no markdown):
+You must respond with valid JSON only (no markdown, no explanation):
 {
   "explanation": "Clear description of what happened and safety verdict with specific reasons",
   "risk": "safe|low|medium|high|critical",
   "reason": "Specific security indicators that determine this risk level"
 }`
-
-  return prompt
 }
 
-// Call Bytez AI using native fetch
-async function callBytezAI(prompt: string): Promise<any> {
+// Call Claude API for analysis
+async function callClaudeAI(prompt: string): Promise<any> {
+  console.log('🔍 [Claude] Starting API call...')
+  console.log('🔍 [Claude] API Key exists:', !!ANTHROPIC_API_KEY)
+  
   try {
-    if (!BYTEZ_API_KEY) {
-      throw new Error('Bytez API key not configured')
+    if (!ANTHROPIC_API_KEY) {
+      console.error('❌ [Claude] API key not configured')
+      throw new Error('Claude API key not configured')
     }
 
-    const response = await fetch('https://api.bytez.com/models/v2/Qwen/Qwen2.5-7B-Instruct', {
+    const requestBody = {
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 500,
+      messages: [
+        {
+          role: 'user',
+          content: prompt
+        }
+      ]
+    }
+    
+    console.log('📤 [Claude] Sending request...')
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
-        'Authorization': `Key ${BYTEZ_API_KEY}`,
-        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
       },
-      body: JSON.stringify({
-        text: prompt,
-        stream: false,
-        params: {
-          max_length: 200,
-          temperature: 0.3,
-        }
-      }),
+      body: JSON.stringify(requestBody),
     })
+
+    console.log('📥 [Claude] Response status:', response.status)
 
     if (!response.ok) {
       const errorText = await response.text()
-      throw new Error(`Bytez API error: ${response.status} - ${errorText}`)
+      console.error('❌ [Claude] Error response:', errorText)
+      throw new Error(`Claude API error: ${response.status} - ${errorText}`)
     }
 
     const data = await response.json()
+    console.log('✅ [Claude] Response received')
+    
     return data
   } catch (error) {
+    console.error('❌ [Claude] Error:', error)
     throw error
   }
 }
@@ -139,22 +151,29 @@ export async function getAIAnalysis(
   risk: 'safe' | 'low' | 'medium' | 'high' | 'critical'
   reason: string
 }> {
+  console.log('🚀 [AI Analysis] Starting analysis...')
+  
   try {
     const prompt = buildAIPrompt(type, source, tokenTransfers, nativeTransfers)
-    const response = await callBytezAI(prompt)
+    const response = await callClaudeAI(prompt)
     
-    if (!response?.output) {
+    console.log('🔄 [AI Analysis] Processing response...')
+    
+    if (!response?.content?.[0]?.text) {
+      console.error('❌ [AI Analysis] Invalid response structure')
       throw new Error('Invalid AI response')
     }
     
-    const content = response.output.trim()
+    const content = response.content[0].text.trim()
+    console.log('📝 [AI Analysis] Response text:', content)
     
-    // Try to parse JSON response
     let parsed
     try {
       const cleaned = content.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
       parsed = JSON.parse(cleaned)
+      console.log('✅ [AI Analysis] Parsed successfully')
     } catch (parseError) {
+      console.error('❌ [AI Analysis] Parse error:', parseError)
       throw new Error('Failed to parse AI response')
     }
     
@@ -164,6 +183,8 @@ export async function getAIAnalysis(
       reason: parsed.reason || 'Unable to determine specific risk factors'
     }
   } catch (error) {
+    console.error('❌ [AI Analysis] Error:', error)
+    
     const programName = KNOWN_PROGRAMS[source] || 'Solana program'
     const transferCount = tokenTransfers.length + nativeTransfers.length
     
