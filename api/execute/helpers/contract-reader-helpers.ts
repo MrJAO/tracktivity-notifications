@@ -1,3 +1,8 @@
+// tracktivity-notifications/api/execute/helpers/contract-reader-helpers.ts
+
+// Native fetch - no imports needed
+
+// Known program mappings (kept for context enrichment)
 export const KNOWN_PROGRAMS: Record<string, string> = {
   'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA': 'Token Program',
   '11111111111111111111111111111111': 'System Program',
@@ -22,7 +27,7 @@ export const KNOWN_TOKENS: Record<string, { symbol: string, name: string }> = {
   'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn': { symbol: 'JitoSOL', name: 'Jito Staked SOL' },
 }
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY || ''
+const GROQ_API_KEY = process.env.GROQ_API_KEY || ''
 
 // Get token info from mint address
 export function getTokenInfo(mint: string): { symbol: string, name: string } {
@@ -88,19 +93,19 @@ You must respond with valid JSON only (no markdown, no explanation):
 }`
 }
 
-// Call OpenAI API for analysis
-async function callOpenAI(prompt: string): Promise<any> {
-  console.log('🔍 [OpenAI] Starting API call...')
-  console.log('🔍 [OpenAI] API Key exists:', !!OPENAI_API_KEY)
+// Call Groq API for analysis
+async function callGroqAI(prompt: string): Promise<any> {
+  console.log('🔍 [Groq] Starting API call...')
+  console.log('🔍 [Groq] API Key exists:', !!GROQ_API_KEY)
   
   try {
-    if (!OPENAI_API_KEY) {
-      console.error('❌ [OpenAI] API key not configured')
-      throw new Error('OpenAI API key not configured')
+    if (!GROQ_API_KEY) {
+      console.error('❌ [Groq] API key not configured')
+      throw new Error('Groq API key not configured')
     }
 
     const requestBody = {
-      model: 'gpt-4o-mini',
+      model: 'llama-3.3-70b-versatile',
       messages: [
         {
           role: 'system',
@@ -116,31 +121,31 @@ async function callOpenAI(prompt: string): Promise<any> {
       response_format: { type: 'json_object' }
     }
     
-    console.log('📤 [OpenAI] Sending request...')
+    console.log('📤 [Groq] Sending request...')
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        'Authorization': `Bearer ${GROQ_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestBody),
     })
 
-    console.log('📥 [OpenAI] Response status:', response.status)
+    console.log('📥 [Groq] Response status:', response.status)
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error('❌ [OpenAI] Error response:', errorText)
-      throw new Error(`OpenAI API error: ${response.status} - ${errorText}`)
+      console.error('❌ [Groq] Error response:', errorText)
+      throw new Error(`Groq API error: ${response.status} - ${errorText}`)
     }
 
     const data = await response.json()
-    console.log('✅ [OpenAI] Response received')
+    console.log('✅ [Groq] Response received')
     
     return data
   } catch (error) {
-    console.error('❌ [OpenAI] Error:', error)
+    console.error('❌ [Groq] Error:', error)
     throw error
   }
 }
@@ -160,7 +165,7 @@ export async function getAIAnalysis(
   
   try {
     const prompt = buildAIPrompt(type, source, tokenTransfers, nativeTransfers)
-    const response = await callOpenAI(prompt)
+    const response = await callGroqAI(prompt)
     
     console.log('🔄 [AI Analysis] Processing response...')
     
