@@ -1,41 +1,26 @@
 [
 {
-  "id": "app-update-3",
-  "title": "Tracktivity v1.0.3 Update",
-  "message": "Hi everyone! New & Updated Features",
-  "date": "2026-03-12",
+  "id": "app-update-4",
+  "title": "Upcoming v1.0.4 Update",
+  "message": "Hi everyone!",
+  "date": "2026-04-01",
   "type": "update",
   "isRead": false,
   "isSticky": true,
   "expiresAt": null,
   "metadata": {
-    "emoji": "🔔",
+    "emoji": "⚙️",
     "sections": [
       {
         "type": "text",
-        "content": "Tracktivity v1.0.3 is here. Check list below:"
+        "content": "Upcoming v1.0.4 Update"
       },
       {
         "type": "list",
         "content": [
-          "Goal Commitment",
-          "Staking/Yield Rates",
-          "Rug Check (Solana)",
-          "SKR Stats",
-          "Seeker Genesis Holders",
-          "Quarterly Returns",
-          "Notifications: Added cron job for CEX Listing alerts",
-          "Wallet Watch: Added Analyze wallet address",                                               
-          "Tutorials are now organized into expandable sections per feature for easier learning",
-          "Macro Events: Added Major Events",
-          "UI/UX and Performance improvements"
+          "Tracktivity v1.0.4 version will be coming next week. This includes new features and UI/UX improvements that might affect your current Tasks, Calendars, and Watches.",
+          "Please make sure to have a backup of your existing Tasks, Calendars, and Watches just in case. Thank you!"
         ]
-      },
-      {
-        "type": "cta",
-        "content": "Learn more about these features:",
-        "buttonText": "View Tutorial",
-        "buttonLink": "tracktivity://tutorial"
       }
     ]
   }
