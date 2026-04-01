@@ -1,8 +1,3 @@
-// tracktivity-notifications/api/execute/helpers/contract-reader-helpers.ts
-
-// Native fetch - no imports needed
-
-// Known program mappings (kept for context enrichment)
 export const KNOWN_PROGRAMS: Record<string, string> = {
   'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA': 'Token Program',
   '11111111111111111111111111111111': 'System Program',
@@ -15,6 +10,10 @@ export const KNOWN_PROGRAMS: Record<string, string> = {
   'metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s': 'Metaplex Token Metadata',
   'CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK': 'Raydium CLMM',
   'goonuddtQRrWqqn5nFyczVKaie28f3kDkHWkHtURSLE': 'Goosefx',
+  '8isViKbwhuhFhsv2t8vaFL74pKCqaFPQXo1KkeQwZbB8': 'Seeker Staking Vault',
+  '4HQy82s9CHTv1GsYKnANHMiHfhcqesYkK6sB3RDSYyqw': 'Seeker Global Staking Config',
+  'DPJ58trLsF9yPrBa2pk6UaRkvqW8hWUYjawe788WBuqr': 'Guardian Pool',
+  'SKRskrmtL83pcL83pcL4YqLWt6iPefDqwXQWHSw9S9vz94BZ': 'Seeker Staking Program',
 }
 
 // Known token mints (kept for context enrichment)
@@ -25,6 +24,7 @@ export const KNOWN_TOKENS: Record<string, { symbol: string, name: string }> = {
   'SKRbvo6Gf7GondiT3BbTfuRDPqLWei4j2Qy2NPGZhW3': { symbol: 'SKR', name: 'Seeker' },
   'mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So': { symbol: 'mSOL', name: 'Marinade SOL' },
   'J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn': { symbol: 'JitoSOL', name: 'Jito Staked SOL' },
+  'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN': { symbol: 'JUP', name: 'Jupiter' },
 }
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY || ''
@@ -73,34 +73,52 @@ function buildAIPrompt(
     transferContext += `${nativeTransfers.length} SOL transfer(s). `
   }
   
+  // Check if it's a known safe program
+  const knownSafePrograms = [
+    'Jupiter Aggregator',
+    'Raydium AMM',
+    'Orca Whirlpool',
+    'Seeker Staking Vault',
+    'Seeker Global Staking Config',
+    'Seeker Staking Program',
+    'Guardian Pool',
+    'Token Program',
+    'System Program',
+    'Raydium CLMM',
+  ]
+  
+  const isTrustedProgram = knownSafePrograms.includes(programName)
+  
   return `Analyze this Solana transaction for security risks:
 
 Transaction Type: ${type}
-Program Used: ${programName}
+Program Used: ${programName}${isTrustedProgram ? ' (Verified/Trusted Program)' : ''}
 Total Transfers: ${totalTransfers}
 Details: ${transferContext}
 
+IMPORTANT RISK ASSESSMENT GUIDELINES:
+- Transactions using verified programs like Jupiter, Raydium, Orca, Seeker Staking should default to "safe" or "low" risk
+- Multiple transfers to different addresses can be legitimate (airdrops, staking rewards, batch payments)
+- Consider the program's reputation when assessing risk
+- Only mark as "high" or "critical" if there are clear malicious indicators (drainer patterns, suspicious token mints, unusual permissions)
+
 Provide a security-focused analysis answering:
-1. What specific action occurred? (Be precise - not just "transfer")
-2. Is this transaction safe, risky, spam, or suspicious?
-3. What specific security indicators support your verdict?
+1. What specific action occurred? (Be detailed and accurate)
+2. Is this transaction safe, low risk, medium risk, high risk, or critical?
+3. What indicators support your verdict? (Consider program reputation, transfer patterns, token legitimacy)
 
 You must respond with valid JSON only (no markdown, no explanation):
 {
-  "explanation": "Clear description of what happened and safety verdict with specific reasons",
+  "explanation": "Clear 2-3 sentence description of what happened with context about safety",
   "risk": "safe|low|medium|high|critical",
-  "reason": "Specific security indicators that determine this risk level"
+  "reason": "Specific technical and contextual indicators that determine this risk level"
 }`
 }
 
 // Call Groq API for analysis
 async function callGroqAI(prompt: string): Promise<any> {
-  console.log('🔍 [Groq] Starting API call...')
-  console.log('🔍 [Groq] API Key exists:', !!GROQ_API_KEY)
-  
   try {
     if (!GROQ_API_KEY) {
-      console.error('❌ [Groq] API key not configured')
       throw new Error('Groq API key not configured')
     }
 
@@ -109,7 +127,7 @@ async function callGroqAI(prompt: string): Promise<any> {
       messages: [
         {
           role: 'system',
-          content: 'You are a Solana blockchain security analyst. Always respond with valid JSON only, no markdown formatting.'
+          content: 'You are a Solana blockchain security analyst with expertise in DeFi protocols. You understand that established protocols like Jupiter, Raydium, Orca, and Seeker are generally safe. Always respond with valid JSON only, no markdown formatting.'
         },
         {
           role: 'user',
@@ -120,8 +138,6 @@ async function callGroqAI(prompt: string): Promise<any> {
       max_tokens: 500,
       response_format: { type: 'json_object' }
     }
-    
-    console.log('📤 [Groq] Sending request...')
 
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
@@ -132,20 +148,14 @@ async function callGroqAI(prompt: string): Promise<any> {
       body: JSON.stringify(requestBody),
     })
 
-    console.log('📥 [Groq] Response status:', response.status)
-
     if (!response.ok) {
       const errorText = await response.text()
-      console.error('❌ [Groq] Error response:', errorText)
       throw new Error(`Groq API error: ${response.status} - ${errorText}`)
     }
 
     const data = await response.json()
-    console.log('✅ [Groq] Response received')
-    
     return data
   } catch (error) {
-    console.error('❌ [Groq] Error:', error)
     throw error
   }
 }
@@ -161,28 +171,20 @@ export async function getAIAnalysis(
   risk: 'safe' | 'low' | 'medium' | 'high' | 'critical'
   reason: string
 }> {
-  console.log('🚀 [AI Analysis] Starting analysis...')
-  
   try {
     const prompt = buildAIPrompt(type, source, tokenTransfers, nativeTransfers)
     const response = await callGroqAI(prompt)
     
-    console.log('🔄 [AI Analysis] Processing response...')
-    
     if (!response?.choices?.[0]?.message?.content) {
-      console.error('❌ [AI Analysis] Invalid response structure')
       throw new Error('Invalid AI response')
     }
     
     const content = response.choices[0].message.content.trim()
-    console.log('📝 [AI Analysis] Response text:', content)
     
     let parsed
     try {
       parsed = JSON.parse(content)
-      console.log('✅ [AI Analysis] Parsed successfully')
     } catch (parseError) {
-      console.error('❌ [AI Analysis] Parse error:', parseError)
       throw new Error('Failed to parse AI response')
     }
     
@@ -192,8 +194,6 @@ export async function getAIAnalysis(
       reason: parsed.reason || 'Unable to determine specific risk factors'
     }
   } catch (error) {
-    console.error('❌ [AI Analysis] Error:', error)
-    
     const programName = KNOWN_PROGRAMS[source] || 'Solana program'
     const transferCount = tokenTransfers.length + nativeTransfers.length
     
