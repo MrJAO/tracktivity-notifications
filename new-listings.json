@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-31T12:24:23.372Z",
+  "lastChecked": "2026-04-01T00:00:27.433Z",
   "listings": [
     {
       "exchange": "Binance",
@@ -2210,6 +2210,16 @@
       "exchange": "Upbit",
       "symbol": "KRW-SKY",
       "detectedAt": "2026-03-31T12:24:22.946Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "MEZOEUR",
+      "detectedAt": "2026-04-01T00:00:27.432Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "MEZOUSD",
+      "detectedAt": "2026-04-01T00:00:27.432Z"
     }
   ]
 }
