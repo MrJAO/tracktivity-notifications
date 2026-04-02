@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-01T12:09:02.354Z",
+  "lastChecked": "2026-04-02T00:42:13.278Z",
   "listings": [
     {
       "exchange": "Binance",
@@ -2220,6 +2220,21 @@
       "exchange": "Kraken",
       "symbol": "MEZOUSD",
       "detectedAt": "2026-04-01T00:00:27.432Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "MEZO-USD",
+      "detectedAt": "2026-04-02T00:42:12.284Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "CHECK-USD",
+      "detectedAt": "2026-04-02T00:42:12.285Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "SIGN-USD",
+      "detectedAt": "2026-04-02T00:42:12.285Z"
     }
   ]
 }
