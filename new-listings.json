@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-02T12:32:35.283Z",
+  "lastChecked": "2026-04-03T00:26:58.178Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -2015,6 +2015,11 @@
       "exchange": "Coinbase",
       "symbol": "SIGN-USD",
       "detectedAt": "2026-04-02T00:42:12.285Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "GIBUSD",
+      "detectedAt": "2026-04-03T00:26:58.178Z"
     }
   ]
 }
