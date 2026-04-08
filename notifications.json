@@ -1,26 +1,35 @@
 [
 {
-  "id": "app-update-4",
-  "title": "Upcoming v1.0.4 Update",
-  "message": "Hi everyone!",
-  "date": "2026-04-01",
+  "id": "app-update-5",
+  "title": "Tracktivity v1.0.4",
+  "message": "Good day! Tracktivity v1.0.4 update is now available on DApp Store",
+  "date": "2026-04-08",
   "type": "update",
   "isRead": false,
   "isSticky": true,
   "expiresAt": null,
   "metadata": {
-    "emoji": "⚙️",
+    "emoji": "⇄",
     "sections": [
       {
         "type": "text",
-        "content": "Upcoming v1.0.4 Update"
+        "content": "New and Updated Features"
       },
       {
         "type": "list",
         "content": [
-          "Tracktivity v1.0.4 version will be coming next week. This includes new features and UI/UX improvements that might affect your current Tasks, Calendars, and Watches.",
-          "Please make sure to have a backup of your existing Tasks, Calendars, and Watches just in case. Thank you!"
+          "Reclaim SOL",
+          "Burn Assets",
+          "Wallet Security Scanner",
+          "Contract Reader (Integrated with AI - Testing)",
+          "UI / UX Improvements)"
         ]
+      },
+      {
+        "type": "cta",
+        "content": "Learn more about these features:",
+        "buttonText": "View Execute",
+        "buttonLink": "tracktivity://execute"
       }
     ]
   }
