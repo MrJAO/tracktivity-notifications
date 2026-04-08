@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-07T12:51:51.151Z",
+  "lastChecked": "2026-04-08T00:58:04.662Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -1590,6 +1590,16 @@
       "exchange": "Kraken",
       "symbol": "GIBUSD",
       "detectedAt": "2026-04-03T00:26:58.178Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "QUAIEUR",
+      "detectedAt": "2026-04-08T00:58:04.661Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "QUAIUSD",
+      "detectedAt": "2026-04-08T00:58:04.661Z"
     }
   ]
 }
