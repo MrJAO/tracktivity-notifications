@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-09T00:05:11.430Z",
+  "lastChecked": "2026-04-09T12:24:27.168Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -1400,6 +1400,31 @@
       "exchange": "Kraken",
       "symbol": "QUAIUSD",
       "detectedAt": "2026-04-08T00:58:04.661Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OFC-EUR",
+      "detectedAt": "2026-04-09T12:24:27.094Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OFC-TRY",
+      "detectedAt": "2026-04-09T12:24:27.094Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OFC-USD",
+      "detectedAt": "2026-04-09T12:24:27.094Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OFC-USDT",
+      "detectedAt": "2026-04-09T12:24:27.094Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OFC-USDC",
+      "detectedAt": "2026-04-09T12:24:27.094Z"
     }
   ]
 }
