@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-04-10T00:59:33.202Z",
+  "lastChecked": "2026-04-10T12:10:11.564Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-ICP",
-      "detectedAt": "2026-03-11T12:01:56.884Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "LINEA-EUR",
