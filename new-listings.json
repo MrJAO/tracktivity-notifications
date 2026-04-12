@@ -1,56 +1,6 @@
 {
-  "lastChecked": "2026-04-12T00:49:42.227Z",
+  "lastChecked": "2026-04-12T12:17:58.131Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "ALLO-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "ANIME-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CHZ-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "HMSTR-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "LAYER-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "MAGIC-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PAXG-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "SAHARA-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TNSR-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TURBO-TRY",
-      "detectedAt": "2026-03-13T12:08:16.312Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "SAUCEEUR",
