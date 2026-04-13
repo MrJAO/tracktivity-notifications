@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-04-13T00:23:49.070Z",
+  "lastChecked": "2026-04-13T12:53:56.227Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "SAUCEEUR",
-      "detectedAt": "2026-03-14T00:47:32.174Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SAUCEUSD",
-      "detectedAt": "2026-03-14T00:47:32.174Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "BABY-EUR",
