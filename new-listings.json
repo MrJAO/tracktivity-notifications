@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-14T00:10:33.245Z",
+  "lastChecked": "2026-04-14T12:46:29.199Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -1150,6 +1150,11 @@
       "exchange": "Okx",
       "symbol": "OFC-USDC",
       "detectedAt": "2026-04-09T12:24:27.094Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-ZAMA",
+      "detectedAt": "2026-04-14T12:46:28.861Z"
     }
   ]
 }
