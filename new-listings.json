@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-15T00:25:23.187Z",
+  "lastChecked": "2026-04-15T12:28:28.166Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -1155,6 +1155,21 @@
       "exchange": "Upbit",
       "symbol": "KRW-ZAMA",
       "detectedAt": "2026-04-14T12:46:28.861Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-CC",
+      "detectedAt": "2026-04-15T12:28:27.823Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "STEUR",
+      "detectedAt": "2026-04-15T12:28:28.165Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "STUSD",
+      "detectedAt": "2026-04-15T12:28:28.165Z"
     }
   ]
 }
