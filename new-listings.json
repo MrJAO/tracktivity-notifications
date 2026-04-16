@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-04-16T00:05:11.437Z",
+  "lastChecked": "2026-04-16T12:52:06.273Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "VELOEUR",
-      "detectedAt": "2026-03-17T00:55:27.182Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "VELOUSD",
-      "detectedAt": "2026-03-17T00:55:27.182Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "KAT-USD",
@@ -960,6 +950,16 @@
       "exchange": "Kraken",
       "symbol": "STUSD",
       "detectedAt": "2026-04-15T12:28:28.165Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SIGNEUR",
+      "detectedAt": "2026-04-16T12:52:06.272Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SIGNUSD",
+      "detectedAt": "2026-04-16T12:52:06.272Z"
     }
   ]
 }
