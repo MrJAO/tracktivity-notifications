@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-04-17T00:27:55.404Z",
+  "lastChecked": "2026-04-17T12:38:49.104Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "KAT-USD",
-      "detectedAt": "2026-03-18T12:06:51.541Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "KAT-USDT",
-      "detectedAt": "2026-03-18T12:06:52.488Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "KAT-TRY",
@@ -960,6 +950,21 @@
       "exchange": "Kraken",
       "symbol": "SIGNUSD",
       "detectedAt": "2026-04-16T12:52:06.272Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-SOON",
+      "detectedAt": "2026-04-17T12:38:48.757Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "USDS-USD",
+      "detectedAt": "2026-04-17T12:38:49.038Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "USDS-USDT",
+      "detectedAt": "2026-04-17T12:38:49.038Z"
     }
   ]
 }
