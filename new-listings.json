@@ -1,51 +1,6 @@
 {
-  "lastChecked": "2026-04-20T00:12:30.336Z",
+  "lastChecked": "2026-04-20T12:44:22.589Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "AAVE-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "AIXBT-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "BARD-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CFG-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "DOT-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "KITE-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "NEAR-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PHA-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "SEI-TRY",
-      "detectedAt": "2026-03-21T00:18:36.094Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "AERGO-EUR",
@@ -730,6 +685,11 @@
       "exchange": "Kraken",
       "symbol": "APXUSDUSDC",
       "detectedAt": "2026-04-20T00:12:30.335Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-PIEVERSE",
+      "detectedAt": "2026-04-20T12:44:22.198Z"
     }
   ]
 }
