@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-20T12:44:22.589Z",
+  "lastChecked": "2026-04-21T00:31:51.170Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -690,6 +690,16 @@
       "exchange": "Upbit",
       "symbol": "KRW-PIEVERSE",
       "detectedAt": "2026-04-20T12:44:22.198Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "OPG-USD",
+      "detectedAt": "2026-04-21T00:31:50.206Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "CHIP-USD",
+      "detectedAt": "2026-04-21T00:31:50.206Z"
     }
   ]
 }
