@@ -1,9 +1,4 @@
-import fetch from 'node-fetch';
-
-const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
-const RPC_ENDPOINT = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
 const METEORA_API_BASE = 'https://dlmm-api.meteora.ag';
-const POSITION_V2_PROGRAM = 'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo';
 
 // ============================================================================
 // LOGGING
@@ -96,65 +91,42 @@ async function withRetry<T>(
 }
 
 // ============================================================================
-// POSITION FETCHING
+// POSITION FETCHING - Using Meteora API
 // ============================================================================
 async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Record<string, DLMMPosition[]>> {
   if (walletAddresses.length === 0) return {};
 
-  writeLog(`Fetching DLMM positions for ${walletAddresses.length} wallet(s)`);
+  writeLog(`Fetching DLMM positions for ${walletAddresses.length} wallet(s) from Meteora API`);
 
   try {
     const positionsByWallet: Record<string, DLMMPosition[]> = {};
 
-    // Fetch positions one by one instead of batching (Helius might block batch)
     for (const walletAddress of walletAddresses) {
       try {
         const response = await withRetry(() =>
-          fetch(RPC_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              jsonrpc: '2.0',
-              id: 1,
-              method: 'getProgramAccounts',
-              params: [
-                POSITION_V2_PROGRAM,
-                {
-                  encoding: 'base64',
-                  filters: [
-                    {
-                      memcmp: {
-                        offset: 8,
-                        bytes: walletAddress,
-                      },
-                    },
-                  ],
-                },
-              ],
-            }),
-          })
+          fetch(`${METEORA_API_BASE}/position/user/${walletAddress}`)
         );
 
         if (!response.ok) {
-          writeLog(`✗ RPC request failed for ${walletAddress.slice(0, 8)}...: ${response.status}`);
+          writeLog(`✗ Meteora API failed for ${walletAddress.slice(0, 8)}...: ${response.status}`);
           positionsByWallet[walletAddress] = [];
           continue;
         }
 
-        const result = await response.json() as any;
+        const data: any = await response.json();
 
-        if (result.result && Array.isArray(result.result)) {
-          positionsByWallet[walletAddress] = result.result.map((account: any) => ({
-            positionAddress: account.pubkey,
-            lbPair: 'Unknown',
+        if (data && Array.isArray(data)) {
+          positionsByWallet[walletAddress] = data.map((pos: any) => ({
+            positionAddress: pos.publicKey || pos.address || 'Unknown',
+            lbPair: pos.lbPair || 'Unknown',
             owner: walletAddress,
-            lowerBinId: 0,
-            upperBinId: 0,
-            totalClaimedFeeXAmount: 0,
-            totalClaimedFeeYAmount: 0,
-            createdAt: Date.now(),
-            currentValue: 0,
-            inRange: true,
+            lowerBinId: pos.positionBinData?.[0]?.binId || 0,
+            upperBinId: pos.positionBinData?.[pos.positionBinData?.length - 1]?.binId || 0,
+            totalClaimedFeeXAmount: parseFloat(pos.totalClaimedFeeXAmount || '0'),
+            totalClaimedFeeYAmount: parseFloat(pos.totalClaimedFeeYAmount || '0'),
+            createdAt: pos.createdAt || Date.now(),
+            currentValue: parseFloat(pos.positionUsdValue || '0'),
+            inRange: pos.inRange || false,
           }));
 
           writeLog(`✓ Found ${positionsByWallet[walletAddress].length} positions for ${walletAddress.slice(0, 8)}...`);
@@ -162,8 +134,7 @@ async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Reco
           positionsByWallet[walletAddress] = [];
         }
 
-        // Small delay between requests to avoid rate limits
-        await delay(200);
+        await delay(100);
       } catch (error) {
         writeLog(`✗ Error fetching positions for ${walletAddress.slice(0, 8)}...: ${error}`);
         positionsByWallet[walletAddress] = [];
@@ -193,7 +164,7 @@ async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMP
   writeLog(`Fetching pools - page ${page}, search="${search || 'none'}"`);
 
   try {
-    await delay(100); // Rate limit protection
+    await delay(100);
 
     const response = await withRetry(() =>
       fetch(`${METEORA_API_BASE}/pair/all`)
@@ -226,7 +197,6 @@ async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMP
       }))
       .sort((a: DLMMPool, b: DLMMPool) => b.liquidity - a.liquidity);
 
-    // Filter by search if provided
     if (search && search.trim()) {
       const searchLower = search.toLowerCase().trim();
       pools = pools.filter((pool: DLMMPool) => {
@@ -235,7 +205,6 @@ async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMP
       });
     }
 
-    // Paginate
     const start = (page - 1) * pageSize;
     const end = start + pageSize;
     const paginatedPools = pools.slice(start, end);
@@ -274,10 +243,6 @@ export default async function handler(req: any, res: any) {
   }
 
   const { type, addresses, page, search } = req.query;
-
-  if (!HELIUS_API_KEY) {
-    return res.status(500).json({ error: 'Server configuration error' });
-  }
 
   try {
     // POSITIONS
