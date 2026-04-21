@@ -1,4 +1,4 @@
-const METEORA_API_BASE = 'https://dlmm-api.meteora.ag';
+const METEORA_API_BASE = 'https://dlmm.datapi.meteora.ag';
 const SHYFT_API_KEY = process.env.SHYFT_API_KEY || '';
 const SHYFT_GRAPHQL_ENDPOINT = `https://programs.shyft.to/v0/graphql/accounts?api_key=${SHYFT_API_KEY}&network=mainnet-beta`;
 
