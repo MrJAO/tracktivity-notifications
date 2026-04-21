@@ -1,4 +1,6 @@
 const METEORA_API_BASE = 'https://dlmm-api.meteora.ag';
+const SHYFT_API_KEY = process.env.SHYFT_API_KEY || '';
+const SHYFT_GRAPHQL_ENDPOINT = `https://programs.shyft.to/v0/graphql/accounts?api_key=${SHYFT_API_KEY}&network=mainnet-beta`;
 
 // ============================================================================
 // LOGGING
@@ -91,42 +93,69 @@ async function withRetry<T>(
 }
 
 // ============================================================================
-// POSITION FETCHING - Using Meteora API
+// POSITION FETCHING - Using SHYFT GraphQL
 // ============================================================================
 async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Record<string, DLMMPosition[]>> {
   if (walletAddresses.length === 0) return {};
+  if (!SHYFT_API_KEY) {
+    writeLog('✗ SHYFT_API_KEY not configured');
+    return {};
+  }
 
-  writeLog(`Fetching DLMM positions for ${walletAddresses.length} wallet(s) from Meteora API`);
+  writeLog(`Fetching DLMM positions for ${walletAddresses.length} wallet(s) from SHYFT`);
 
   try {
     const positionsByWallet: Record<string, DLMMPosition[]> = {};
 
     for (const walletAddress of walletAddresses) {
       try {
+        const query = `
+          query GetPositions {
+            meteora_dlmm_PositionV2(where: {owner: {_eq: "${walletAddress}"}}) {
+              pubkey
+              lbPair
+              owner
+              lowerBinId
+              upperBinId
+              totalClaimedFeeXAmount
+              totalClaimedFeeYAmount
+            }
+          }
+        `;
+
         const response = await withRetry(() =>
-          fetch(`${METEORA_API_BASE}/position/user/${walletAddress}`)
+          fetch(SHYFT_GRAPHQL_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              query,
+              operationName: 'GetPositions'
+            })
+          })
         );
 
         if (!response.ok) {
-          writeLog(`✗ Meteora API failed for ${walletAddress.slice(0, 8)}...: ${response.status}`);
+          writeLog(`✗ SHYFT API failed for ${walletAddress.slice(0, 8)}...: ${response.status}`);
           positionsByWallet[walletAddress] = [];
           continue;
         }
 
-        const data: any = await response.json();
+        const result: any = await response.json();
 
-        if (data && Array.isArray(data)) {
-          positionsByWallet[walletAddress] = data.map((pos: any) => ({
-            positionAddress: pos.publicKey || pos.address || 'Unknown',
+        if (result.data?.meteora_dlmm_PositionV2) {
+          const positions = result.data.meteora_dlmm_PositionV2;
+          
+          positionsByWallet[walletAddress] = positions.map((pos: any) => ({
+            positionAddress: pos.pubkey || 'Unknown',
             lbPair: pos.lbPair || 'Unknown',
             owner: walletAddress,
-            lowerBinId: pos.positionBinData?.[0]?.binId || 0,
-            upperBinId: pos.positionBinData?.[pos.positionBinData?.length - 1]?.binId || 0,
+            lowerBinId: parseInt(pos.lowerBinId || '0'),
+            upperBinId: parseInt(pos.upperBinId || '0'),
             totalClaimedFeeXAmount: parseFloat(pos.totalClaimedFeeXAmount || '0'),
             totalClaimedFeeYAmount: parseFloat(pos.totalClaimedFeeYAmount || '0'),
-            createdAt: pos.createdAt || Date.now(),
-            currentValue: parseFloat(pos.positionUsdValue || '0'),
-            inRange: pos.inRange || false,
+            createdAt: Date.now(),
+            currentValue: 0,
+            inRange: true,
           }));
 
           writeLog(`✓ Found ${positionsByWallet[walletAddress].length} positions for ${walletAddress.slice(0, 8)}...`);
@@ -149,7 +178,7 @@ async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Reco
 }
 
 // ============================================================================
-// POOL FETCHING
+// POOL FETCHING - Using Meteora API
 // ============================================================================
 async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMPool[], total: number, pages: number }> {
   const pageSize = 20;
@@ -249,6 +278,10 @@ export default async function handler(req: any, res: any) {
     if (type === 'positions') {
       if (!addresses || typeof addresses !== 'string') {
         return res.status(400).json({ error: 'Addresses required' });
+      }
+
+      if (!SHYFT_API_KEY) {
+        return res.status(500).json({ error: 'SHYFT API key not configured' });
       }
 
       const walletAddresses = addresses.split(',').map((a: string) => a.trim()).filter(Boolean);
