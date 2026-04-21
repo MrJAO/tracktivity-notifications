@@ -1,5 +1,6 @@
+const SHYFT_API_KEY = process.env.SHYFT_API_KEY || '';
+const SHYFT_GRAPHQL_ENDPOINT = `https://programs.shyft.to/v0/graphql/?api_key=${SHYFT_API_KEY}&network=mainnet-beta`;
 const METEORA_POOLS_API = 'https://dlmm.datapi.meteora.ag/pools';
-const METEORA_POSITIONS_API = 'https://dlmm.datapi.meteora.ag/positions/wallet';
 
 // ============================================================================
 // LOGGING
@@ -92,47 +93,69 @@ async function withRetry<T>(
 }
 
 // ============================================================================
-// POSITION FETCHING - Using Meteora API
+// POSITION FETCHING - Using SHYFT GraphQL
 // ============================================================================
 async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Record<string, DLMMPosition[]>> {
   if (walletAddresses.length === 0) return {};
+  if (!SHYFT_API_KEY) {
+    writeLog('✗ SHYFT_API_KEY not configured');
+    return {};
+  }
 
-  writeLog(`Fetching DLMM positions for ${walletAddresses.length} wallet(s) from Meteora`);
+  writeLog(`Fetching DLMM positions for ${walletAddresses.length} wallet(s) from SHYFT`);
 
   try {
     const positionsByWallet: Record<string, DLMMPosition[]> = {};
 
     for (const walletAddress of walletAddresses) {
       try {
-        const url = `${METEORA_POSITIONS_API}/${walletAddress}`;
-        
+        const query = `
+          query GetPositions {
+            meteora_dlmm_PositionV2(where: {owner: {_eq: "${walletAddress}"}}) {
+              pubkey
+              lbPair
+              owner
+              lowerBinId
+              upperBinId
+              totalClaimedFeeXAmount
+              totalClaimedFeeYAmount
+            }
+          }
+        `;
+
         const response = await withRetry(() =>
-          fetch(url, {
-            method: 'GET',
+          fetch(SHYFT_GRAPHQL_ENDPOINT, {
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              query,
+              operationName: 'GetPositions'
+            })
           })
         );
 
         if (!response.ok) {
-          writeLog(`✗ Meteora API failed for ${walletAddress.slice(0, 8)}...: ${response.status}`);
+          writeLog(`✗ SHYFT API failed for ${walletAddress.slice(0, 8)}...: ${response.status}`);
           positionsByWallet[walletAddress] = [];
           continue;
         }
 
         const result: any = await response.json();
 
-        if (result.data && Array.isArray(result.data)) {
-          positionsByWallet[walletAddress] = result.data.map((pos: any) => ({
-            positionAddress: pos.position_address || pos.address || 'Unknown',
-            lbPair: pos.pool_address || pos.lb_pair || 'Unknown',
+        if (result.data?.meteora_dlmm_PositionV2) {
+          const positions = result.data.meteora_dlmm_PositionV2;
+          
+          positionsByWallet[walletAddress] = positions.map((pos: any) => ({
+            positionAddress: pos.pubkey || 'Unknown',
+            lbPair: pos.lbPair || 'Unknown',
             owner: walletAddress,
-            lowerBinId: parseInt(pos.lower_bin_id || pos.lowerBinId || '0'),
-            upperBinId: parseInt(pos.upper_bin_id || pos.upperBinId || '0'),
-            totalClaimedFeeXAmount: parseFloat(pos.total_claimed_fee_x_amount || pos.totalClaimedFeeXAmount || '0'),
-            totalClaimedFeeYAmount: parseFloat(pos.total_claimed_fee_y_amount || pos.totalClaimedFeeYAmount || '0'),
-            createdAt: pos.created_at || Date.now(),
-            currentValue: parseFloat(pos.current_value || '0'),
-            inRange: pos.in_range !== undefined ? pos.in_range : true,
+            lowerBinId: parseInt(pos.lowerBinId || '0'),
+            upperBinId: parseInt(pos.upperBinId || '0'),
+            totalClaimedFeeXAmount: parseFloat(pos.totalClaimedFeeXAmount || '0'),
+            totalClaimedFeeYAmount: parseFloat(pos.totalClaimedFeeYAmount || '0'),
+            createdAt: Date.now(),
+            currentValue: 0,
+            inRange: true,
           }));
 
           writeLog(`✓ Found ${positionsByWallet[walletAddress].length} positions for ${walletAddress.slice(0, 8)}...`);
@@ -155,19 +178,19 @@ async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Reco
 }
 
 // ============================================================================
-// POOL FETCHING - Using Meteora API
+// POOL FETCHING - Using Meteora API (no server-side search)
 // ============================================================================
-async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMPool[], total: number, pages: number }> {
+async function fetchPools(page: number): Promise<{ pools: DLMMPool[], total: number, pages: number }> {
   const pageSize = 20;
-  const cacheKey = `pools:${page}:${search || 'all'}`;
+  const cacheKey = `pools:${page}`;
   const cached = getCache<{ pools: DLMMPool[], total: number, pages: number }>(cacheKey);
   
   if (cached) {
-    writeLog(`✓ Cache hit for pools page ${page} search="${search || 'none'}"`);
+    writeLog(`✓ Cache hit for pools page ${page}`);
     return cached;
   }
 
-  writeLog(`Fetching pools - page ${page}, search="${search || 'none'}"`);
+  writeLog(`Fetching pools - page ${page}`);
 
   try {
     await delay(100);
@@ -176,10 +199,6 @@ async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMP
       page: page.toString(),
       page_size: pageSize.toString(),
     });
-
-    if (search && search.trim()) {
-      params.append('search', search.trim());
-    }
 
     const url = `${METEORA_POOLS_API}?${params.toString()}`;
     
@@ -205,12 +224,12 @@ async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMP
     const pools: DLMMPool[] = result.data.map((pool: any) => ({
       address: pool.address || '',
       name: pool.name || `${pool.token_x?.symbol || '???'}/${pool.token_y?.symbol || '???'}`,
-      tokenX: pool.token_x?.address || pool.tokenXMint || '',
-      tokenY: pool.token_y?.address || pool.tokenYMint || '',
-      liquidity: parseFloat(pool.tvl || pool.liquidity || '0'),
-      volume24h: parseFloat(pool.volume?.['24h'] || pool.volume_24h || '0'),
-      fees24h: parseFloat(pool.fees?.['24h'] || pool.fees_24h || '0'),
-      apr: parseFloat(pool.apr || pool.fee_apr || '0'),
+      tokenX: pool.token_x?.address || '',
+      tokenY: pool.token_y?.address || '',
+      liquidity: parseFloat(pool.tvl || '0'),
+      volume24h: parseFloat(pool.volume?.['24h'] || '0'),
+      fees24h: parseFloat(pool.fees?.['24h'] || '0'),
+      apr: parseFloat(pool.apr || '0'),
       url: `https://app.meteora.ag/dlmm/${pool.address}`,
     }));
 
@@ -246,7 +265,7 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { type, addresses, page, search } = req.query;
+  const { type, addresses, page } = req.query;
 
   try {
     // POSITIONS
@@ -261,12 +280,10 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ positions });
     }
 
-    // POOLS
+    // POOLS (no search parameter)
     if (type === 'pools') {
       const pageNum = parseInt(page as string) || 1;
-      const searchTerm = search as string || '';
-
-      const result = await fetchPools(pageNum, searchTerm);
+      const result = await fetchPools(pageNum);
 
       return res.status(200).json(result);
     }
