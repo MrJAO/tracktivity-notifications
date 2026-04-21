@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-21T00:31:51.170Z",
+  "lastChecked": "2026-04-21T12:59:17.615Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -700,6 +700,21 @@
       "exchange": "Coinbase",
       "symbol": "CHIP-USD",
       "detectedAt": "2026-04-21T00:31:50.206Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-CHIP",
+      "detectedAt": "2026-04-21T12:59:17.236Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "CHIPEUR",
+      "detectedAt": "2026-04-21T12:59:17.614Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "CHIPUSD",
+      "detectedAt": "2026-04-21T12:59:17.614Z"
     }
   ]
 }
