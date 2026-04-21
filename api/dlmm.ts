@@ -104,45 +104,44 @@ async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Reco
   writeLog(`Fetching DLMM positions for ${walletAddresses.length} wallet(s)`);
 
   try {
-    const requests = walletAddresses.map((address, index) => ({
-      jsonrpc: '2.0',
-      id: index + 1,
-      method: 'getProgramAccounts',
-      params: [
-        POSITION_V2_PROGRAM,
-        {
-          encoding: 'base64',
-          filters: [
-            {
-              memcmp: {
-                offset: 8,
-                bytes: address,
-              },
-            },
-          ],
-        },
-      ],
-    }));
-
-    const response = await withRetry(() =>
-      fetch(RPC_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requests),
-      })
-    );
-
-    if (!response.ok) {
-      writeLog(`✗ RPC request failed: ${response.status}`);
-      return {};
-    }
-
-    const results = await response.json() as any;
     const positionsByWallet: Record<string, DLMMPosition[]> = {};
 
-    if (Array.isArray(results)) {
-      results.forEach((result: any, index: number) => {
-        const walletAddress = walletAddresses[index];
+    // Fetch positions one by one instead of batching (Helius might block batch)
+    for (const walletAddress of walletAddresses) {
+      try {
+        const response = await withRetry(() =>
+          fetch(RPC_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              jsonrpc: '2.0',
+              id: 1,
+              method: 'getProgramAccounts',
+              params: [
+                POSITION_V2_PROGRAM,
+                {
+                  encoding: 'base64',
+                  filters: [
+                    {
+                      memcmp: {
+                        offset: 8,
+                        bytes: walletAddress,
+                      },
+                    },
+                  ],
+                },
+              ],
+            }),
+          })
+        );
+
+        if (!response.ok) {
+          writeLog(`✗ RPC request failed for ${walletAddress.slice(0, 8)}...: ${response.status}`);
+          positionsByWallet[walletAddress] = [];
+          continue;
+        }
+
+        const result = await response.json() as any;
 
         if (result.result && Array.isArray(result.result)) {
           positionsByWallet[walletAddress] = result.result.map((account: any) => ({
@@ -157,12 +156,18 @@ async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Reco
             currentValue: 0,
             inRange: true,
           }));
-          
+
           writeLog(`✓ Found ${positionsByWallet[walletAddress].length} positions for ${walletAddress.slice(0, 8)}...`);
         } else {
           positionsByWallet[walletAddress] = [];
         }
-      });
+
+        // Small delay between requests to avoid rate limits
+        await delay(200);
+      } catch (error) {
+        writeLog(`✗ Error fetching positions for ${walletAddress.slice(0, 8)}...: ${error}`);
+        positionsByWallet[walletAddress] = [];
+      }
     }
 
     return positionsByWallet;
