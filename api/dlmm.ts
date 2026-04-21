@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 const HELIUS_API_KEY = process.env.HELIUS_API_KEY || '';
 const RPC_ENDPOINT = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
-const METEORA_API_BASE = 'https://dlmm.datapi.meteora.ag';
+const METEORA_API_BASE = 'https://dlmm-api.meteora.ag';
 const POSITION_V2_PROGRAM = 'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo';
 
 // ============================================================================
@@ -39,14 +39,6 @@ interface DLMMPool {
   fees24h: number
   apr: number
   url: string
-}
-
-interface PaginatedResponse<T> {
-  total: number
-  pages: number
-  current_page: number
-  page_size: number
-  data: T[]
 }
 
 // ============================================================================
@@ -199,7 +191,7 @@ async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMP
     await delay(100); // Rate limit protection
 
     const response = await withRetry(() =>
-      fetch(`${METEORA_API_BASE}/pools?page=${page}&page_size=${pageSize}`)
+      fetch(`${METEORA_API_BASE}/pair/all`)
     );
 
     if (!response.ok) {
@@ -207,24 +199,27 @@ async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMP
       return { pools: [], total: 0, pages: 0 };
     }
 
-    const data: PaginatedResponse<any> = await response.json() as any;
+    const data: any = await response.json();
 
-    if (!data.data || !Array.isArray(data.data)) {
+    if (!data || !Array.isArray(data)) {
       writeLog(`✗ Unexpected API response format`);
       return { pools: [], total: 0, pages: 0 };
     }
 
-    let pools = data.data.map((pool: any) => ({
-      address: pool.address || '',
-      name: pool.name || 'Unknown Pool',
-      tokenX: pool.mint_x || '',
-      tokenY: pool.mint_y || '',
-      liquidity: parseFloat(pool.liquidity || '0'),
-      volume24h: parseFloat(pool.trade_volume_24h || '0'),
-      fees24h: parseFloat(pool.fees_24h || '0'),
-      apr: parseFloat(pool.apr || '0'),
-      url: `https://app.meteora.ag/dlmm/${pool.address}`,
-    }));
+    let pools = data
+      .filter((pool: any) => pool && pool.address)
+      .map((pool: any) => ({
+        address: pool.address,
+        name: pool.name || 'Unknown Pool',
+        tokenX: pool.mint_x || '',
+        tokenY: pool.mint_y || '',
+        liquidity: parseFloat(pool.liquidity || '0'),
+        volume24h: parseFloat(pool.trade_volume_24h || '0'),
+        fees24h: parseFloat(pool.fees_24h || '0'),
+        apr: parseFloat(pool.apr || '0'),
+        url: `https://app.meteora.ag/dlmm/${pool.address}`,
+      }))
+      .sort((a: DLMMPool, b: DLMMPool) => b.liquidity - a.liquidity);
 
     // Filter by search if provided
     if (search && search.trim()) {
@@ -235,14 +230,20 @@ async function fetchPools(page: number, search?: string): Promise<{ pools: DLMMP
       });
     }
 
+    // Paginate
+    const start = (page - 1) * pageSize;
+    const end = start + pageSize;
+    const paginatedPools = pools.slice(start, end);
+    const totalPages = Math.ceil(pools.length / pageSize);
+
     const result = {
-      pools,
-      total: search ? pools.length : data.total,
-      pages: search ? Math.ceil(pools.length / pageSize) : data.pages,
+      pools: paginatedPools,
+      total: pools.length,
+      pages: totalPages,
     };
 
     setCache(cacheKey, result);
-    writeLog(`✓ Fetched ${pools.length} pools`);
+    writeLog(`✓ Fetched ${paginatedPools.length} pools (${pools.length} total)`);
 
     return result;
   } catch (error) {
