@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-22T00:19:57.433Z",
+  "lastChecked": "2026-04-22T12:20:00.268Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -735,6 +735,36 @@
       "exchange": "Kraken",
       "symbol": "WINGSUSD",
       "detectedAt": "2026-04-22T00:19:57.433Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AUDF-AUD",
+      "detectedAt": "2026-04-22T12:20:00.183Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AUDM-AUD",
+      "detectedAt": "2026-04-22T12:20:00.183Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AUDF-USD",
+      "detectedAt": "2026-04-22T12:20:00.183Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AUDM-USD",
+      "detectedAt": "2026-04-22T12:20:00.183Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AUDM-USDT",
+      "detectedAt": "2026-04-22T12:20:00.183Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AUDF-USDT",
+      "detectedAt": "2026-04-22T12:20:00.183Z"
     }
   ]
 }
