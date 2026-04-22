@@ -93,7 +93,7 @@ async function withRetry<T>(
 }
 
 // ============================================================================
-// POSITION FETCHING WITH VALUE CALCULATION - Using SHYFT GraphQL
+// POSITION FETCHING - Using SHYFT GraphQL
 // ============================================================================
 async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Record<string, DLMMPosition[]>> {
   if (walletAddresses.length === 0) return {};
@@ -109,7 +109,6 @@ async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Reco
 
     for (const walletAddress of walletAddresses) {
       try {
-        // CHANGED: Added positionBinData fields
         const query = `
           query GetPositions {
             meteora_dlmm_PositionV2(where: {owner: {_eq: "${walletAddress}"}}) {
@@ -120,14 +119,6 @@ async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Reco
               upperBinId
               totalClaimedFeeXAmount
               totalClaimedFeeYAmount
-              lastUpdatedAt
-              feeX
-              feeY
-              positionBinData {
-                binId
-                positionXAmount
-                positionYAmount
-              }
             }
           }
         `;
@@ -154,36 +145,18 @@ async function fetchPositionsForWallets(walletAddresses: string[]): Promise<Reco
         if (result.data?.meteora_dlmm_PositionV2) {
           const positions = result.data.meteora_dlmm_PositionV2;
           
-          // CHANGED: Calculate values from bin data
-          positionsByWallet[walletAddress] = positions.map((pos: any) => {
-            let totalXAmount = 0;
-            let totalYAmount = 0;
-            
-            if (pos.positionBinData && Array.isArray(pos.positionBinData)) {
-              pos.positionBinData.forEach((bin: any) => {
-                totalXAmount += parseFloat(bin.positionXAmount || '0');
-                totalYAmount += parseFloat(bin.positionYAmount || '0');
-              });
-            }
-
-            const xAmountAdjusted = totalXAmount / 1e9;
-            const yAmountAdjusted = totalYAmount / 1e9;
-            
-            return {
-              positionAddress: pos.pubkey || 'Unknown',
-              lbPair: pos.lbPair || 'Unknown',
-              owner: walletAddress,
-              lowerBinId: parseInt(pos.lowerBinId || '0'),
-              upperBinId: parseInt(pos.upperBinId || '0'),
-              totalClaimedFeeXAmount: parseFloat(pos.totalClaimedFeeXAmount || '0') / 1e9,
-              totalClaimedFeeYAmount: parseFloat(pos.totalClaimedFeeYAmount || '0') / 1e9,
-              createdAt: pos.lastUpdatedAt || Date.now(),
-              currentValue: xAmountAdjusted + yAmountAdjusted,
-              inRange: true,
-              totalXAmount: xAmountAdjusted,
-              totalYAmount: yAmountAdjusted,
-            };
-          });
+          positionsByWallet[walletAddress] = positions.map((pos: any) => ({
+            positionAddress: pos.pubkey || 'Unknown',
+            lbPair: pos.lbPair || 'Unknown',
+            owner: walletAddress,
+            lowerBinId: parseInt(pos.lowerBinId || '0'),
+            upperBinId: parseInt(pos.upperBinId || '0'),
+            totalClaimedFeeXAmount: parseFloat(pos.totalClaimedFeeXAmount || '0'),
+            totalClaimedFeeYAmount: parseFloat(pos.totalClaimedFeeYAmount || '0'),
+            createdAt: Date.now(),
+            currentValue: 0,
+            inRange: true,
+          }));
 
           writeLog(`✓ Found ${positionsByWallet[walletAddress].length} positions for ${walletAddress.slice(0, 8)}...`);
         } else {
