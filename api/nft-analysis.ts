@@ -120,11 +120,7 @@ async function fetchNFTsForWallet(walletAddress: string): Promise<NFTMetadata[]>
         id: 1,
         method: 'searchAssets',
         params: {
-          ownerAddress: walletAddress,
-          tokenType: 'nft',
-          displayOptions: {
-            showNativeBalance: false
-          }
+          ownerAddress: walletAddress
         }
       };
 
