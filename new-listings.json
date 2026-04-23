@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-04-23T00:07:07.193Z",
+  "lastChecked": "2026-04-23T12:21:34.399Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "OKBEUR",
-      "detectedAt": "2026-03-24T00:47:05.241Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "OKBUSD",
-      "detectedAt": "2026-03-24T00:47:05.241Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "PRL-USD",
@@ -595,6 +585,11 @@
       "exchange": "Kraken",
       "symbol": "UMXMUSD",
       "detectedAt": "2026-04-23T00:07:07.192Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-SPK",
+      "detectedAt": "2026-04-23T12:21:34.039Z"
     }
   ]
 }
