@@ -92,7 +92,7 @@ async function withRetry<T>(
 }
 
 // ============================================================================
-// NFT FETCHING - Using Alchemy searchAssets (Solana)
+// NFT FETCHING - Using Alchemy getAssetsByOwner (Solana)
 // ============================================================================
 async function fetchNFTsForWallet(walletAddress: string): Promise<NFTMetadata[]> {
   if (!ALCHEMY_API_KEY) {
@@ -118,14 +118,18 @@ async function fetchNFTsForWallet(walletAddress: string): Promise<NFTMetadata[]>
       const body: any = {
         jsonrpc: '2.0',
         id: 1,
-        method: 'searchAssets',
+        method: 'getAssetsByOwner',
         params: {
-          ownerAddress: walletAddress
+          ownerAddress: walletAddress,
+          limit: 1000,
+          options: {
+            showFungible: false
+          }
         }
       };
 
       if (cursor) {
-        body.params.cursor = cursor;
+        body.params.after = cursor;
       }
 
       const response = await withRetry(() =>
