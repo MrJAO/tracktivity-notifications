@@ -92,7 +92,7 @@ async function withRetry<T>(
 }
 
 // ============================================================================
-// NFT FETCHING - Using Alchemy getNFTsForOwner
+// NFT FETCHING - Using Alchemy searchAssets (Solana)
 // ============================================================================
 async function fetchNFTsForWallet(walletAddress: string): Promise<NFTMetadata[]> {
   if (!ALCHEMY_API_KEY) {
@@ -118,11 +118,12 @@ async function fetchNFTsForWallet(walletAddress: string): Promise<NFTMetadata[]>
       const body: any = {
         jsonrpc: '2.0',
         id: 1,
-        method: 'getNFTsForOwner',
+        method: 'searchAssets',
         params: {
-          owner: walletAddress,
-          options: {
-            showCollectionMetadata: true
+          ownerAddress: walletAddress,
+          tokenType: 'nft',
+          displayOptions: {
+            showNativeBalance: false
           }
         }
       };
@@ -140,22 +141,28 @@ async function fetchNFTsForWallet(walletAddress: string): Promise<NFTMetadata[]>
       );
 
       if (!response.ok) {
-        writeLog(`✗ Alchemy API failed: ${response.status}`);
+        const errorText = await response.text();
+        writeLog(`✗ Alchemy API failed: ${response.status} - ${errorText}`);
         break;
       }
 
       const result: any = await response.json();
 
-      if (result.result?.nfts) {
-        const nfts = result.result.nfts.map((nft: any) => ({
-          mint: nft.mint || 'Unknown',
-          name: nft.name || nft.metadata?.name || 'Unnamed NFT',
-          symbol: nft.symbol || nft.metadata?.symbol,
-          image: nft.image?.cachedUrl || nft.image?.originalUrl || nft.metadata?.image,
-          description: nft.description || nft.metadata?.description,
+      if (result.error) {
+        writeLog(`✗ Alchemy API error: ${JSON.stringify(result.error)}`);
+        break;
+      }
+
+      if (result.result?.items) {
+        const nfts = result.result.items.map((nft: any) => ({
+          mint: nft.id || 'Unknown',
+          name: nft.content?.metadata?.name || nft.content?.json_uri || 'Unnamed NFT',
+          symbol: nft.content?.metadata?.symbol,
+          image: nft.content?.links?.image || nft.content?.files?.[0]?.uri,
+          description: nft.content?.metadata?.description,
           collection: {
-            name: nft.collection?.name,
-            family: nft.collection?.family
+            name: nft.grouping?.[0]?.group_value,
+            family: nft.grouping?.[0]?.group_key
           }
         }));
 
@@ -168,6 +175,8 @@ async function fetchNFTsForWallet(walletAddress: string): Promise<NFTMetadata[]>
       } else {
         break;
       }
+
+      if (pageCount >= 20) break;
     } while (cursor);
 
     writeLog(`✓ Total NFTs fetched: ${allNFTs.length}`);
@@ -180,7 +189,7 @@ async function fetchNFTsForWallet(walletAddress: string): Promise<NFTMetadata[]>
 }
 
 // ============================================================================
-// NFT METADATA - Using Alchemy getNFTMetadata
+// NFT METADATA - Using Alchemy getAsset
 // ============================================================================
 async function fetchNFTMetadata(mint: string): Promise<NFTDetails | null> {
   if (!ALCHEMY_API_KEY) {
@@ -205,12 +214,9 @@ async function fetchNFTMetadata(mint: string): Promise<NFTDetails | null> {
         body: JSON.stringify({
           jsonrpc: '2.0',
           id: 1,
-          method: 'getNFTMetadata',
+          method: 'getAsset',
           params: {
-            mint: mint,
-            options: {
-              showCollectionMetadata: true
-            }
+            id: mint
           }
         })
       })
@@ -223,27 +229,28 @@ async function fetchNFTMetadata(mint: string): Promise<NFTDetails | null> {
 
     const result: any = await response.json();
 
-    if (result.result) {
-      const nft = result.result;
-      const details: NFTDetails = {
-        mint: mint,
-        name: nft.name || nft.metadata?.name || 'Unnamed NFT',
-        symbol: nft.symbol || nft.metadata?.symbol,
-        image: nft.image?.cachedUrl || nft.image?.originalUrl || nft.metadata?.image,
-        description: nft.description || nft.metadata?.description,
-        supply: nft.supply || null,
-        holders: nft.holders || null,
-        floorPrice: nft.floorPrice || null,
-        volume24h: nft.volume24h || null,
-        contractAddress: mint
-      };
-
-      setCache(cacheKey, details);
-      writeLog(`✓ Fetched metadata for ${nft.name}`);
-      return details;
+    if (result.error || !result.result) {
+      writeLog(`✗ No metadata found for ${mint}`);
+      return null;
     }
 
-    return null;
+    const nft = result.result;
+    const details: NFTDetails = {
+      mint: mint,
+      name: nft.content?.metadata?.name || 'Unnamed NFT',
+      symbol: nft.content?.metadata?.symbol,
+      image: nft.content?.links?.image || nft.content?.files?.[0]?.uri,
+      description: nft.content?.metadata?.description,
+      supply: nft.supply?.print_current_supply,
+      holders: undefined,
+      floorPrice: undefined,
+      volume24h: undefined,
+      contractAddress: mint
+    };
+
+    setCache(cacheKey, details);
+    writeLog(`✓ Fetched metadata for ${details.name}`);
+    return details;
   } catch (error) {
     writeLog(`✗ Error fetching NFT metadata: ${error}`);
     return null;
