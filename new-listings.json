@@ -1,26 +1,6 @@
 {
-  "lastChecked": "2026-04-23T12:21:34.399Z",
+  "lastChecked": "2026-04-24T00:25:51.276Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "PRL-USD",
-      "detectedAt": "2026-03-25T00:14:20.175Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "ICNT-USD",
-      "detectedAt": "2026-03-25T00:14:20.175Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "BONZOEUR",
-      "detectedAt": "2026-03-25T00:14:21.556Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "BONZOUSD",
-      "detectedAt": "2026-03-25T00:14:21.556Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-KAT",
