@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-27T00:52:14.145Z",
+  "lastChecked": "2026-04-27T12:23:09.205Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -450,6 +450,16 @@
       "exchange": "Okx",
       "symbol": "CHIP-USDC",
       "detectedAt": "2026-04-25T00:12:03.209Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-PRL",
+      "detectedAt": "2026-04-27T12:23:08.852Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-XCN",
+      "detectedAt": "2026-04-27T12:23:08.853Z"
     }
   ]
 }
