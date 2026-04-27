@@ -1,31 +1,6 @@
 {
-  "lastChecked": "2026-04-26T12:08:06.072Z",
+  "lastChecked": "2026-04-27T00:52:14.145Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "BASED1-USD",
-      "detectedAt": "2026-03-28T00:04:38.217Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "BASEDEUR",
-      "detectedAt": "2026-03-28T00:04:39.151Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "BASEDUSD",
-      "detectedAt": "2026-03-28T00:04:39.151Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "DUALEUR",
-      "detectedAt": "2026-03-28T00:04:39.151Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "DUALUSD",
-      "detectedAt": "2026-03-28T00:04:39.151Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "ASP-EUR",
