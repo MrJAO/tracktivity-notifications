@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-28T00:07:50.396Z",
+  "lastChecked": "2026-04-28T12:26:03.321Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -485,6 +485,56 @@
       "exchange": "Kraken",
       "symbol": "UNIUSD:BTNL",
       "detectedAt": "2026-04-28T00:07:50.396Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ADAUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.320Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ALGOUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.320Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AVAXUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.320Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BCHUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.320Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "DOTUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.321Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "HYPEUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.321Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "LINKUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.321Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "LTCUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.321Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PAXGUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.321Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ZECUSD:BTNL",
+      "detectedAt": "2026-04-28T12:26:03.321Z"
     }
   ]
 }
