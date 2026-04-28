@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-27T12:23:09.205Z",
+  "lastChecked": "2026-04-28T00:07:50.396Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -460,6 +460,31 @@
       "exchange": "Upbit",
       "symbol": "KRW-XCN",
       "detectedAt": "2026-04-27T12:23:08.853Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PROSEUR",
+      "detectedAt": "2026-04-28T00:07:50.396Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PROSUSD",
+      "detectedAt": "2026-04-28T00:07:50.396Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SPCEUR",
+      "detectedAt": "2026-04-28T00:07:50.396Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SPCUSD",
+      "detectedAt": "2026-04-28T00:07:50.396Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "UNIUSD:BTNL",
+      "detectedAt": "2026-04-28T00:07:50.396Z"
     }
   ]
 }
