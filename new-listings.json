@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-04-30T00:10:50.104Z",
+  "lastChecked": "2026-04-30T12:04:37.296Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -480,6 +480,101 @@
       "exchange": "Kraken",
       "symbol": "ASSETUSD",
       "detectedAt": "2026-04-30T00:10:50.103Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-MEGA",
+      "detectedAt": "2026-04-30T12:04:36.908Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRASS-EUR",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "APE-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "API3-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CORE-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ENJ-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GALA-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "HUMA-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ONT-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ORBS-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ORDI-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "PIXEL-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SAND-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XLM-TRY",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MEGA-USD",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "MEGA-USDT",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRASS-USDC",
+      "detectedAt": "2026-04-30T12:04:37.189Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "MEGAEUR",
+      "detectedAt": "2026-04-30T12:04:37.295Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "MEGAUSD",
+      "detectedAt": "2026-04-30T12:04:37.295Z"
     }
   ]
 }
