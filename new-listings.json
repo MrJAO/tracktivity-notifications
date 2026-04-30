@@ -1,151 +1,6 @@
 {
-  "lastChecked": "2026-04-29T12:26:18.480Z",
+  "lastChecked": "2026-04-30T00:10:50.104Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "ASP-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CC-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CITY-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "MENGO-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "NAVX-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "OL-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "POR-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PRCL-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "S-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "SPACE-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "SPURS-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TRA-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "ZAMA-EUR",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "BASED-TRY",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "BASED-USD",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "BASED-USDT",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "ASP-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CC-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CITY-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "MENGO-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "NAVX-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "OL-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "POR-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PRCL-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "S-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "SPACE-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "SPURS-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TRA-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "ZAMA-USDC",
-      "detectedAt": "2026-03-30T12:54:49.306Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "EDGEX-USD",
@@ -600,6 +455,31 @@
       "exchange": "Kraken",
       "symbol": "AIUSD",
       "detectedAt": "2026-04-29T12:26:18.479Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "WRON-USD",
+      "detectedAt": "2026-04-30T00:10:49.152Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "MEGA-USD",
+      "detectedAt": "2026-04-30T00:10:49.152Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "AI-USD",
+      "detectedAt": "2026-04-30T00:10:49.152Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "RLUSD-USDT",
+      "detectedAt": "2026-04-30T00:10:50.029Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ASSETUSD",
+      "detectedAt": "2026-04-30T00:10:50.103Z"
     }
   ]
 }
