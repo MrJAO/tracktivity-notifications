@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-05-01T12:50:39.248Z",
+  "lastChecked": "2026-05-02T00:44:02.316Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "MEZO-USD",
-      "detectedAt": "2026-04-02T00:42:12.284Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "CHECK-USD",
-      "detectedAt": "2026-04-02T00:42:12.285Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "SIGN-USD",
-      "detectedAt": "2026-04-02T00:42:12.285Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "GIBUSD",
@@ -560,6 +545,11 @@
       "exchange": "Okx",
       "symbol": "MEGA-USDC",
       "detectedAt": "2026-05-01T00:00:34.135Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "BILL-USD",
+      "detectedAt": "2026-05-02T00:44:01.395Z"
     }
   ]
 }
