@@ -1,15 +1,15 @@
 [
 {
-  "id": "app-update-5",
-  "title": "Tracktivity v1.0.4",
-  "message": "Good day! Tracktivity v1.0.4 update is now available on DApp Store",
-  "date": "2026-04-08",
+  "id": "app-update-6",
+  "title": "Tracktivity v1.0.5",
+  "message": "Update is now available on DApp Store",
+  "date": "2026-05-02",
   "type": "update",
   "isRead": false,
   "isSticky": true,
   "expiresAt": null,
   "metadata": {
-    "emoji": "⇄",
+    "emoji": "🔔",
     "sections": [
       {
         "type": "text",
@@ -18,18 +18,17 @@
       {
         "type": "list",
         "content": [
-          "Reclaim SOL",
-          "Burn Assets",
-          "Wallet Security Scanner",
-          "Contract Reader (Integrated with AI - Testing)",
-          "UI / UX Improvements)"
+          "Watch: DLMM Positions",
+          "Watch: DLMM Opportunities",
+          "Analysis: Wallet NFT analysis",
+          "SDK Updates"
         ]
       },
       {
         "type": "cta",
         "content": "Learn more about these features:",
-        "buttonText": "View Execute",
-        "buttonLink": "tracktivity://execute"
+        "buttonText": "View Tutorial",
+        "buttonLink": "tracktivity://tutorial"
       }
     ]
   }
