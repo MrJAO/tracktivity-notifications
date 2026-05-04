@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-03T12:06:26.968Z",
+  "lastChecked": "2026-05-04T00:27:42.139Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -545,6 +545,16 @@
       "exchange": "Coinbase",
       "symbol": "BILL-USD",
       "detectedAt": "2026-05-02T00:44:01.395Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BILLEUR",
+      "detectedAt": "2026-05-04T00:27:42.139Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BILLUSD",
+      "detectedAt": "2026-05-04T00:27:42.139Z"
     }
   ]
 }
