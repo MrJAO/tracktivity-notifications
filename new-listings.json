@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-05T12:33:03.749Z",
+  "lastChecked": "2026-05-06T00:18:05.355Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -555,6 +555,21 @@
       "exchange": "Kraken",
       "symbol": "BILLUSD",
       "detectedAt": "2026-05-04T00:27:42.139Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "KAIO-USD",
+      "detectedAt": "2026-05-06T00:18:04.375Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "EDGEXEUR",
+      "detectedAt": "2026-05-06T00:18:05.354Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "EDGEXUSD",
+      "detectedAt": "2026-05-06T00:18:05.354Z"
     }
   ]
 }
