@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-06T00:18:05.355Z",
+  "lastChecked": "2026-05-06T12:53:04.264Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -570,6 +570,36 @@
       "exchange": "Kraken",
       "symbol": "EDGEXUSD",
       "detectedAt": "2026-05-06T00:18:05.354Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-WIF",
+      "detectedAt": "2026-05-06T12:53:03.898Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "EDGE-EUR",
+      "detectedAt": "2026-05-06T12:53:04.190Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "EDGE-TRY",
+      "detectedAt": "2026-05-06T12:53:04.190Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "EDGE-USD",
+      "detectedAt": "2026-05-06T12:53:04.190Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "EDGE-USDT",
+      "detectedAt": "2026-05-06T12:53:04.190Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "EDGE-USDC",
+      "detectedAt": "2026-05-06T12:53:04.190Z"
     }
   ]
 }
