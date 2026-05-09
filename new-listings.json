@@ -1,31 +1,6 @@
 {
-  "lastChecked": "2026-05-09T00:09:43.257Z",
+  "lastChecked": "2026-05-09T12:41:22.134Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "OFC-EUR",
-      "detectedAt": "2026-04-09T12:24:27.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "OFC-TRY",
-      "detectedAt": "2026-04-09T12:24:27.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "OFC-USD",
-      "detectedAt": "2026-04-09T12:24:27.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "OFC-USDT",
-      "detectedAt": "2026-04-09T12:24:27.094Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "OFC-USDC",
-      "detectedAt": "2026-04-09T12:24:27.094Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-ZAMA",
