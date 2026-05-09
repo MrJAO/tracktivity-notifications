@@ -15,11 +15,11 @@ export interface OpportunityDApp {
 // ============================================================================
 const OPPORTUNITIES: OpportunityDApp[] = [
   {
-    id: 'example-dapp-1',
-    image: 'https://via.placeholder.com/200',
-    name: 'Example DeFi Protocol',
-    about: 'Earn rewards by providing liquidity to our protocol. Join thousands of users already earning passive income.',
-    potentialRewards: ['SOL', 'USDC'],
+    id: 'colony',
+    image: 'https://freeimage.host/i/Btbuhbe',
+    name: 'Colony',
+    about: 'Colony is a fully onchain idle resource trading strategy game where you mint a planet, build a self-sustaining economy, and outrank other players through optimization and long term planning. Gather resources, mine, upgrade, and trade in a shared economy to compete on the weekly leaderboard seasons for treasury rewards.',
+    potentialRewards: ['SOL'],
     requiredCapital: '0.1 SOL',
   },
   // Add more opportunities here manually
