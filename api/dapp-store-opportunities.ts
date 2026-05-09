@@ -8,6 +8,9 @@ export interface OpportunityDApp {
   about: string;
   potentialRewards: string[];
   requiredCapital: string;
+  status: 'Active' | 'Ended';
+  date?: string;
+  twitter?: string;
 }
 
 // ============================================================================
@@ -16,11 +19,14 @@ export interface OpportunityDApp {
 const OPPORTUNITIES: OpportunityDApp[] = [
   {
     id: 'colony',
-    image: 'https://tracktivity-notifications.vercel.app/images/colony.png',
+    image: 'https://tracktivity-notifications.vercel.app/public/images/colony.png',
     name: 'Colony',
-    about: 'Colony is a fully onchain idle resource trading strategy game where you mint a planet, build a self-sustaining economy, and outrank other players through optimization and long term planning. Gather resources, mine, upgrade, and trade in a shared economy to compete on the weekly leaderboard seasons for treasury rewards.',
+    about: 'Colony is a fully onchain idle resource trading strategy game...',
     potentialRewards: ['SOL'],
     requiredCapital: '0.1 SOL',
+    status: 'Active',
+    date: 'Until Feb 28, 2025',
+    twitter: 'https://x.com/colonygameio',
   },
   // Add more opportunities here manually
 ];
