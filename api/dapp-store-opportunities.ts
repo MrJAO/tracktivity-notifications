@@ -16,7 +16,7 @@ export interface OpportunityDApp {
 const OPPORTUNITIES: OpportunityDApp[] = [
   {
     id: 'colony',
-    image: '/api/images/colony.png',
+    image: 'https://tracktivity-notifications.vercel.app/images/colony.png',
     name: 'Colony',
     about: 'Colony is a fully onchain idle resource trading strategy game where you mint a planet, build a self-sustaining economy, and outrank other players through optimization and long term planning. Gather resources, mine, upgrade, and trade in a shared economy to compete on the weekly leaderboard seasons for treasury rewards.',
     potentialRewards: ['SOL'],
