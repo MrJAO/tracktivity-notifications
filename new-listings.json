@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-11T00:21:16.146Z",
+  "lastChecked": "2026-05-11T12:18:52.325Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -595,6 +595,31 @@
       "exchange": "Upbit",
       "symbol": "KRW-PROS",
       "detectedAt": "2026-05-08T12:31:26.004Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OKB-EUR",
+      "detectedAt": "2026-05-11T12:18:52.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "KAT-EUR",
+      "detectedAt": "2026-05-11T12:18:52.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OKB-TRY",
+      "detectedAt": "2026-05-11T12:18:52.190Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "OKB-USDC",
+      "detectedAt": "2026-05-11T12:18:52.190Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "KAT-USDC",
+      "detectedAt": "2026-05-11T12:18:52.190Z"
     }
   ]
 }
