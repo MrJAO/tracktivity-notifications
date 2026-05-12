@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-11T12:18:52.325Z",
+  "lastChecked": "2026-05-12T00:24:45.165Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -620,6 +620,16 @@
       "exchange": "Okx",
       "symbol": "KAT-USDC",
       "detectedAt": "2026-05-11T12:18:52.190Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "EVEUR",
+      "detectedAt": "2026-05-12T00:24:45.164Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "EVUSD",
+      "detectedAt": "2026-05-12T00:24:45.164Z"
     }
   ]
 }
