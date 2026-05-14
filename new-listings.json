@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-13T12:52:31.418Z",
+  "lastChecked": "2026-05-14T00:20:00.536Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -665,6 +665,26 @@
       "exchange": "Okx",
       "symbol": "PROS-USDC",
       "detectedAt": "2026-05-13T12:52:31.276Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AVAEUR",
+      "detectedAt": "2026-05-14T00:20:00.536Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AVAUSD",
+      "detectedAt": "2026-05-14T00:20:00.536Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BABYSHARKEUR",
+      "detectedAt": "2026-05-14T00:20:00.536Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BABYSHARKUSD",
+      "detectedAt": "2026-05-14T00:20:00.536Z"
     }
   ]
 }
