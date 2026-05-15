@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-15T00:20:34.148Z",
+  "lastChecked": "2026-05-15T12:26:45.276Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -695,6 +695,11 @@
       "exchange": "Kraken",
       "symbol": "GENIUSUSD",
       "detectedAt": "2026-05-15T00:20:34.147Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-IRYS",
+      "detectedAt": "2026-05-15T12:26:44.941Z"
     }
   ]
 }
