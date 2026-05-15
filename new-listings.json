@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-05-14T12:28:47.229Z",
+  "lastChecked": "2026-05-15T00:20:34.148Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-ZAMA",
-      "detectedAt": "2026-04-14T12:46:28.861Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-CC",
@@ -685,6 +680,21 @@
       "exchange": "Kraken",
       "symbol": "BABYSHARKUSD",
       "detectedAt": "2026-05-14T00:20:00.536Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "BTC-INR",
+      "detectedAt": "2026-05-15T00:20:32.624Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "GENIUSEUR",
+      "detectedAt": "2026-05-15T00:20:34.147Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "GENIUSUSD",
+      "detectedAt": "2026-05-15T00:20:34.147Z"
     }
   ]
 }
