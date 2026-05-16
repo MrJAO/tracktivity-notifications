@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-05-15T12:26:45.276Z",
+  "lastChecked": "2026-05-16T00:28:08.230Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-CC",
-      "detectedAt": "2026-04-15T12:28:27.823Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "STEUR",
-      "detectedAt": "2026-04-15T12:28:28.165Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "STUSD",
-      "detectedAt": "2026-04-15T12:28:28.165Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "SIGNEUR",
