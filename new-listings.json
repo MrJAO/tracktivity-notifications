@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-05-17T00:10:27.052Z",
+  "lastChecked": "2026-05-17T12:40:50.111Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-SOON",
-      "detectedAt": "2026-04-17T12:38:48.757Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "USDS-USD",
-      "detectedAt": "2026-04-17T12:38:49.038Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "USDS-USDT",
-      "detectedAt": "2026-04-17T12:38:49.038Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "APXUSDUSD",
