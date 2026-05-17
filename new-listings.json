@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-05-16T12:50:58.109Z",
+  "lastChecked": "2026-05-17T00:10:27.052Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "SIGNEUR",
-      "detectedAt": "2026-04-16T12:52:06.272Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SIGNUSD",
-      "detectedAt": "2026-04-16T12:52:06.272Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-SOON",
