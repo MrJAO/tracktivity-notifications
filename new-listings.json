@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-18T00:37:07.217Z",
+  "lastChecked": "2026-05-18T12:36:21.409Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -660,6 +660,11 @@
       "exchange": "Upbit",
       "symbol": "KRW-IRYS",
       "detectedAt": "2026-05-15T12:26:44.941Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-TRAC",
+      "detectedAt": "2026-05-18T12:36:20.955Z"
     }
   ]
 }
