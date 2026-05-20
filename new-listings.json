@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-05-19T12:08:35.324Z",
+  "lastChecked": "2026-05-20T00:19:48.502Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "APXUSDUSD",
-      "detectedAt": "2026-04-20T00:12:30.335Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "APXUSDUSDC",
-      "detectedAt": "2026-04-20T00:12:30.335Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-PIEVERSE",
@@ -665,6 +655,36 @@
       "exchange": "Upbit",
       "symbol": "KRW-TRAC",
       "detectedAt": "2026-05-18T12:36:20.955Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "DCREUR",
+      "detectedAt": "2026-05-20T00:19:48.501Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "DCRUSD",
+      "detectedAt": "2026-05-20T00:19:48.501Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "NEXEUR",
+      "detectedAt": "2026-05-20T00:19:48.501Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "NEXUSD",
+      "detectedAt": "2026-05-20T00:19:48.501Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PIEVERSEEUR",
+      "detectedAt": "2026-05-20T00:19:48.501Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PIEVERSEUSD",
+      "detectedAt": "2026-05-20T00:19:48.501Z"
     }
   ]
 }
