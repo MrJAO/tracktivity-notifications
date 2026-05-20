@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-05-20T00:19:48.502Z",
+  "lastChecked": "2026-05-20T12:49:30.169Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-PIEVERSE",
-      "detectedAt": "2026-04-20T12:44:22.198Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "OPG-USD",
