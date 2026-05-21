@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-05-21T00:25:24.312Z",
+  "lastChecked": "2026-05-21T12:30:28.023Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "OPG-USD",
-      "detectedAt": "2026-04-21T00:31:50.206Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "CHIP-USD",
-      "detectedAt": "2026-04-21T00:31:50.206Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-CHIP",
