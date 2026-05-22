@@ -1,41 +1,6 @@
 {
-  "lastChecked": "2026-05-21T12:30:28.023Z",
+  "lastChecked": "2026-05-22T00:42:12.383Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-CHIP",
-      "detectedAt": "2026-04-21T12:59:17.236Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "CHIPEUR",
-      "detectedAt": "2026-04-21T12:59:17.614Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "CHIPUSD",
-      "detectedAt": "2026-04-21T12:59:17.614Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "DIEM-USD",
-      "detectedAt": "2026-04-22T00:19:56.416Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "USDC-INR",
-      "detectedAt": "2026-04-22T00:19:56.416Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "WINGSEUR",
-      "detectedAt": "2026-04-22T00:19:57.433Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "WINGSUSD",
-      "detectedAt": "2026-04-22T00:19:57.433Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "AUDF-AUD",
