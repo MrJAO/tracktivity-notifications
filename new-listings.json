@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-05-23T00:58:11.203Z",
+  "lastChecked": "2026-05-23T12:24:16.248Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-SPK",
-      "detectedAt": "2026-04-23T12:21:34.039Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "CHIP-TRY",
