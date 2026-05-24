@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-05-24T00:25:00.158Z",
+  "lastChecked": "2026-05-24T12:59:44.973Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "CHIP-TRY",
-      "detectedAt": "2026-04-24T12:51:14.639Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CHIP-USD",
-      "detectedAt": "2026-04-24T12:51:14.639Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CHIP-USDT",
-      "detectedAt": "2026-04-24T12:51:14.639Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "CHIP-EUR",
