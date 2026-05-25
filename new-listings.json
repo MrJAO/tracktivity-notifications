@@ -1,31 +1,6 @@
 {
-  "lastChecked": "2026-05-24T12:59:44.973Z",
+  "lastChecked": "2026-05-25T00:59:29.233Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "CHIP-EUR",
-      "detectedAt": "2026-04-25T00:12:03.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "GRASS-TRY",
-      "detectedAt": "2026-04-25T00:12:03.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "GRASS-USD",
-      "detectedAt": "2026-04-25T00:12:03.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "GRASS-USDT",
-      "detectedAt": "2026-04-25T00:12:03.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CHIP-USDC",
-      "detectedAt": "2026-04-25T00:12:03.209Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-PRL",
