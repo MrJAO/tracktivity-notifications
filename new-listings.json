@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-26T00:42:19.186Z",
+  "lastChecked": "2026-05-26T12:22:40.253Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -570,6 +570,11 @@
       "exchange": "Kraken",
       "symbol": "SLXUSD",
       "detectedAt": "2026-05-26T00:42:19.186Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "CTR-USD",
+      "detectedAt": "2026-05-26T12:22:39.309Z"
     }
   ]
 }
