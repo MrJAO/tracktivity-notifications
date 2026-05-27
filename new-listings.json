@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-05-26T12:22:40.253Z",
+  "lastChecked": "2026-05-27T00:17:52.301Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -575,6 +575,16 @@
       "exchange": "Coinbase",
       "symbol": "CTR-USD",
       "detectedAt": "2026-05-26T12:22:39.309Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "META-USD",
+      "detectedAt": "2026-05-27T00:17:51.325Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "DRV-USD",
+      "detectedAt": "2026-05-27T00:17:51.325Z"
     }
   ]
 }
