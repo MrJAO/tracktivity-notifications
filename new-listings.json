@@ -1,41 +1,6 @@
 {
-  "lastChecked": "2026-05-27T12:18:40.557Z",
+  "lastChecked": "2026-05-28T00:50:36.424Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-PRL",
-      "detectedAt": "2026-04-27T12:23:08.852Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-XCN",
-      "detectedAt": "2026-04-27T12:23:08.853Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "PROSEUR",
-      "detectedAt": "2026-04-28T00:07:50.396Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "PROSUSD",
-      "detectedAt": "2026-04-28T00:07:50.396Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SPCEUR",
-      "detectedAt": "2026-04-28T00:07:50.396Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SPCUSD",
-      "detectedAt": "2026-04-28T00:07:50.396Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "UNIUSD:BTNL",
-      "detectedAt": "2026-04-28T00:07:50.396Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "ADAUSD:BTNL",
