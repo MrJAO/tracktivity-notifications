@@ -1,46 +1,6 @@
 {
-  "lastChecked": "2026-05-29T12:19:52.402Z",
+  "lastChecked": "2026-05-30T00:13:04.144Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-BLEND",
-      "detectedAt": "2026-04-29T12:26:18.090Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "AIEUR",
-      "detectedAt": "2026-04-29T12:26:18.479Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "AIUSD",
-      "detectedAt": "2026-04-29T12:26:18.479Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "WRON-USD",
-      "detectedAt": "2026-04-30T00:10:49.152Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "MEGA-USD",
-      "detectedAt": "2026-04-30T00:10:49.152Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "AI-USD",
-      "detectedAt": "2026-04-30T00:10:49.152Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "RLUSD-USDT",
-      "detectedAt": "2026-04-30T00:10:50.029Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "ASSETUSD",
-      "detectedAt": "2026-04-30T00:10:50.103Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-MEGA",
