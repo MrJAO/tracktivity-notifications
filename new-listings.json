@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-05-30T12:06:59.248Z",
+  "lastChecked": "2026-05-31T00:42:59.044Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "MEGA-EUR",
-      "detectedAt": "2026-05-01T00:00:34.134Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "MEGA-USDC",
-      "detectedAt": "2026-05-01T00:00:34.135Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "BILL-USD",
