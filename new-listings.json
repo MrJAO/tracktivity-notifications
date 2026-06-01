@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-06-01T00:37:40.075Z",
+  "lastChecked": "2026-06-01T12:26:10.198Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "BILL-USD",
-      "detectedAt": "2026-05-02T00:44:01.395Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "BILLEUR",
@@ -355,6 +350,11 @@
       "exchange": "Kraken",
       "symbol": "NYMXBT",
       "detectedAt": "2026-05-30T12:06:59.247Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-SLX",
+      "detectedAt": "2026-06-01T12:26:09.756Z"
     }
   ]
 }
