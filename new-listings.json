@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-06-02T12:54:10.277Z",
+  "lastChecked": "2026-06-03T00:38:19.835Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "BILLEUR",
-      "detectedAt": "2026-05-04T00:27:42.139Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "BILLUSD",
-      "detectedAt": "2026-05-04T00:27:42.139Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "KAIO-USD",
