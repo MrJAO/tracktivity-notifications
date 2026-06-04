@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-06-03T12:22:27.359Z",
+  "lastChecked": "2026-06-04T00:44:31.228Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -345,6 +345,16 @@
       "exchange": "Upbit",
       "symbol": "KRW-SLX",
       "detectedAt": "2026-06-01T12:26:09.756Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "ETH-INR",
+      "detectedAt": "2026-06-04T00:44:30.213Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "SOL-INR",
+      "detectedAt": "2026-06-04T00:44:30.214Z"
     }
   ]
 }
