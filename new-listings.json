@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-06-05T12:09:07.910Z",
+  "lastChecked": "2026-06-06T00:28:21.100Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-WIF",
-      "detectedAt": "2026-05-06T12:53:03.898Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "EDGE-EUR",
-      "detectedAt": "2026-05-06T12:53:04.190Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "EDGE-TRY",
-      "detectedAt": "2026-05-06T12:53:04.190Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "EDGE-USD",
-      "detectedAt": "2026-05-06T12:53:04.190Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "EDGE-USDT",
-      "detectedAt": "2026-05-06T12:53:04.190Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "EDGE-USDC",
-      "detectedAt": "2026-05-06T12:53:04.190Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-B3",
