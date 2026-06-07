@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-06-07T00:04:36.246Z",
+  "lastChecked": "2026-06-07T12:54:00.186Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-PROS",
-      "detectedAt": "2026-05-08T12:31:26.004Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "OKB-EUR",
