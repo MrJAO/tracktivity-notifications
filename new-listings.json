@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-06-11T00:17:38.817Z",
+  "lastChecked": "2026-06-11T12:53:59.350Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "EVEUR",
-      "detectedAt": "2026-05-12T00:24:45.164Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "EVUSD",
-      "detectedAt": "2026-05-12T00:24:45.164Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-VVV",
-      "detectedAt": "2026-05-12T12:40:19.934Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-UP2",
