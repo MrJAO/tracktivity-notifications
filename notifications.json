@@ -1,36 +1,51 @@
 [
 {
-  "id": "app-update-6",
-  "title": "Tracktivity v1.0.5",
+  "id": "app-update-7",
+  "title": "Tracktivity v1.0.6",
   "message": "Update is now available on DApp Store",
-  "date": "2026-05-02",
+  "date": "2026-06-12",
   "type": "update",
   "isRead": false,
   "isSticky": true,
   "expiresAt": null,
   "metadata": {
-    "emoji": "🔔",
+    "emoji": "⚙️",
     "sections": [
       {
         "type": "text",
-        "content": "New and Updated Features"
+        "content": "Demo Season Launching"
       },
       {
         "type": "list",
         "content": [
-          "Watch: DLMM Positions",
-          "Watch: DLMM Opportunities",
-          "Analysis: Wallet NFT analysis",
-          "SDK Updates"
+          "✅ Free Registration",
+          "✅ 10 free tickets daily",
+          "✅ Spin the wheel to earn SKR and Points",
+          "✅ Daily Tasks & Premium Milestones",
+          "✅ Play Cultivate mini game to earn SKR, Ticket, and Points",
+          "✅ Seasonal Leaderboard rewards"
         ]
       },
       {
         "type": "cta",
-        "content": "Learn more about these features:",
-        "buttonText": "View Tutorial",
-        "buttonLink": "tracktivity://tutorial"
+        "content": "Register Here:",
+        "buttonText": "View",
+        "buttonLink": "tracktivity://rewards"
       }
     ]
+  }
+},
+{
+  "id": "notice-1",
+  "title": "Reports and Feedbacks",
+  "message": "Hi everyone! \n\nWe are still wiring up the Report and Feedback system and it will be available within two weeks after further testing\nIn the meantime you can send Report or Feedback thru\nEmail: playtracktivity@gmail.com\nOr on our DAPP Store Page\n\nThank you!",
+  "date": "2026-06-12",
+  "type": "notice",
+  "isRead": false,
+  "isSticky": true,
+  "expiresAt": null,
+  "metadata": {
+    "emoji": "🔔"
   }
 }
 ]
