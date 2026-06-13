@@ -1,56 +1,6 @@
 {
-  "lastChecked": "2026-06-12T12:07:44.744Z",
+  "lastChecked": "2026-06-13T00:39:22.359Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-UP2",
-      "detectedAt": "2026-05-13T12:52:30.995Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PROS-EUR",
-      "detectedAt": "2026-05-13T12:52:31.275Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PROS-TRY",
-      "detectedAt": "2026-05-13T12:52:31.275Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PROS-USD",
-      "detectedAt": "2026-05-13T12:52:31.275Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PROS-USDT",
-      "detectedAt": "2026-05-13T12:52:31.275Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PROS-USDC",
-      "detectedAt": "2026-05-13T12:52:31.276Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "AVAEUR",
-      "detectedAt": "2026-05-14T00:20:00.536Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "AVAUSD",
-      "detectedAt": "2026-05-14T00:20:00.536Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "BABYSHARKEUR",
-      "detectedAt": "2026-05-14T00:20:00.536Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "BABYSHARKUSD",
-      "detectedAt": "2026-05-14T00:20:00.536Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "BTC-INR",
