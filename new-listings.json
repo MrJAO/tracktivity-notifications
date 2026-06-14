@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-06-14T00:20:25.161Z",
+  "lastChecked": "2026-06-14T12:03:12.129Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "BTC-INR",
-      "detectedAt": "2026-05-15T00:20:32.624Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "GENIUSEUR",
-      "detectedAt": "2026-05-15T00:20:34.147Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "GENIUSUSD",
-      "detectedAt": "2026-05-15T00:20:34.147Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-IRYS",
