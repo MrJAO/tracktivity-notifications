@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-06-14T12:03:12.129Z",
+  "lastChecked": "2026-06-15T00:58:28.147Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-IRYS",
-      "detectedAt": "2026-05-15T12:26:44.941Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-TRAC",
