@@ -47,5 +47,18 @@
   "metadata": {
     "emoji": "🔔"
   }
+},
+{
+  "id": "notice-2",
+  "title": "Daily Tickets Issue",
+  "message": "Hi everyone! \n\nWe found an issue where a user didn't received their 10 tickets from June 16th 3:00PM UTC reset.\nIf you didn't received the 10 tickets from that reset let us know so the team can check the backend for you.\nEmail: playtracktivity@gmail.com\nOr on our DAPP Store Page\n\nThank you!",
+  "date": "2026-06-12",
+  "type": "notice",
+  "isRead": false,
+  "isSticky": true,
+  "expiresAt": null,
+  "metadata": {
+    "emoji": "🔔"
+  }
 }
 ]
