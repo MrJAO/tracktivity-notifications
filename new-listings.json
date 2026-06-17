@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-06-17T00:48:06.164Z",
+  "lastChecked": "2026-06-17T12:58:50.276Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-TRAC",
-      "detectedAt": "2026-05-18T12:36:20.955Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "DCREUR",
@@ -195,6 +190,31 @@
       "exchange": "Coinbase",
       "symbol": "O-USD",
       "detectedAt": "2026-06-17T00:48:05.237Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRAM-EUR",
+      "detectedAt": "2026-06-17T12:58:50.216Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRAM-TRY",
+      "detectedAt": "2026-06-17T12:58:50.217Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRAM-USD",
+      "detectedAt": "2026-06-17T12:58:50.217Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRAM-USDT",
+      "detectedAt": "2026-06-17T12:58:50.217Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRAM-USDC",
+      "detectedAt": "2026-06-17T12:58:50.217Z"
     }
   ]
 }
