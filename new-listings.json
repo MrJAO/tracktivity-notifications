@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-06-17T12:58:50.276Z",
+  "lastChecked": "2026-06-18T00:47:03.074Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -215,6 +215,16 @@
       "exchange": "Okx",
       "symbol": "GRAM-USDC",
       "detectedAt": "2026-06-17T12:58:50.217Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "RE-USD",
+      "detectedAt": "2026-06-18T00:47:02.143Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "REUSD",
+      "detectedAt": "2026-06-18T00:47:03.073Z"
     }
   ]
 }
