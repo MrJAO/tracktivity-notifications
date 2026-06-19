@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-06-18T12:34:09.612Z",
+  "lastChecked": "2026-06-19T00:32:39.295Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "DCREUR",
-      "detectedAt": "2026-05-20T00:19:48.501Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "DCRUSD",
-      "detectedAt": "2026-05-20T00:19:48.501Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "NEXEUR",
-      "detectedAt": "2026-05-20T00:19:48.501Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "NEXUSD",
-      "detectedAt": "2026-05-20T00:19:48.501Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "PIEVERSEEUR",
-      "detectedAt": "2026-05-20T00:19:48.501Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "PIEVERSEUSD",
-      "detectedAt": "2026-05-20T00:19:48.501Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "NEX-USD",
@@ -225,6 +195,21 @@
       "exchange": "Kraken",
       "symbol": "REUSD",
       "detectedAt": "2026-06-18T00:47:03.073Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "RE-TRY",
+      "detectedAt": "2026-06-19T00:32:39.225Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "RE-USD",
+      "detectedAt": "2026-06-19T00:32:39.225Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "RE-USDT",
+      "detectedAt": "2026-06-19T00:32:39.225Z"
     }
   ]
 }
