@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-06-19T00:32:39.295Z",
+  "lastChecked": "2026-06-19T12:02:34.277Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -210,6 +210,21 @@
       "exchange": "Okx",
       "symbol": "RE-USDT",
       "detectedAt": "2026-06-19T00:32:39.225Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-RE",
+      "detectedAt": "2026-06-19T12:02:33.891Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "RE-EUR",
+      "detectedAt": "2026-06-19T12:02:34.217Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "RE-USDC",
+      "detectedAt": "2026-06-19T12:02:34.218Z"
     }
   ]
 }
