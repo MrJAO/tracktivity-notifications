@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-06-20T00:22:45.389Z",
+  "lastChecked": "2026-06-20T12:14:20.356Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "NEX-USD",
-      "detectedAt": "2026-05-21T00:25:23.286Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "AI-EUR",
