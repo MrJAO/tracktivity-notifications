@@ -1,9 +1,9 @@
 [
 {
-  "id": "app-update-7",
-  "title": "Tracktivity v1.0.6",
-  "message": "Update is now available on DApp Store",
-  "date": "2026-06-12",
+  "id": "app-update-8",
+  "title": "Demo Season 2",
+  "message": "Demo Season 2 Registration is now open!",
+  "date": "2026-06-23",
   "type": "update",
   "isRead": false,
   "isSticky": true,
@@ -13,7 +13,7 @@
     "sections": [
       {
         "type": "text",
-        "content": "Demo Season Launching"
+        "content": "What to Expect on Demo Season 2:"
       },
       {
         "type": "list",
@@ -23,7 +23,15 @@
           "✅ Spin the wheel to earn SKR and Points",
           "✅ Daily Tasks & Premium Milestones",
           "✅ Play Cultivate mini game to earn SKR, Ticket, and Points",
-          "✅ Seasonal Leaderboard rewards"
+          "✅ Seasonal Leaderboard rewards",
+          "-----",
+          "Leaderboard Rewards",
+          "Top 1: Earned SKR * 2 + 500 SKR",
+          "Top 2: Earned SKR * 2 + 300 SKR",
+          "Top 3: Earned SKR * 2 + 150 SKR",
+          "Top 4:20 Earned SKR * 2",
+          "-----",
+          "Note: Due to our Expo Plans limitation we can't apply the Leaderboard Reward changes to our Seasonal Leaderboard and DOCS pages in the meantime."
         ]
       },
       {
@@ -39,20 +47,7 @@
   "id": "notice-1",
   "title": "Reports and Feedbacks",
   "message": "Hi everyone! \n\nWe are still wiring up the Report and Feedback system and it will be available within two weeks after further testing\nIn the meantime you can send Report or Feedback thru\nEmail: playtracktivity@gmail.com\nOr on our DAPP Store Page\n\nThank you!",
-  "date": "2026-06-12",
-  "type": "notice",
-  "isRead": false,
-  "isSticky": true,
-  "expiresAt": null,
-  "metadata": {
-    "emoji": "🔔"
-  }
-},
-{
-  "id": "notice-2",
-  "title": "Daily Tickets Issue",
-  "message": "Hi everyone! \n\nWe found an issue where a user didn't received their 10 tickets from June 16th 3:00PM UTC reset.\nIf you didn't received the 10 tickets from that reset let us know so the team can check the backend for you.\nEmail: playtracktivity@gmail.com\nOr on our DAPP Store Page\n\nThank you!",
-  "date": "2026-06-12",
+  "date": "2026-06-23",
   "type": "notice",
   "isRead": false,
   "isSticky": true,
