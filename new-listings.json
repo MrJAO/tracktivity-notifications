@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-06-23T12:25:35.328Z",
+  "lastChecked": "2026-06-24T00:33:08.413Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -220,6 +220,11 @@
       "exchange": "Upbit",
       "symbol": "KRW-ARX",
       "detectedAt": "2026-06-23T12:25:34.947Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "NESUSD",
+      "detectedAt": "2026-06-24T00:33:08.413Z"
     }
   ]
 }
