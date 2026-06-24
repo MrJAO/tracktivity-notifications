@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-06-24T00:33:08.413Z",
+  "lastChecked": "2026-06-24T12:38:34.463Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -225,6 +225,11 @@
       "exchange": "Kraken",
       "symbol": "NESUSD",
       "detectedAt": "2026-06-24T00:33:08.413Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "NES-USDT",
+      "detectedAt": "2026-06-24T12:38:34.394Z"
     }
   ]
 }
