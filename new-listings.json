@@ -1,31 +1,6 @@
 {
-  "lastChecked": "2026-06-24T12:38:34.463Z",
+  "lastChecked": "2026-06-25T00:52:03.339Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "CTRUSD",
-      "detectedAt": "2026-05-26T00:42:19.186Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "KNTQEUR",
-      "detectedAt": "2026-05-26T00:42:19.186Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "KNTQUSD",
-      "detectedAt": "2026-05-26T00:42:19.186Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SLXEUR",
-      "detectedAt": "2026-05-26T00:42:19.186Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SLXUSD",
-      "detectedAt": "2026-05-26T00:42:19.186Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "CTR-USD",
@@ -230,6 +205,26 @@
       "exchange": "Okx",
       "symbol": "NES-USDT",
       "detectedAt": "2026-06-24T12:38:34.394Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "NES-EUR",
+      "detectedAt": "2026-06-25T00:52:03.280Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "NES-TRY",
+      "detectedAt": "2026-06-25T00:52:03.280Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "NES-USD",
+      "detectedAt": "2026-06-25T00:52:03.280Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "NES-USDC",
+      "detectedAt": "2026-06-25T00:52:03.280Z"
     }
   ]
 }
