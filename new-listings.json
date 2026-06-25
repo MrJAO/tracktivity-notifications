@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-06-25T00:52:03.339Z",
+  "lastChecked": "2026-06-25T12:36:18.394Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "CTR-USD",
-      "detectedAt": "2026-05-26T12:22:39.309Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "META-USD",
@@ -225,6 +220,21 @@
       "exchange": "Okx",
       "symbol": "NES-USDC",
       "detectedAt": "2026-06-25T00:52:03.280Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CARDS-TRY",
+      "detectedAt": "2026-06-25T12:36:18.250Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CARDS-USD",
+      "detectedAt": "2026-06-25T12:36:18.250Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CARDS-USDT",
+      "detectedAt": "2026-06-25T12:36:18.250Z"
     }
   ]
 }
