@@ -1,31 +1,6 @@
 {
-  "lastChecked": "2026-06-26T00:22:30.083Z",
+  "lastChecked": "2026-06-26T12:29:09.317Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "IRYS-EUR",
-      "detectedAt": "2026-05-27T12:18:40.505Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "IRYS-TRY",
-      "detectedAt": "2026-05-27T12:18:40.505Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "IRYS-USD",
-      "detectedAt": "2026-05-27T12:18:40.505Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "IRYS-USDT",
-      "detectedAt": "2026-05-27T12:18:40.505Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "IRYS-USDC",
-      "detectedAt": "2026-05-27T12:18:40.505Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-IO",
