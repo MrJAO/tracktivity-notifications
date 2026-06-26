@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-06-25T12:36:18.394Z",
+  "lastChecked": "2026-06-26T00:22:30.083Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "META-USD",
-      "detectedAt": "2026-05-27T00:17:51.325Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "DRV-USD",
-      "detectedAt": "2026-05-27T00:17:51.325Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "IRYS-EUR",
@@ -235,6 +225,16 @@
       "exchange": "Okx",
       "symbol": "CARDS-USDT",
       "detectedAt": "2026-06-25T12:36:18.250Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "CAP-USD",
+      "detectedAt": "2026-06-26T00:22:28.698Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "CAPUSD",
+      "detectedAt": "2026-06-26T00:22:30.083Z"
     }
   ]
 }
