@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-06-28T00:27:38.183Z",
+  "lastChecked": "2026-06-28T12:55:35.064Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-IO",
-      "detectedAt": "2026-05-29T12:19:51.958Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "KEUR",
