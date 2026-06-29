@@ -1,26 +1,6 @@
 {
-  "lastChecked": "2026-06-29T00:59:47.089Z",
+  "lastChecked": "2026-06-29T12:35:27.224Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "KEUR",
-      "detectedAt": "2026-05-30T12:06:59.247Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "KUSD",
-      "detectedAt": "2026-05-30T12:06:59.247Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "MOONETH",
-      "detectedAt": "2026-05-30T12:06:59.247Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "NYMXBT",
-      "detectedAt": "2026-05-30T12:06:59.247Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-SLX",
