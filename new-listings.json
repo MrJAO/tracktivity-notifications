@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-06-30T00:30:13.135Z",
+  "lastChecked": "2026-07-01T00:22:16.239Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -185,6 +185,36 @@
       "exchange": "Kraken",
       "symbol": "CAPUSD",
       "detectedAt": "2026-06-26T00:22:30.083Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-AI",
+      "detectedAt": "2026-07-01T00:22:15.842Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TAO-EUR",
+      "detectedAt": "2026-07-01T00:22:16.174Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TAO-TRY",
+      "detectedAt": "2026-07-01T00:22:16.174Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TAO-USD",
+      "detectedAt": "2026-07-01T00:22:16.174Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TAO-USDT",
+      "detectedAt": "2026-07-01T00:22:16.175Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TAO-USDC",
+      "detectedAt": "2026-07-01T00:22:16.175Z"
     }
   ]
 }
