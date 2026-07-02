@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-02T00:45:25.124Z",
+  "lastChecked": "2026-07-02T12:12:29.324Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -210,6 +210,31 @@
       "exchange": "Okx",
       "symbol": "TAO-USDC",
       "detectedAt": "2026-07-01T00:22:16.175Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "DATA-EUR",
+      "detectedAt": "2026-07-02T12:12:29.237Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "DATA-TRY",
+      "detectedAt": "2026-07-02T12:12:29.237Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "DATA-USD",
+      "detectedAt": "2026-07-02T12:12:29.237Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "DATA-USDT",
+      "detectedAt": "2026-07-02T12:12:29.238Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "DATA-USDC",
+      "detectedAt": "2026-07-02T12:12:29.238Z"
     }
   ]
 }
