@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-07-03T12:46:44.160Z",
+  "lastChecked": "2026-07-04T00:58:42.188Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "ETH-INR",
-      "detectedAt": "2026-06-04T00:44:30.213Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "SOL-INR",
-      "detectedAt": "2026-06-04T00:44:30.214Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "YOMUSD",
