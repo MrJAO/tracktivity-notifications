@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-07-05T00:08:22.160Z",
+  "lastChecked": "2026-07-05T12:27:11.179Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "YOMUSD",
-      "detectedAt": "2026-06-05T00:28:38.363Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-BABY",
-      "detectedAt": "2026-06-05T12:09:07.493Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "USDG-SGD",
