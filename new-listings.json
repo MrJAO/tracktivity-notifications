@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-06T12:01:07.148Z",
+  "lastChecked": "2026-07-07T00:35:32.052Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -215,6 +215,21 @@
       "exchange": "Okx",
       "symbol": "DATA-USDC",
       "detectedAt": "2026-07-02T12:12:29.238Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "GROVE-USD",
+      "detectedAt": "2026-07-07T00:35:31.055Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SN64USD",
+      "detectedAt": "2026-07-07T00:35:32.052Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "WEMIXUSD",
+      "detectedAt": "2026-07-07T00:35:32.052Z"
     }
   ]
 }
