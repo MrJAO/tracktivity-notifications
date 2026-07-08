@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-08T00:24:24.531Z",
+  "lastChecked": "2026-07-08T12:34:10.356Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -240,6 +240,11 @@
       "exchange": "Kraken",
       "symbol": "NATGUSD",
       "detectedAt": "2026-07-07T12:30:33.342Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-DATA",
+      "detectedAt": "2026-07-08T12:34:09.932Z"
     }
   ]
 }
