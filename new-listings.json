@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-10T00:50:04.091Z",
+  "lastChecked": "2026-07-10T12:19:36.316Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -265,6 +265,31 @@
       "exchange": "Kraken",
       "symbol": "USDPTUSDT",
       "detectedAt": "2026-07-09T00:54:30.106Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SLX-EUR",
+      "detectedAt": "2026-07-10T12:19:36.255Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SLX-TRY",
+      "detectedAt": "2026-07-10T12:19:36.255Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SLX-USD",
+      "detectedAt": "2026-07-10T12:19:36.255Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SLX-USDT",
+      "detectedAt": "2026-07-10T12:19:36.256Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SLX-USDC",
+      "detectedAt": "2026-07-10T12:19:36.256Z"
     }
   ]
 }
