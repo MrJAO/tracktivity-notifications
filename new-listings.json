@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-07-10T12:19:36.316Z",
+  "lastChecked": "2026-07-11T00:08:44.420Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "USDG-SGD",
-      "detectedAt": "2026-06-10T12:22:41.324Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-SPX",
