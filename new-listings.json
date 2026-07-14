@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-13T12:13:41.835Z",
+  "lastChecked": "2026-07-14T00:28:27.287Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -285,6 +285,11 @@
       "exchange": "Okx",
       "symbol": "SLX-USDC",
       "detectedAt": "2026-07-10T12:19:36.256Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SN75USD",
+      "detectedAt": "2026-07-14T00:28:27.287Z"
     }
   ]
 }
