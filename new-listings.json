@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-07-16T00:54:05.201Z",
+  "lastChecked": "2026-07-16T12:51:16.308Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-SPX",
-      "detectedAt": "2026-06-16T12:31:22.977Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "O-USD",
@@ -295,6 +290,126 @@
       "exchange": "Upbit",
       "symbol": "KRW-DRV",
       "detectedAt": "2026-07-14T12:41:20.013Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAAPL-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAMD-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAMZN-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAVGO-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCRCL-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XEWY-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XGOOGL-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XINTC-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XIWM-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XLITE-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMETA-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMRVL-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMSFT-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMSTR-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMU-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XNVDA-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XQQQ-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSKHY-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSNDK-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSOXL-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSPCX-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSPY-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTSLA-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTSM-USDT",
+      "detectedAt": "2026-07-16T12:51:16.227Z"
     }
   ]
 }
