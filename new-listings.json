@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-16T12:51:16.308Z",
+  "lastChecked": "2026-07-17T00:11:43.698Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -410,6 +410,11 @@
       "exchange": "Okx",
       "symbol": "XTSM-USDT",
       "detectedAt": "2026-07-16T12:51:16.227Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SN8USD",
+      "detectedAt": "2026-07-17T00:11:43.698Z"
     }
   ]
 }
