@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-07-19T00:14:18.093Z",
+  "lastChecked": "2026-07-19T12:42:24.082Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "RE-TRY",
-      "detectedAt": "2026-06-19T00:32:39.225Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "RE-USD",
-      "detectedAt": "2026-06-19T00:32:39.225Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "RE-USDT",
-      "detectedAt": "2026-06-19T00:32:39.225Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-RE",
-      "detectedAt": "2026-06-19T12:02:33.891Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "RE-EUR",
-      "detectedAt": "2026-06-19T12:02:34.217Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "RE-USDC",
-      "detectedAt": "2026-06-19T12:02:34.218Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "ARXUSD",
