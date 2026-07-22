@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-07-21T12:00:53.143Z",
+  "lastChecked": "2026-07-22T00:48:29.210Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "ARXUSD",
-      "detectedAt": "2026-06-22T00:36:56.108Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "ARX-USD",
