@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-07-24T00:22:14.297Z",
+  "lastChecked": "2026-07-24T12:45:00.301Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "NESUSD",
-      "detectedAt": "2026-06-24T00:33:08.413Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "NES-USDT",
-      "detectedAt": "2026-06-24T12:38:34.394Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "NES-EUR",
@@ -370,6 +360,46 @@
       "exchange": "Kraken",
       "symbol": "SN44USD",
       "detectedAt": "2026-07-23T12:03:00.507Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XASTS-USDT",
+      "detectedAt": "2026-07-24T12:45:00.239Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XBMNR-USDT",
+      "detectedAt": "2026-07-24T12:45:00.239Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCOIN-USDT",
+      "detectedAt": "2026-07-24T12:45:00.239Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XDELL-USDT",
+      "detectedAt": "2026-07-24T12:45:00.239Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XIREN-USDT",
+      "detectedAt": "2026-07-24T12:45:00.239Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XLLY-USDT",
+      "detectedAt": "2026-07-24T12:45:00.239Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XNFLX-USDT",
+      "detectedAt": "2026-07-24T12:45:00.239Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XPLTR-USDT",
+      "detectedAt": "2026-07-24T12:45:00.239Z"
     }
   ]
 }
