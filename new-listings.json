@@ -1,26 +1,6 @@
 {
-  "lastChecked": "2026-07-25T00:40:17.299Z",
+  "lastChecked": "2026-07-25T12:14:01.117Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "NES-EUR",
-      "detectedAt": "2026-06-25T00:52:03.280Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "NES-TRY",
-      "detectedAt": "2026-06-25T00:52:03.280Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "NES-USD",
-      "detectedAt": "2026-06-25T00:52:03.280Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "NES-USDC",
-      "detectedAt": "2026-06-25T00:52:03.280Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "CARDS-TRY",
@@ -405,6 +385,11 @@
       "exchange": "Coinbase",
       "symbol": "USDC-BRL",
       "detectedAt": "2026-07-25T00:40:16.151Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-MORPHO",
+      "detectedAt": "2026-07-25T12:14:00.757Z"
     }
   ]
 }
