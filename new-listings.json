@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-24T12:45:00.301Z",
+  "lastChecked": "2026-07-25T00:40:17.299Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -400,6 +400,11 @@
       "exchange": "Okx",
       "symbol": "XPLTR-USDT",
       "detectedAt": "2026-07-24T12:45:00.239Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "USDC-BRL",
+      "detectedAt": "2026-07-25T00:40:16.151Z"
     }
   ]
 }
