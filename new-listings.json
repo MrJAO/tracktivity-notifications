@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-07-25T12:14:01.117Z",
+  "lastChecked": "2026-07-26T00:04:32.226Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "CARDS-TRY",
-      "detectedAt": "2026-06-25T12:36:18.250Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CARDS-USD",
-      "detectedAt": "2026-06-25T12:36:18.250Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CARDS-USDT",
-      "detectedAt": "2026-06-25T12:36:18.250Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "CAP-USD",
