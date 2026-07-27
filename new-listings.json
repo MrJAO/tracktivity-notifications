@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-27T00:24:00.270Z",
+  "lastChecked": "2026-07-27T12:20:23.271Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -370,6 +370,26 @@
       "exchange": "Upbit",
       "symbol": "KRW-EUL",
       "detectedAt": "2026-07-26T12:28:09.804Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-GEOD",
+      "detectedAt": "2026-07-27T12:20:22.901Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AEON-TRY",
+      "detectedAt": "2026-07-27T12:20:23.216Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AEON-USD",
+      "detectedAt": "2026-07-27T12:20:23.216Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AEON-USDT",
+      "detectedAt": "2026-07-27T12:20:23.217Z"
     }
   ]
 }
