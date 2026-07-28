@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-28T00:48:53.199Z",
+  "lastChecked": "2026-07-28T12:31:47.511Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -395,6 +395,31 @@
       "exchange": "Kraken",
       "symbol": "QUIDUSD",
       "detectedAt": "2026-07-28T00:48:53.199Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-RLUSD",
+      "detectedAt": "2026-07-28T12:31:46.984Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCRWD-USDT",
+      "detectedAt": "2026-07-28T12:31:47.444Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCSCO-USDT",
+      "detectedAt": "2026-07-28T12:31:47.444Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XGME-USDT",
+      "detectedAt": "2026-07-28T12:31:47.444Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XHIMS-USDT",
+      "detectedAt": "2026-07-28T12:31:47.444Z"
     }
   ]
 }
