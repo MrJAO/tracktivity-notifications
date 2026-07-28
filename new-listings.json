@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-27T12:20:23.271Z",
+  "lastChecked": "2026-07-28T00:48:53.199Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -390,6 +390,11 @@
       "exchange": "Okx",
       "symbol": "AEON-USDT",
       "detectedAt": "2026-07-27T12:20:23.217Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "QUIDUSD",
+      "detectedAt": "2026-07-28T00:48:53.199Z"
     }
   ]
 }
