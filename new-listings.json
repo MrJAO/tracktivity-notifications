@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-29T00:04:04.356Z",
+  "lastChecked": "2026-07-29T12:46:14.324Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -425,6 +425,51 @@
       "exchange": "Kraken",
       "symbol": "BNKRUSD",
       "detectedAt": "2026-07-29T00:04:04.356Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-META2",
+      "detectedAt": "2026-07-29T12:46:13.924Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XADBE-USDT",
+      "detectedAt": "2026-07-29T12:46:14.267Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAMAT-USDT",
+      "detectedAt": "2026-07-29T12:46:14.267Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XASML-USDT",
+      "detectedAt": "2026-07-29T12:46:14.267Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XGEV-USDT",
+      "detectedAt": "2026-07-29T12:46:14.267Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XONDS-USDT",
+      "detectedAt": "2026-07-29T12:46:14.267Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTER-USDT",
+      "detectedAt": "2026-07-29T12:46:14.267Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XVRT-USDT",
+      "detectedAt": "2026-07-29T12:46:14.267Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XXLE-USDT",
+      "detectedAt": "2026-07-29T12:46:14.267Z"
     }
   ]
 }
