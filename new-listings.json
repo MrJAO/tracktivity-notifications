@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-30T00:42:55.133Z",
+  "lastChecked": "2026-07-30T12:53:27.397Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -475,6 +475,16 @@
       "exchange": "Coinbase",
       "symbol": "GRVT-USD",
       "detectedAt": "2026-07-30T00:42:54.195Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-USDG",
+      "detectedAt": "2026-07-30T12:53:26.956Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "XU3O8USD",
+      "detectedAt": "2026-07-30T12:53:27.397Z"
     }
   ]
 }
