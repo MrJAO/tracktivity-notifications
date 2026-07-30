@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-29T12:46:14.324Z",
+  "lastChecked": "2026-07-30T00:42:55.133Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -470,6 +470,11 @@
       "exchange": "Okx",
       "symbol": "XXLE-USDT",
       "detectedAt": "2026-07-29T12:46:14.267Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "GRVT-USD",
+      "detectedAt": "2026-07-30T00:42:54.195Z"
     }
   ]
 }
