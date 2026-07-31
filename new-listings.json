@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-07-30T12:53:27.397Z",
+  "lastChecked": "2026-07-31T00:39:30.732Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-AI",
-      "detectedAt": "2026-07-01T00:22:15.842Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TAO-EUR",
-      "detectedAt": "2026-07-01T00:22:16.174Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TAO-TRY",
-      "detectedAt": "2026-07-01T00:22:16.174Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TAO-USD",
-      "detectedAt": "2026-07-01T00:22:16.174Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TAO-USDT",
-      "detectedAt": "2026-07-01T00:22:16.175Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "TAO-USDC",
-      "detectedAt": "2026-07-01T00:22:16.175Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "DATA-EUR",
@@ -485,6 +455,26 @@
       "exchange": "Kraken",
       "symbol": "XU3O8USD",
       "detectedAt": "2026-07-30T12:53:27.397Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRVT-TRY",
+      "detectedAt": "2026-07-31T00:39:30.675Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRVT-USD",
+      "detectedAt": "2026-07-31T00:39:30.675Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRVT-USDT",
+      "detectedAt": "2026-07-31T00:39:30.676Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AUGURUSD",
+      "detectedAt": "2026-07-31T00:39:30.731Z"
     }
   ]
 }
