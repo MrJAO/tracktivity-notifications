@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-07-31T00:39:30.732Z",
+  "lastChecked": "2026-07-31T12:56:30.617Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -475,6 +475,11 @@
       "exchange": "Kraken",
       "symbol": "AUGURUSD",
       "detectedAt": "2026-07-31T00:39:30.731Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-CFX",
+      "detectedAt": "2026-07-31T12:56:29.775Z"
     }
   ]
 }
