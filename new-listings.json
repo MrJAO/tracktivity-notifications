@@ -1,31 +1,6 @@
 {
-  "lastChecked": "2026-08-01T00:14:54.215Z",
+  "lastChecked": "2026-08-01T12:28:43.325Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "DATA-EUR",
-      "detectedAt": "2026-07-02T12:12:29.237Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "DATA-TRY",
-      "detectedAt": "2026-07-02T12:12:29.237Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "DATA-USD",
-      "detectedAt": "2026-07-02T12:12:29.237Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "DATA-USDT",
-      "detectedAt": "2026-07-02T12:12:29.238Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "DATA-USDC",
-      "detectedAt": "2026-07-02T12:12:29.238Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "GROVE-USD",
