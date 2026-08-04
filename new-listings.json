@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-03T12:06:09.345Z",
+  "lastChecked": "2026-08-04T00:08:55.177Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -455,6 +455,11 @@
       "exchange": "Upbit",
       "symbol": "KRW-CFX",
       "detectedAt": "2026-07-31T12:56:29.775Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "QUIDUSD",
+      "detectedAt": "2026-08-04T00:08:55.176Z"
     }
   ]
 }
