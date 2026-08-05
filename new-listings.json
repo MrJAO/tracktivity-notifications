@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-05T00:15:10.054Z",
+  "lastChecked": "2026-08-05T12:01:34.152Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -475,6 +475,11 @@
       "exchange": "Kraken",
       "symbol": "USDSMUSD",
       "detectedAt": "2026-08-05T00:15:10.054Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-GRVT",
+      "detectedAt": "2026-08-05T12:01:33.844Z"
     }
   ]
 }
