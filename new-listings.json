@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-08-06T12:00:15.284Z",
+  "lastChecked": "2026-08-07T00:48:50.014Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-OPG",
-      "detectedAt": "2026-07-07T12:30:32.891Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "NATGUSD",
-      "detectedAt": "2026-07-07T12:30:33.342Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-DATA",
