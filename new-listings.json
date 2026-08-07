@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-07T00:48:50.014Z",
+  "lastChecked": "2026-08-07T12:25:54.197Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -460,6 +460,21 @@
       "exchange": "Upbit",
       "symbol": "KRW-CAP",
       "detectedAt": "2026-08-06T12:00:14.960Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-KMNO",
+      "detectedAt": "2026-08-07T12:25:53.810Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-BSB",
+      "detectedAt": "2026-08-07T12:25:53.810Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTESTA-USDT",
+      "detectedAt": "2026-08-07T12:25:54.058Z"
     }
   ]
 }
