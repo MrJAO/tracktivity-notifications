@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-08-07T12:25:54.197Z",
+  "lastChecked": "2026-08-08T00:02:20.139Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-DATA",
-      "detectedAt": "2026-07-08T12:34:09.932Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "SN51USD",
