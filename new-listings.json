@@ -1,26 +1,6 @@
 {
-  "lastChecked": "2026-08-08T00:02:20.139Z",
+  "lastChecked": "2026-08-08T12:01:20.263Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "SN51USD",
-      "detectedAt": "2026-07-09T00:54:30.106Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "USDPTUSD",
-      "detectedAt": "2026-07-09T00:54:30.106Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "USDPTUSDC",
-      "detectedAt": "2026-07-09T00:54:30.106Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "USDPTUSDT",
-      "detectedAt": "2026-07-09T00:54:30.106Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "SLX-EUR",
