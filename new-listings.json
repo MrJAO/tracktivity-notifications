@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-10T00:36:24.393Z",
+  "lastChecked": "2026-08-10T12:39:25.128Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -425,6 +425,11 @@
       "exchange": "Okx",
       "symbol": "XTESTA-USDT",
       "detectedAt": "2026-08-07T12:25:54.058Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "KAITO-TRY",
+      "detectedAt": "2026-08-10T12:39:25.074Z"
     }
   ]
 }
