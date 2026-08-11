@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-11T00:39:12.270Z",
+  "lastChecked": "2026-08-11T12:21:16.162Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -435,6 +435,11 @@
       "exchange": "Kraken",
       "symbol": "DOSUSD",
       "detectedAt": "2026-08-11T00:39:12.269Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-DOS",
+      "detectedAt": "2026-08-11T12:21:15.845Z"
     }
   ]
 }
