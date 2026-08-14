@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-14T00:04:05.148Z",
+  "lastChecked": "2026-08-14T12:58:57.189Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -515,6 +515,51 @@
       "exchange": "Kraken",
       "symbol": "SODAUSD",
       "detectedAt": "2026-08-14T00:04:05.147Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XALAB-USDT",
+      "detectedAt": "2026-08-14T12:58:57.138Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAPP-USDT",
+      "detectedAt": "2026-08-14T12:58:57.138Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XBSP-USDT",
+      "detectedAt": "2026-08-14T12:58:57.138Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCOHR-USDT",
+      "detectedAt": "2026-08-14T12:58:57.138Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XON-USDT",
+      "detectedAt": "2026-08-14T12:58:57.138Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSHAZ-USDT",
+      "detectedAt": "2026-08-14T12:58:57.138Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSMCI-USDT",
+      "detectedAt": "2026-08-14T12:58:57.138Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTWLO-USDT",
+      "detectedAt": "2026-08-14T12:58:57.138Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "KIIUSD",
+      "detectedAt": "2026-08-14T12:58:57.188Z"
     }
   ]
 }
