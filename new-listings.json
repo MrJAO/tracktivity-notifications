@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-08-13T12:27:47.151Z",
+  "lastChecked": "2026-08-14T00:04:05.148Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-DRV",
-      "detectedAt": "2026-07-14T12:41:20.013Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "XAAPL-USDT",
@@ -510,6 +505,16 @@
       "exchange": "Okx",
       "symbol": "DOS-USDC",
       "detectedAt": "2026-08-13T12:27:47.097Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "LIGHTERUSD",
+      "detectedAt": "2026-08-14T00:04:05.147Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SODAUSD",
+      "detectedAt": "2026-08-14T00:04:05.147Z"
     }
   ]
 }
