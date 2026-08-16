@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-08-16T00:26:50.017Z",
+  "lastChecked": "2026-08-16T12:23:31.209Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "USDC-TEV",
-      "detectedAt": "2026-07-17T12:18:41.159Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "CSPRUSD",
