@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-20T00:39:12.179Z",
+  "lastChecked": "2026-08-20T12:08:54.259Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -505,6 +505,46 @@
       "exchange": "Kraken",
       "symbol": "ALIGNUSD",
       "detectedAt": "2026-08-20T00:39:12.178Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAPLD-USDT",
+      "detectedAt": "2026-08-20T12:08:54.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XBX-USDT",
+      "detectedAt": "2026-08-20T12:08:54.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XISRG-USDT",
+      "detectedAt": "2026-08-20T12:08:54.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XOKTA-USDT",
+      "detectedAt": "2026-08-20T12:08:54.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XRIVN-USDT",
+      "detectedAt": "2026-08-20T12:08:54.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XUNH-USDT",
+      "detectedAt": "2026-08-20T12:08:54.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XWDC-USDT",
+      "detectedAt": "2026-08-20T12:08:54.189Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XZM-USDT",
+      "detectedAt": "2026-08-20T12:08:54.189Z"
     }
   ]
 }
