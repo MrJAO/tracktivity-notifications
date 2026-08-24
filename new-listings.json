@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-08-24T00:09:39.091Z",
+  "lastChecked": "2026-08-24T12:55:14.433Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "USDC-BRL",
-      "detectedAt": "2026-07-25T00:40:16.151Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-MORPHO",
-      "detectedAt": "2026-07-25T12:14:00.757Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-EUL",
@@ -520,6 +510,11 @@
       "exchange": "Kraken",
       "symbol": "PWTUSD",
       "detectedAt": "2026-08-24T00:09:39.091Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-LIT",
+      "detectedAt": "2026-08-24T12:55:14.008Z"
     }
   ]
 }
