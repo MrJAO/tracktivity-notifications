@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-24T12:55:14.433Z",
+  "lastChecked": "2026-08-25T00:55:53.143Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -515,6 +515,26 @@
       "exchange": "Upbit",
       "symbol": "KRW-LIT",
       "detectedAt": "2026-08-24T12:55:14.008Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "DRB-USD",
+      "detectedAt": "2026-08-25T00:55:52.192Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "BASECAT-USD",
+      "detectedAt": "2026-08-25T00:55:52.192Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "FOLDUSD",
+      "detectedAt": "2026-08-25T00:55:53.134Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "TMXUSD",
+      "detectedAt": "2026-08-25T00:55:53.134Z"
     }
   ]
 }
