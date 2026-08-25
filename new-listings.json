@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-08-25T00:55:53.143Z",
+  "lastChecked": "2026-08-25T12:32:29.741Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-EUL",
-      "detectedAt": "2026-07-26T12:28:09.804Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-GEOD",
@@ -535,6 +530,16 @@
       "exchange": "Kraken",
       "symbol": "TMXUSD",
       "detectedAt": "2026-08-25T00:55:53.134Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTESTA-USDT",
+      "detectedAt": "2026-08-25T12:32:29.586Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTESTA-USDC",
+      "detectedAt": "2026-08-25T12:32:29.586Z"
     }
   ]
 }
