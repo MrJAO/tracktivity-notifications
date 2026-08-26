@@ -1,26 +1,6 @@
 {
-  "lastChecked": "2026-08-26T00:19:42.221Z",
+  "lastChecked": "2026-08-26T12:31:29.504Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-GEOD",
-      "detectedAt": "2026-07-27T12:20:22.901Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "AEON-TRY",
-      "detectedAt": "2026-07-27T12:20:23.216Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "AEON-USD",
-      "detectedAt": "2026-07-27T12:20:23.216Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "AEON-USDT",
-      "detectedAt": "2026-07-27T12:20:23.217Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "QUIDUSD",
@@ -540,6 +520,21 @@
       "exchange": "Okx",
       "symbol": "XTESTA-USDC",
       "detectedAt": "2026-08-25T12:32:29.586Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-NCT",
+      "detectedAt": "2026-08-26T12:31:29.172Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BASED-EUR",
+      "detectedAt": "2026-08-26T12:31:29.449Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BASED-USDC",
+      "detectedAt": "2026-08-26T12:31:29.449Z"
     }
   ]
 }
