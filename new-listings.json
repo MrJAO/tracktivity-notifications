@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-08-27T00:42:08.242Z",
+  "lastChecked": "2026-08-27T12:25:42.306Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "QUIDUSD",
-      "detectedAt": "2026-07-28T00:48:53.199Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-RLUSD",
@@ -545,6 +540,16 @@
       "exchange": "Kraken",
       "symbol": "AVLUSD",
       "detectedAt": "2026-08-27T00:42:08.241Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SOPH-EUR",
+      "detectedAt": "2026-08-27T12:25:42.224Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "SOPH-USDC",
+      "detectedAt": "2026-08-27T12:25:42.225Z"
     }
   ]
 }
