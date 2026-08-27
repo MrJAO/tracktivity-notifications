@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-26T12:31:29.504Z",
+  "lastChecked": "2026-08-27T00:42:08.242Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -535,6 +535,16 @@
       "exchange": "Okx",
       "symbol": "BASED-USDC",
       "detectedAt": "2026-08-26T12:31:29.449Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "GRASS-USD",
+      "detectedAt": "2026-08-27T00:42:07.274Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "AVLUSD",
+      "detectedAt": "2026-08-27T00:42:08.241Z"
     }
   ]
 }
