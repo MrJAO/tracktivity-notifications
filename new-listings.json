@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-08-28T12:49:45.138Z",
+  "lastChecked": "2026-08-29T00:57:02.158Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "GRVT-USD",
-      "detectedAt": "2026-07-30T00:42:54.195Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-USDG",
