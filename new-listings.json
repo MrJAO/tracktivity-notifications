@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-08-29T12:42:59.215Z",
+  "lastChecked": "2026-08-30T00:57:32.184Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-USDG",
-      "detectedAt": "2026-07-30T12:53:26.956Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "XU3O8USD",
-      "detectedAt": "2026-07-30T12:53:27.397Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "GRVT-TRY",
-      "detectedAt": "2026-07-31T00:39:30.675Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "GRVT-USD",
-      "detectedAt": "2026-07-31T00:39:30.675Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "GRVT-USDT",
-      "detectedAt": "2026-07-31T00:39:30.676Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "AUGURUSD",
-      "detectedAt": "2026-07-31T00:39:30.731Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-CFX",
