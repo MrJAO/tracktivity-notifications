@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-08-31T00:17:49.125Z",
+  "lastChecked": "2026-08-31T12:20:34.347Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -440,6 +440,16 @@
       "exchange": "Upbit",
       "symbol": "KRW-EURC",
       "detectedAt": "2026-08-28T12:49:44.732Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ZENT-EUR",
+      "detectedAt": "2026-08-31T12:20:34.290Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ZENT-USDC",
+      "detectedAt": "2026-08-31T12:20:34.291Z"
     }
   ]
 }
