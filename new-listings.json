@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-02T00:35:36.148Z",
+  "lastChecked": "2026-09-02T12:39:42.202Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -470,6 +470,16 @@
       "exchange": "Kraken",
       "symbol": "USTABLESUSD",
       "detectedAt": "2026-09-02T00:35:36.148Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRVT-EUR",
+      "detectedAt": "2026-09-02T12:39:42.139Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "GRVT-USDC",
+      "detectedAt": "2026-09-02T12:39:42.139Z"
     }
   ]
 }
