@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-09-03T00:19:05.104Z",
+  "lastChecked": "2026-09-03T12:39:42.491Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-HOME",
-      "detectedAt": "2026-08-04T12:10:54.703Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-QUID",
