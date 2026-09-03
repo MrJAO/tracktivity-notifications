@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-09-02T12:39:42.202Z",
+  "lastChecked": "2026-09-03T00:19:05.104Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "QUIDUSD",
-      "detectedAt": "2026-08-04T00:08:55.176Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-HOME",
@@ -480,6 +475,16 @@
       "exchange": "Okx",
       "symbol": "GRVT-USDC",
       "detectedAt": "2026-09-02T12:39:42.139Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CP-TRY",
+      "detectedAt": "2026-09-03T00:19:05.039Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CP-USDT",
+      "detectedAt": "2026-09-03T00:19:05.039Z"
     }
   ]
 }
