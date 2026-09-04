@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-09-03T12:39:42.491Z",
+  "lastChecked": "2026-09-04T00:19:05.130Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-QUID",
-      "detectedAt": "2026-08-05T00:15:09.722Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "USDSMUSD",
-      "detectedAt": "2026-08-05T00:15:10.054Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-GRVT",
@@ -480,6 +470,36 @@
       "exchange": "Okx",
       "symbol": "CP-USDT",
       "detectedAt": "2026-09-03T00:19:05.039Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ETHSOFID",
+      "detectedAt": "2026-09-04T00:19:05.130Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SOFIDUSD",
+      "detectedAt": "2026-09-04T00:19:05.130Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SOFIDUSDC",
+      "detectedAt": "2026-09-04T00:19:05.130Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SOFIDUSDT",
+      "detectedAt": "2026-09-04T00:19:05.130Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "SOLSOFID",
+      "detectedAt": "2026-09-04T00:19:05.130Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "XBTSOFID",
+      "detectedAt": "2026-09-04T00:19:05.130Z"
     }
   ]
 }
