@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-09-05T00:19:05.112Z",
+  "lastChecked": "2026-09-05T12:39:42.452Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-CAP",
-      "detectedAt": "2026-08-06T12:00:14.960Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-KMNO",
