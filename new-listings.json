@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-09-06T00:19:05.114Z",
+  "lastChecked": "2026-09-06T12:39:42.322Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-KMNO",
-      "detectedAt": "2026-08-07T12:25:53.810Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-BSB",
-      "detectedAt": "2026-08-07T12:25:53.810Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XTESTA-USDT",
-      "detectedAt": "2026-08-07T12:25:54.058Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "KAITO-TRY",
