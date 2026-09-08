@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-07T12:39:42.162Z",
+  "lastChecked": "2026-09-08T00:19:05.270Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -485,6 +485,96 @@
       "exchange": "Okx",
       "symbol": "XSPY-USDC",
       "detectedAt": "2026-09-07T12:39:42.102Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAMD-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCBRS-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCOIN-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCRCL-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCRWV-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XEWY-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XINTC-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XLITE-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMRVL-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMSTR-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMU-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XNBIS-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XNVDA-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XQQQ-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSKHY-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSOXL-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSPCX-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTSLA-USDC",
+      "detectedAt": "2026-09-08T00:19:05.209Z"
     }
   ]
 }
