@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-08T12:39:42.276Z",
+  "lastChecked": "2026-09-09T00:19:05.288Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -620,6 +620,16 @@
       "exchange": "Okx",
       "symbol": "XSOXS-USDT",
       "detectedAt": "2026-09-08T12:39:42.230Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "LAPTOPUSD",
+      "detectedAt": "2026-09-09T00:19:05.287Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "TCSUSD",
+      "detectedAt": "2026-09-09T00:19:05.288Z"
     }
   ]
 }
