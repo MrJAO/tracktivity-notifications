@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-09-10T00:19:05.899Z",
+  "lastChecked": "2026-09-10T12:39:42.303Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "DOSUSD",
-      "detectedAt": "2026-08-11T00:39:12.269Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-DOS",
-      "detectedAt": "2026-08-11T12:21:15.845Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-PROM",
@@ -630,6 +620,11 @@
       "exchange": "Kraken",
       "symbol": "ONEUSD",
       "detectedAt": "2026-09-10T00:19:05.899Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-BFC",
+      "detectedAt": "2026-09-10T12:39:41.893Z"
     }
   ]
 }
