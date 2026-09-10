@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-09T12:39:42.318Z",
+  "lastChecked": "2026-09-10T00:19:05.899Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -625,6 +625,11 @@
       "exchange": "Kraken",
       "symbol": "TCSUSD",
       "detectedAt": "2026-09-09T00:19:05.288Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ONEUSD",
+      "detectedAt": "2026-09-10T00:19:05.899Z"
     }
   ]
 }
