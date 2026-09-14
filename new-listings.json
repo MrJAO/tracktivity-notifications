@@ -1,51 +1,6 @@
 {
-  "lastChecked": "2026-09-13T12:39:42.011Z",
+  "lastChecked": "2026-09-14T00:19:05.218Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "XALAB-USDT",
-      "detectedAt": "2026-08-14T12:58:57.138Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XAPP-USDT",
-      "detectedAt": "2026-08-14T12:58:57.138Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XBSP-USDT",
-      "detectedAt": "2026-08-14T12:58:57.138Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XCOHR-USDT",
-      "detectedAt": "2026-08-14T12:58:57.138Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XON-USDT",
-      "detectedAt": "2026-08-14T12:58:57.138Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSHAZ-USDT",
-      "detectedAt": "2026-08-14T12:58:57.138Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSMCI-USDT",
-      "detectedAt": "2026-08-14T12:58:57.138Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XTWLO-USDT",
-      "detectedAt": "2026-08-14T12:58:57.138Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "KIIUSD",
-      "detectedAt": "2026-08-14T12:58:57.188Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "USDGOUSD",
