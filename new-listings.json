@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-15T12:39:42.079Z",
+  "lastChecked": "2026-09-16T00:19:05.410Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -490,6 +490,36 @@
       "exchange": "Upbit",
       "symbol": "KRW-BFC",
       "detectedAt": "2026-09-10T12:39:41.893Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "PONS-TRY",
+      "detectedAt": "2026-09-16T00:19:05.291Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "VVV-TRY",
+      "detectedAt": "2026-09-16T00:19:05.291Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "PONS-USDT",
+      "detectedAt": "2026-09-16T00:19:05.291Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "VVV-USDT",
+      "detectedAt": "2026-09-16T00:19:05.291Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "GNOTUSD",
+      "detectedAt": "2026-09-16T00:19:05.410Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "TREADUSD",
+      "detectedAt": "2026-09-16T00:19:05.410Z"
     }
   ]
 }
