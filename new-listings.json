@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-09-17T00:19:05.373Z",
+  "lastChecked": "2026-09-17T12:39:42.474Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "XBOT-USDT",
-      "detectedAt": "2026-08-18T12:12:28.119Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XCRM-USDT",
-      "detectedAt": "2026-08-18T12:12:28.119Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XDKNG-USDT",
-      "detectedAt": "2026-08-18T12:12:28.119Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XHPE-USDT",
-      "detectedAt": "2026-08-18T12:12:28.119Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XNOW-USDT",
-      "detectedAt": "2026-08-18T12:12:28.119Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSNOW-USDT",
-      "detectedAt": "2026-08-18T12:12:28.119Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "XCIEN-USDT",
@@ -535,6 +505,31 @@
       "exchange": "Coinbase",
       "symbol": "BLUECHIP-USD",
       "detectedAt": "2026-09-17T00:19:04.363Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-JPYC",
+      "detectedAt": "2026-09-17T12:39:42.112Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-PYUSD",
+      "detectedAt": "2026-09-17T12:39:42.112Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CP-EUR",
+      "detectedAt": "2026-09-17T12:39:42.422Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CP-USDC",
+      "detectedAt": "2026-09-17T12:39:42.423Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XMETA-USDC",
+      "detectedAt": "2026-09-17T12:39:42.423Z"
     }
   ]
 }
