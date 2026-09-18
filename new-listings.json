@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-18T00:19:05.229Z",
+  "lastChecked": "2026-09-18T12:39:42.394Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -530,6 +530,16 @@
       "exchange": "Okx",
       "symbol": "XMETA-USDC",
       "detectedAt": "2026-09-17T12:39:42.423Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAAPL-USDC",
+      "detectedAt": "2026-09-18T12:39:42.333Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAMZN-USDC",
+      "detectedAt": "2026-09-18T12:39:42.333Z"
     }
   ]
 }
