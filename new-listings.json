@@ -1,46 +1,6 @@
 {
-  "lastChecked": "2026-09-18T12:39:42.394Z",
+  "lastChecked": "2026-09-19T00:19:05.269Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "XCIEN-USDT",
-      "detectedAt": "2026-08-19T12:46:33.205Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XKO-USDT",
-      "detectedAt": "2026-08-19T12:46:33.205Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XLRCX-USDT",
-      "detectedAt": "2026-08-19T12:46:33.205Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XPOPMART-USDT",
-      "detectedAt": "2026-08-19T12:46:33.205Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XRDDT-USDT",
-      "detectedAt": "2026-08-19T12:46:33.205Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSMH-USDT",
-      "detectedAt": "2026-08-19T12:46:33.205Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XTTWO-USDT",
-      "detectedAt": "2026-08-19T12:46:33.205Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XXIAOMI-USDT",
-      "detectedAt": "2026-08-19T12:46:33.205Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "ALIGN-USD",
