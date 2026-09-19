@@ -1,56 +1,6 @@
 {
-  "lastChecked": "2026-09-19T00:19:05.269Z",
+  "lastChecked": "2026-09-19T12:39:42.203Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "ALIGN-USD",
-      "detectedAt": "2026-08-20T00:39:11.262Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "ALIGNUSD",
-      "detectedAt": "2026-08-20T00:39:12.178Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XAPLD-USDT",
-      "detectedAt": "2026-08-20T12:08:54.189Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XBX-USDT",
-      "detectedAt": "2026-08-20T12:08:54.189Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XISRG-USDT",
-      "detectedAt": "2026-08-20T12:08:54.189Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XOKTA-USDT",
-      "detectedAt": "2026-08-20T12:08:54.189Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XRIVN-USDT",
-      "detectedAt": "2026-08-20T12:08:54.189Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XUNH-USDT",
-      "detectedAt": "2026-08-20T12:08:54.189Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XWDC-USDT",
-      "detectedAt": "2026-08-20T12:08:54.189Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XZM-USDT",
-      "detectedAt": "2026-08-20T12:08:54.189Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-CRV",
