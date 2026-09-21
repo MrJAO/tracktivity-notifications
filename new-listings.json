@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-21T00:19:05.126Z",
+  "lastChecked": "2026-09-21T12:39:42.288Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -415,6 +415,11 @@
       "exchange": "Okx",
       "symbol": "XAMZN-USDC",
       "detectedAt": "2026-09-18T12:39:42.333Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "EURC-USDC",
+      "detectedAt": "2026-09-21T12:39:42.187Z"
     }
   ]
 }
