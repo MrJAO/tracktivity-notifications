@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-22T00:19:05.326Z",
+  "lastChecked": "2026-09-22T12:39:42.247Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -420,6 +420,16 @@
       "exchange": "Okx",
       "symbol": "EURC-USDC",
       "detectedAt": "2026-09-21T12:39:42.187Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CARDS-EUR",
+      "detectedAt": "2026-09-22T12:39:42.180Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CARDS-USDC",
+      "detectedAt": "2026-09-22T12:39:42.180Z"
     }
   ]
 }
