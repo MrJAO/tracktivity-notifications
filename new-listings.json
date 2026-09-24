@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-09-23T12:39:42.147Z",
+  "lastChecked": "2026-09-24T00:19:05.324Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-LIT",
-      "detectedAt": "2026-08-24T12:55:14.008Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "DRB-USD",
