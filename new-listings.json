@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-09-24T00:19:05.324Z",
+  "lastChecked": "2026-09-24T12:39:42.406Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "DRB-USD",
-      "detectedAt": "2026-08-25T00:55:52.192Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "BASECAT-USD",
-      "detectedAt": "2026-08-25T00:55:52.192Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "FOLDUSD",
-      "detectedAt": "2026-08-25T00:55:53.134Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "TMXUSD",
-      "detectedAt": "2026-08-25T00:55:53.134Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XTESTA-USDT",
-      "detectedAt": "2026-08-25T12:32:29.586Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XTESTA-USDC",
-      "detectedAt": "2026-08-25T12:32:29.586Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-NCT",
