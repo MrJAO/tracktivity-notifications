@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-09-25T00:19:05.474Z",
+  "lastChecked": "2026-09-25T12:39:42.369Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-NCT",
-      "detectedAt": "2026-08-26T12:31:29.172Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "BASED-EUR",
-      "detectedAt": "2026-08-26T12:31:29.449Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "BASED-USDC",
-      "detectedAt": "2026-08-26T12:31:29.449Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "GRASS-USD",
@@ -395,6 +380,11 @@
       "exchange": "Okx",
       "symbol": "LIT-USDC",
       "detectedAt": "2026-09-23T12:39:42.103Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PONSUSD",
+      "detectedAt": "2026-09-25T12:39:42.369Z"
     }
   ]
 }
