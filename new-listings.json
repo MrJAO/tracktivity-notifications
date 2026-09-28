@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-09-28T00:19:05.161Z",
+  "lastChecked": "2026-09-28T12:39:42.335Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -365,6 +365,16 @@
       "exchange": "Kraken",
       "symbol": "XDPUSD",
       "detectedAt": "2026-09-28T00:19:05.161Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-CASHCAT",
+      "detectedAt": "2026-09-28T12:39:41.980Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XDP-USDT",
+      "detectedAt": "2026-09-28T12:39:42.284Z"
     }
   ]
 }
