@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-09-27T12:39:42.085Z",
+  "lastChecked": "2026-09-28T00:19:05.161Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-EURC",
-      "detectedAt": "2026-08-28T12:49:44.732Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "ZENT-EUR",
@@ -365,6 +360,11 @@
       "exchange": "Kraken",
       "symbol": "PONSUSD",
       "detectedAt": "2026-09-25T12:39:42.369Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "XDPUSD",
+      "detectedAt": "2026-09-28T00:19:05.161Z"
     }
   ]
 }
