@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-09-30T00:19:05.423Z",
+  "lastChecked": "2026-09-30T12:39:42.342Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "ZENT-EUR",
-      "detectedAt": "2026-08-31T12:20:34.290Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "ZENT-USDC",
-      "detectedAt": "2026-08-31T12:20:34.291Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "XU3O8EUR",
@@ -405,6 +395,46 @@
       "exchange": "Kraken",
       "symbol": "WOJAKUSD",
       "detectedAt": "2026-09-30T00:19:05.421Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "BTC-PLN",
+      "detectedAt": "2026-09-30T12:39:42.201Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "ETH-PLN",
+      "detectedAt": "2026-09-30T12:39:42.201Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "USDC-PLN",
+      "detectedAt": "2026-09-30T12:39:42.201Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CT-EUR",
+      "detectedAt": "2026-09-30T12:39:42.201Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CT-TRY",
+      "detectedAt": "2026-09-30T12:39:42.202Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CT-USDT",
+      "detectedAt": "2026-09-30T12:39:42.202Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CT-USDC",
+      "detectedAt": "2026-09-30T12:39:42.202Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "OUSDUSD",
+      "detectedAt": "2026-09-30T12:39:42.342Z"
     }
   ]
 }
