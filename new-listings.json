@@ -1,31 +1,6 @@
 {
-  "lastChecked": "2026-10-02T00:19:05.238Z",
+  "lastChecked": "2026-10-02T12:39:42.147Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "CP-USD",
-      "detectedAt": "2026-09-02T00:35:35.215Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "TEAEUR",
-      "detectedAt": "2026-09-02T00:35:36.148Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "USTABLESUSD",
-      "detectedAt": "2026-09-02T00:35:36.148Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "GRVT-EUR",
-      "detectedAt": "2026-09-02T12:39:42.139Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "GRVT-USDC",
-      "detectedAt": "2026-09-02T12:39:42.139Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "CP-TRY",
@@ -435,6 +410,11 @@
       "exchange": "Kraken",
       "symbol": "DEBITUSD",
       "detectedAt": "2026-10-02T00:19:05.237Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-POD",
+      "detectedAt": "2026-10-02T12:39:41.828Z"
     }
   ]
 }
