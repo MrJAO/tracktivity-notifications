@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-10-02T12:39:42.147Z",
+  "lastChecked": "2026-10-03T00:19:05.286Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "CP-TRY",
-      "detectedAt": "2026-09-03T00:19:05.039Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CP-USDT",
-      "detectedAt": "2026-09-03T00:19:05.039Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "ETHSOFID",
@@ -415,6 +405,11 @@
       "exchange": "Upbit",
       "symbol": "KRW-POD",
       "detectedAt": "2026-10-02T12:39:41.828Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PNTUSD",
+      "detectedAt": "2026-10-03T00:19:05.286Z"
     }
   ]
 }
