@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-10-03T12:39:42.565Z",
+  "lastChecked": "2026-10-04T00:19:05.299Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "ETHSOFID",
-      "detectedAt": "2026-09-04T00:19:05.130Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SOFIDUSD",
-      "detectedAt": "2026-09-04T00:19:05.130Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SOFIDUSDC",
-      "detectedAt": "2026-09-04T00:19:05.130Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SOFIDUSDT",
-      "detectedAt": "2026-09-04T00:19:05.130Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "SOLSOFID",
-      "detectedAt": "2026-09-04T00:19:05.130Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "XBTSOFID",
-      "detectedAt": "2026-09-04T00:19:05.130Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "XSNDK-USDC",
@@ -410,6 +380,11 @@
       "exchange": "Kraken",
       "symbol": "PNTUSD",
       "detectedAt": "2026-10-03T00:19:05.286Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "USDSUIUSD",
+      "detectedAt": "2026-10-04T00:19:05.299Z"
     }
   ]
 }
