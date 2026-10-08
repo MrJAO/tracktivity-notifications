@@ -1,51 +1,6 @@
 {
-  "lastChecked": "2026-10-08T00:19:05.226Z",
+  "lastChecked": "2026-10-08T12:39:42.435Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-CP",
-      "detectedAt": "2026-09-08T12:39:41.903Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XDRAM-USDT",
-      "detectedAt": "2026-09-08T12:39:42.230Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XINTW-USDT",
-      "detectedAt": "2026-09-08T12:39:42.230Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XKORU-USDT",
-      "detectedAt": "2026-09-08T12:39:42.230Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMUU-USDT",
-      "detectedAt": "2026-09-08T12:39:42.230Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMVLL-USDT",
-      "detectedAt": "2026-09-08T12:39:42.230Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSHEIN-USDT",
-      "detectedAt": "2026-09-08T12:39:42.230Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSNXX-USDT",
-      "detectedAt": "2026-09-08T12:39:42.230Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSOXS-USDT",
-      "detectedAt": "2026-09-08T12:39:42.230Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "LAPTOPUSD",
@@ -310,6 +265,16 @@
       "exchange": "Kraken",
       "symbol": "ZCHFUSD",
       "detectedAt": "2026-10-08T00:19:05.226Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-PONS",
+      "detectedAt": "2026-10-08T12:39:41.978Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "LIT-EUR",
+      "detectedAt": "2026-10-08T12:39:42.305Z"
     }
   ]
 }
