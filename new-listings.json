@@ -1,96 +1,6 @@
 {
-  "lastChecked": "2026-10-07T12:39:42.104Z",
+  "lastChecked": "2026-10-08T00:19:05.226Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "XAMD-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XCBRS-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XCOIN-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XCRCL-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XCRWV-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XEWY-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XINTC-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XLITE-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMRVL-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMSTR-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMU-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XNBIS-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XNVDA-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XQQQ-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSKHY-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSOXL-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSPCX-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XTSLA-USDC",
-      "detectedAt": "2026-09-08T00:19:05.209Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-CP",
@@ -380,6 +290,26 @@
       "exchange": "Upbit",
       "symbol": "KRW-NMR",
       "detectedAt": "2026-10-06T12:39:41.669Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "WHUF-USD",
+      "detectedAt": "2026-10-08T00:19:04.318Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "PONS-USD",
+      "detectedAt": "2026-10-08T00:19:04.318Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ZCHFCHF",
+      "detectedAt": "2026-10-08T00:19:05.226Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ZCHFUSD",
+      "detectedAt": "2026-10-08T00:19:05.226Z"
     }
   ]
 }
