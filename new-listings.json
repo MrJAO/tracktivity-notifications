@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-10-08T12:39:42.435Z",
+  "lastChecked": "2026-10-09T00:19:05.296Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "LAPTOPUSD",
-      "detectedAt": "2026-09-09T00:19:05.287Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "TCSUSD",
-      "detectedAt": "2026-09-09T00:19:05.288Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "ONEUSD",
@@ -275,6 +265,11 @@
       "exchange": "Okx",
       "symbol": "LIT-EUR",
       "detectedAt": "2026-10-08T12:39:42.305Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "DATA-USD",
+      "detectedAt": "2026-10-09T00:19:04.375Z"
     }
   ]
 }
