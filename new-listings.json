@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-10-09T00:19:05.296Z",
+  "lastChecked": "2026-10-09T12:39:42.158Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -270,6 +270,51 @@
       "exchange": "Coinbase",
       "symbol": "DATA-USD",
       "detectedAt": "2026-10-09T00:19:04.375Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-KAIA",
+      "detectedAt": "2026-10-09T12:39:41.807Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAEHR-USDT",
+      "detectedAt": "2026-10-09T12:39:42.103Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XBRKB-USDT",
+      "detectedAt": "2026-10-09T12:39:42.103Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCRDO-USDT",
+      "detectedAt": "2026-10-09T12:39:42.103Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XFLNC-USDT",
+      "detectedAt": "2026-10-09T12:39:42.103Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XGPRO-USDT",
+      "detectedAt": "2026-10-09T12:39:42.103Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XOUST-USDT",
+      "detectedAt": "2026-10-09T12:39:42.103Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XPOET-USDT",
+      "detectedAt": "2026-10-09T12:39:42.103Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XWEN-USDT",
+      "detectedAt": "2026-10-09T12:39:42.103Z"
     }
   ]
 }
