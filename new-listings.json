@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-10-14T00:19:05.299Z",
+  "lastChecked": "2026-10-14T12:39:42.273Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -395,6 +395,46 @@
       "exchange": "Okx",
       "symbol": "XSONY-USDT",
       "detectedAt": "2026-10-13T12:39:42.178Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XEWJ-USDT",
+      "detectedAt": "2026-10-14T12:39:42.222Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XEWT-USDT",
+      "detectedAt": "2026-10-14T12:39:42.222Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XEWZ-USDT",
+      "detectedAt": "2026-10-14T12:39:42.222Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XLYTE-USDT",
+      "detectedAt": "2026-10-14T12:39:42.222Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XRAM-USDT",
+      "detectedAt": "2026-10-14T12:39:42.222Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XSPCH-USDT",
+      "detectedAt": "2026-10-14T12:39:42.222Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTSEM-USDT",
+      "detectedAt": "2026-10-14T12:39:42.222Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTTMI-USDT",
+      "detectedAt": "2026-10-14T12:39:42.222Z"
     }
   ]
 }
