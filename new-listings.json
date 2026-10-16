@@ -1,36 +1,6 @@
 {
-  "lastChecked": "2026-10-15T12:39:42.437Z",
+  "lastChecked": "2026-10-16T00:19:05.425Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "PONS-TRY",
-      "detectedAt": "2026-09-16T00:19:05.291Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "VVV-TRY",
-      "detectedAt": "2026-09-16T00:19:05.291Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "PONS-USDT",
-      "detectedAt": "2026-09-16T00:19:05.291Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "VVV-USDT",
-      "detectedAt": "2026-09-16T00:19:05.291Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "GNOTUSD",
-      "detectedAt": "2026-09-16T00:19:05.410Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "TREADUSD",
-      "detectedAt": "2026-09-16T00:19:05.410Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "XGOOGL-USDC",
@@ -480,6 +450,11 @@
       "exchange": "Okx",
       "symbol": "XXBI-USDT",
       "detectedAt": "2026-10-15T12:39:42.382Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "DNAUSD",
+      "detectedAt": "2026-10-16T00:19:05.425Z"
     }
   ]
 }
