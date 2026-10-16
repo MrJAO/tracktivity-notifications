@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-10-16T00:19:05.425Z",
+  "lastChecked": "2026-10-16T12:39:42.343Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "XGOOGL-USDC",
-      "detectedAt": "2026-09-16T12:39:42.056Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XHOOD-USDC",
-      "detectedAt": "2026-09-16T12:39:42.056Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "BLUECHIP-USD",
