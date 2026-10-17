@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-10-16T12:39:42.343Z",
+  "lastChecked": "2026-10-17T00:19:05.328Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "BLUECHIP-USD",
-      "detectedAt": "2026-09-17T00:19:04.363Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-JPYC",
