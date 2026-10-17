@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-10-17T00:19:05.328Z",
+  "lastChecked": "2026-10-17T12:39:42.344Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-JPYC",
-      "detectedAt": "2026-09-17T12:39:42.112Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-PYUSD",
-      "detectedAt": "2026-09-17T12:39:42.112Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "CP-EUR",
