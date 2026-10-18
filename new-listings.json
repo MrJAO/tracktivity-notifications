@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-10-17T12:39:42.344Z",
+  "lastChecked": "2026-10-18T00:19:05.227Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "CP-EUR",
-      "detectedAt": "2026-09-17T12:39:42.422Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CP-USDC",
-      "detectedAt": "2026-09-17T12:39:42.423Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMETA-USDC",
-      "detectedAt": "2026-09-17T12:39:42.423Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "XAAPL-USDC",
