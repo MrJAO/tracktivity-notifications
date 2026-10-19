@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-10-19T00:19:05.405Z",
+  "lastChecked": "2026-10-19T12:39:42.146Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -405,6 +405,11 @@
       "exchange": "Kraken",
       "symbol": "DNAUSD",
       "detectedAt": "2026-10-16T00:19:05.425Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-CT",
+      "detectedAt": "2026-10-19T12:39:41.791Z"
     }
   ]
 }
