@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-10-20T00:19:05.349Z",
+  "lastChecked": "2026-10-20T12:39:42.297Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -410,6 +410,16 @@
       "exchange": "Upbit",
       "symbol": "KRW-CT",
       "detectedAt": "2026-10-19T12:39:41.791Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-MPLX",
+      "detectedAt": "2026-10-20T12:39:41.943Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XNFLX-USDC",
+      "detectedAt": "2026-10-20T12:39:42.230Z"
     }
   ]
 }
