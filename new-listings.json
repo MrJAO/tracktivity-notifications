@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-10-20T12:39:42.297Z",
+  "lastChecked": "2026-10-21T00:19:05.701Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -420,6 +420,11 @@
       "exchange": "Okx",
       "symbol": "XNFLX-USDC",
       "detectedAt": "2026-10-20T12:39:42.230Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "AXIS-USD",
+      "detectedAt": "2026-10-21T00:19:04.757Z"
     }
   ]
 }
