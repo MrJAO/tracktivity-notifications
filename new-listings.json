@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-10-21T00:19:05.701Z",
+  "lastChecked": "2026-10-21T12:39:42.324Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "EURC-USDC",
-      "detectedAt": "2026-09-21T12:39:42.187Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "CARDS-EUR",
@@ -425,6 +420,11 @@
       "exchange": "Coinbase",
       "symbol": "AXIS-USD",
       "detectedAt": "2026-10-21T00:19:04.757Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-AXIS",
+      "detectedAt": "2026-10-21T12:39:41.972Z"
     }
   ]
 }
