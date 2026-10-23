@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-10-23T00:19:05.409Z",
+  "lastChecked": "2026-10-23T12:39:42.510Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "CETUS-USDC",
-      "detectedAt": "2026-09-23T12:39:42.103Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "LAT-USDC",
-      "detectedAt": "2026-09-23T12:39:42.103Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "LIT-USDC",
-      "detectedAt": "2026-09-23T12:39:42.103Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "PONSUSD",
@@ -430,6 +415,51 @@
       "exchange": "Kraken",
       "symbol": "SFIUSD",
       "detectedAt": "2026-10-23T00:19:05.409Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "TEST002-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XACN-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAXTI-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XCOST-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XDDOG-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XGS-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XGTLB-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XHUT-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XJPM-USDT",
+      "detectedAt": "2026-10-23T12:39:42.448Z"
     }
   ]
 }
