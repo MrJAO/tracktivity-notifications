@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-10-24T00:19:05.248Z",
+  "lastChecked": "2026-10-24T12:39:42.160Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -470,6 +470,11 @@
       "exchange": "Okx",
       "symbol": "XTESTA-USDC",
       "detectedAt": "2026-10-24T00:19:05.201Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-BMT",
+      "detectedAt": "2026-10-24T12:39:41.811Z"
     }
   ]
 }
