@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-10-25T12:39:42.207Z",
+  "lastChecked": "2026-10-26T00:19:05.312Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "PONSUSD",
-      "detectedAt": "2026-09-25T12:39:42.369Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "XDPUSD",
