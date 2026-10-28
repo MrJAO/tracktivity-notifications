@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-10-28T00:19:05.184Z",
+  "lastChecked": "2026-10-28T12:39:42.218Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-CASHCAT",
-      "detectedAt": "2026-09-28T12:39:41.980Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "XDP-USDT",
