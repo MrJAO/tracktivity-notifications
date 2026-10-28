@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-10-27T12:39:42.470Z",
+  "lastChecked": "2026-10-28T00:19:05.184Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "XDPUSD",
-      "detectedAt": "2026-09-28T00:19:05.161Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-CASHCAT",
@@ -570,6 +565,11 @@
       "exchange": "Okx",
       "symbol": "XXOM-USDT",
       "detectedAt": "2026-10-27T12:39:42.419Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "STABLE-USD",
+      "detectedAt": "2026-10-28T00:19:04.248Z"
     }
   ]
 }
