@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-10-29T00:19:05.229Z",
+  "lastChecked": "2026-10-29T12:39:42.157Z",
   "listings": [
     {
       "exchange": "Coinbase",
@@ -545,6 +545,16 @@
       "exchange": "Coinbase",
       "symbol": "STABLE-USD",
       "detectedAt": "2026-10-28T00:19:04.248Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "USDC-AED",
+      "detectedAt": "2026-10-29T12:39:42.077Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "CETUS-EUR",
+      "detectedAt": "2026-10-29T12:39:42.077Z"
     }
   ]
 }
