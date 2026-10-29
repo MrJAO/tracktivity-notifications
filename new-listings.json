@@ -1,26 +1,6 @@
 {
-  "lastChecked": "2026-10-28T12:39:42.218Z",
+  "lastChecked": "2026-10-29T00:19:05.229Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "XDP-USDT",
-      "detectedAt": "2026-09-28T12:39:42.284Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XDP-EUR",
-      "detectedAt": "2026-09-29T00:19:05.198Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XDP-TRY",
-      "detectedAt": "2026-09-29T00:19:05.198Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XDP-USDC",
-      "detectedAt": "2026-09-29T00:19:05.199Z"
-    },
     {
       "exchange": "Coinbase",
       "symbol": "CT-USD",
