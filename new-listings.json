@@ -1,21 +1,6 @@
 {
-  "lastChecked": "2026-10-29T12:39:42.157Z",
+  "lastChecked": "2026-10-30T00:19:05.655Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "CT-USD",
-      "detectedAt": "2026-09-30T00:19:04.421Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "CTUSD",
-      "detectedAt": "2026-09-30T00:19:05.421Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "WOJAKUSD",
-      "detectedAt": "2026-09-30T00:19:05.421Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "BTC-PLN",
