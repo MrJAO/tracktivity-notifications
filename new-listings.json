@@ -1,41 +1,6 @@
 {
-  "lastChecked": "2026-10-30T00:19:05.655Z",
+  "lastChecked": "2026-10-30T12:39:42.238Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "BTC-PLN",
-      "detectedAt": "2026-09-30T12:39:42.201Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "ETH-PLN",
-      "detectedAt": "2026-09-30T12:39:42.201Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "USDC-PLN",
-      "detectedAt": "2026-09-30T12:39:42.201Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CT-EUR",
-      "detectedAt": "2026-09-30T12:39:42.201Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CT-TRY",
-      "detectedAt": "2026-09-30T12:39:42.202Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CT-USDT",
-      "detectedAt": "2026-09-30T12:39:42.202Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "CT-USDC",
-      "detectedAt": "2026-09-30T12:39:42.202Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "OUSDUSD",
