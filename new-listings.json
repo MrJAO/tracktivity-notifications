@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-11-01T00:19:05.117Z",
+  "lastChecked": "2026-11-01T12:39:42.229Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "DEBITUSD",
-      "detectedAt": "2026-10-02T00:19:05.237Z"
-    },
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-POD",
-      "detectedAt": "2026-10-02T12:39:41.828Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "PNTUSD",
