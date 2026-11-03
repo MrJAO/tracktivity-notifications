@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-11-03T00:19:05.206Z",
+  "lastChecked": "2026-11-03T12:39:42.290Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "USDSUIUSD",
-      "detectedAt": "2026-10-04T00:19:05.299Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-NMR",
@@ -490,6 +485,11 @@
       "exchange": "Kraken",
       "symbol": "EURCVUSD",
       "detectedAt": "2026-11-03T00:19:05.205Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "EURCVEUR",
+      "detectedAt": "2026-11-03T12:39:42.290Z"
     }
   ]
 }
