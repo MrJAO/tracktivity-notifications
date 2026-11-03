@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-02T12:39:42.176Z",
+  "lastChecked": "2026-11-03T00:19:05.206Z",
   "listings": [
     {
       "exchange": "Kraken",
@@ -485,6 +485,11 @@
       "exchange": "Okx",
       "symbol": "CETUS-EUR",
       "detectedAt": "2026-10-29T12:39:42.077Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "EURCVUSD",
+      "detectedAt": "2026-11-03T00:19:05.205Z"
     }
   ]
 }
