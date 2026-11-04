@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-03T12:39:42.290Z",
+  "lastChecked": "2026-11-04T00:19:05.262Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -490,6 +490,26 @@
       "exchange": "Kraken",
       "symbol": "EURCVEUR",
       "detectedAt": "2026-11-03T12:39:42.290Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "ETHEURCV",
+      "detectedAt": "2026-11-04T00:19:05.261Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "EURCVUSDC",
+      "detectedAt": "2026-11-04T00:19:05.261Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "KORUSD",
+      "detectedAt": "2026-11-04T00:19:05.261Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "XBTEURCV",
+      "detectedAt": "2026-11-04T00:19:05.262Z"
     }
   ]
 }
