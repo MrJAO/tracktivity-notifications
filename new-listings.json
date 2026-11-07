@@ -1,26 +1,6 @@
 {
-  "lastChecked": "2026-11-06T12:39:42.334Z",
+  "lastChecked": "2026-11-07T00:19:05.290Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "WHUF-USD",
-      "detectedAt": "2026-10-08T00:19:04.318Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "PONS-USD",
-      "detectedAt": "2026-10-08T00:19:04.318Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "ZCHFCHF",
-      "detectedAt": "2026-10-08T00:19:05.226Z"
-    },
-    {
-      "exchange": "Kraken",
-      "symbol": "ZCHFUSD",
-      "detectedAt": "2026-10-08T00:19:05.226Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-PONS",
@@ -520,6 +500,11 @@
       "exchange": "Upbit",
       "symbol": "KRW-CARDS",
       "detectedAt": "2026-11-05T12:39:41.921Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "CARD-USD",
+      "detectedAt": "2026-11-07T00:19:04.262Z"
     }
   ]
 }
