@@ -1,16 +1,6 @@
 {
-  "lastChecked": "2026-11-07T12:39:42.074Z",
+  "lastChecked": "2026-11-08T00:19:05.575Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "LIT-EUR",
-      "detectedAt": "2026-10-08T12:39:42.305Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "DATA-USD",
-      "detectedAt": "2026-10-09T00:19:04.375Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-KAIA",
