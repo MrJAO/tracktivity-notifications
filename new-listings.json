@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-11T12:39:42.461Z",
+  "lastChecked": "2026-11-12T00:19:05.314Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -450,6 +450,26 @@
       "exchange": "Okx",
       "symbol": "XBIDU-USDT",
       "detectedAt": "2026-11-11T12:39:42.417Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AERO-EUR",
+      "detectedAt": "2026-11-12T00:19:05.264Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AERO-TRY",
+      "detectedAt": "2026-11-12T00:19:05.264Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AERO-USDT",
+      "detectedAt": "2026-11-12T00:19:05.264Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "AERO-USDC",
+      "detectedAt": "2026-11-12T00:19:05.264Z"
     }
   ]
 }
