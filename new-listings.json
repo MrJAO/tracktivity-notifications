@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-12T12:39:43.018Z",
+  "lastChecked": "2026-11-13T00:19:05.375Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -450,6 +450,16 @@
       "exchange": "Okx",
       "symbol": "XGE-USDT",
       "detectedAt": "2026-11-12T12:39:42.891Z"
+    },
+    {
+      "exchange": "Coinbase",
+      "symbol": "PEARL-USD",
+      "detectedAt": "2026-11-13T00:19:04.389Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "PEARLUSD",
+      "detectedAt": "2026-11-13T00:19:05.375Z"
     }
   ]
 }
