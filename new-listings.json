@@ -1,51 +1,6 @@
 {
-  "lastChecked": "2026-11-14T00:19:05.166Z",
+  "lastChecked": "2026-11-14T12:39:43.118Z",
   "listings": [
-    {
-      "exchange": "Upbit",
-      "symbol": "KRW-PUFFER",
-      "detectedAt": "2026-10-15T12:39:42.082Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSHLD-USDT",
-      "detectedAt": "2026-10-15T12:39:42.382Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XSQQQ-USDT",
-      "detectedAt": "2026-10-15T12:39:42.382Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XTMF-USDT",
-      "detectedAt": "2026-10-15T12:39:42.382Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XTSLL-USDT",
-      "detectedAt": "2026-10-15T12:39:42.382Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XURNM-USDT",
-      "detectedAt": "2026-10-15T12:39:42.382Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XUSO-USDT",
-      "detectedAt": "2026-10-15T12:39:42.382Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XUVXY-USDT",
-      "detectedAt": "2026-10-15T12:39:42.382Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XXBI-USDT",
-      "detectedAt": "2026-10-15T12:39:42.382Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "DNAUSD",
