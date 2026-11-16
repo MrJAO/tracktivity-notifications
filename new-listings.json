@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-16T00:19:06.158Z",
+  "lastChecked": "2026-11-16T12:39:42.389Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -395,6 +395,16 @@
       "exchange": "Okx",
       "symbol": "XMPWR-USDT",
       "detectedAt": "2026-11-13T12:39:42.206Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XTTWO-USDC",
+      "detectedAt": "2026-11-16T12:39:42.352Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "XLAUSD",
+      "detectedAt": "2026-11-16T12:39:42.388Z"
     }
   ]
 }
