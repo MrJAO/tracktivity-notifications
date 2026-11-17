@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-16T12:39:42.389Z",
+  "lastChecked": "2026-11-17T00:19:05.407Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -405,6 +405,16 @@
       "exchange": "Kraken",
       "symbol": "XLAUSD",
       "detectedAt": "2026-11-16T12:39:42.388Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "INFIUSD",
+      "detectedAt": "2026-11-17T00:19:05.406Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "XLAEUR",
+      "detectedAt": "2026-11-17T00:19:05.407Z"
     }
   ]
 }
