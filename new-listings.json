@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-17T00:19:05.407Z",
+  "lastChecked": "2026-11-17T12:39:42.215Z",
   "listings": [
     {
       "exchange": "Upbit",
@@ -415,6 +415,31 @@
       "exchange": "Kraken",
       "symbol": "XLAEUR",
       "detectedAt": "2026-11-17T00:19:05.407Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XNVO-USDT",
+      "detectedAt": "2026-11-17T12:39:42.170Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XPANW-USDT",
+      "detectedAt": "2026-11-17T12:39:42.170Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XPDD-USDT",
+      "detectedAt": "2026-11-17T12:39:42.170Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XPEP-USDT",
+      "detectedAt": "2026-11-17T12:39:42.170Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XAVGO-USDC",
+      "detectedAt": "2026-11-17T12:39:42.170Z"
     }
   ]
 }
