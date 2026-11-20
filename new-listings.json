@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-11-19T12:39:42.299Z",
+  "lastChecked": "2026-11-20T00:19:05.466Z",
   "listings": [
-    {
-      "exchange": "Coinbase",
-      "symbol": "AXIS-USD",
-      "detectedAt": "2026-10-21T00:19:04.757Z"
-    },
     {
       "exchange": "Upbit",
       "symbol": "KRW-AXIS",
@@ -475,6 +470,21 @@
       "exchange": "Okx",
       "symbol": "XZHONGJI-USDT",
       "detectedAt": "2026-11-19T12:39:42.198Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XANT-USDT",
+      "detectedAt": "2026-11-20T00:19:05.415Z"
+    },
+    {
+      "exchange": "Okx",
+      "symbol": "XANT-USDC",
+      "detectedAt": "2026-11-20T00:19:05.415Z"
+    },
+    {
+      "exchange": "Kraken",
+      "symbol": "BFIUSD",
+      "detectedAt": "2026-11-20T00:19:05.466Z"
     }
   ]
 }
