@@ -1,11 +1,6 @@
 {
-  "lastChecked": "2026-11-22T00:19:05.092Z",
+  "lastChecked": "2026-11-22T12:39:42.244Z",
   "listings": [
-    {
-      "exchange": "Kraken",
-      "symbol": "SFIUSD",
-      "detectedAt": "2026-10-23T00:19:05.409Z"
-    },
     {
       "exchange": "Okx",
       "symbol": "TEST002-USDT",
