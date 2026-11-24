@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-24T00:19:05.159Z",
+  "lastChecked": "2026-11-24T12:39:42.167Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -405,6 +405,11 @@
       "exchange": "Kraken",
       "symbol": "BFIUSD",
       "detectedAt": "2026-11-20T00:19:05.466Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-ON",
+      "detectedAt": "2026-11-24T12:39:41.837Z"
     }
   ]
 }
