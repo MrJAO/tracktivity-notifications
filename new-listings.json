@@ -1,51 +1,6 @@
 {
-  "lastChecked": "2026-11-25T12:39:42.249Z",
+  "lastChecked": "2026-11-26T00:19:05.252Z",
   "listings": [
-    {
-      "exchange": "Okx",
-      "symbol": "XMARA-USDT",
-      "detectedAt": "2026-10-26T12:39:42.514Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMCD-USDT",
-      "detectedAt": "2026-10-26T12:39:42.514Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMRK-USDT",
-      "detectedAt": "2026-10-26T12:39:42.514Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XMRNA-USDT",
-      "detectedAt": "2026-10-26T12:39:42.514Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XNET-USDT",
-      "detectedAt": "2026-10-26T12:39:42.514Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XNKE-USDT",
-      "detectedAt": "2026-10-26T12:39:42.515Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XOKLO-USDT",
-      "detectedAt": "2026-10-26T12:39:42.515Z"
-    },
-    {
-      "exchange": "Okx",
-      "symbol": "XPYPL-USDT",
-      "detectedAt": "2026-10-26T12:39:42.515Z"
-    },
-    {
-      "exchange": "Coinbase",
-      "symbol": "RITUAL-USD",
-      "detectedAt": "2026-10-27T00:19:04.307Z"
-    },
     {
       "exchange": "Kraken",
       "symbol": "USDAED",
