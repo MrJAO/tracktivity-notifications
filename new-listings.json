@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-11-27T00:19:05.305Z",
+  "lastChecked": "2026-11-27T12:39:42.231Z",
   "listings": [
     {
       "exchange": "Okx",
@@ -305,6 +305,11 @@
       "exchange": "Upbit",
       "symbol": "KRW-ON",
       "detectedAt": "2026-11-24T12:39:41.837Z"
+    },
+    {
+      "exchange": "Upbit",
+      "symbol": "KRW-HAEDAL",
+      "detectedAt": "2026-11-27T12:39:41.878Z"
     }
   ]
 }
